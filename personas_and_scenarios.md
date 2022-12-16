@@ -24,6 +24,7 @@ Sequenza di azioni che una persona compie per utilizzare il servizio.
 - Distrazioni  
   quale tipo di distrazioni o interruzioni accadono durante lo scenario? Come le affrontano le personas?
 
+Scenarios:
 - Svetlana:
 	- Obiettivi:
 		- postare foto senza limitazioni
