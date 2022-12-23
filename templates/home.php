@@ -1,2 +1,2 @@
 <!-- In main -->
-<h2>Profile<h2>
+<h2>Home<h2>

@@ -16,9 +16,9 @@
     <main>
     <?php
     if (isset($templateParams["name"])) {
-        require($templateParams["name"]);
+        require("templates/".$templateParams["name"]);
     } else {
-        require("../index.php");
+        require("templates/index.php");
     }
     ?>
     </main>
@@ -26,11 +26,11 @@
     <!-- Navigation bar -->
     <nav>
         <ul>
-            <li><a href="home.html"><img src="home.png" alt="Home"/></a></li>
-            <li><a href="search.html"><img src="search.png" alt="Search"/></a></li>
-            <li><a href="create.html"><img src="create.png" alt="Create"/></a></li>
-            <li><a href="notifications.html"><img src="notifications.png" alt="Notifications"/></a></li>
-            <li><a href="profile.html"><img src="profile.png" alt="Profile"/></a></li>
+            <li><a href="templates/home.php"><img src="home.png" alt="Home"/></a></li>
+            <li><a href="templates/search.php"><img src="search.png" alt="Search"/></a></li>
+            <li><a href="templates/create.php"><img src="create.png" alt="Create"/></a></li>
+            <li><a href="templates/notifications.php"><img src="notifications.png" alt="Notifications"/></a></li>
+            <li><a href="profile.php"><img src="profile.png" alt="Profile"/></a></li>
             
             <!--
             <li><input type="image" src="home.png" alt="Home"></li>
