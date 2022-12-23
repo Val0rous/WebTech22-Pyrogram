@@ -6,10 +6,12 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
+    <!-- Top bar header -->
     <header>
         <h1>Pyrogram</h1>
         <input id="#messages" type="image" src="messages.png" alt="Messages">  <!-- Andrà modificato poi -->
     </header>
+    <!-- Content to be added with PHP later -->
     <main>
     </main>
     <aside>
