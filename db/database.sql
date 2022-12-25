@@ -21,78 +21,79 @@ USE pyrogram;
 
 CREATE TABLE comments (
      comment_id char(16) NOT NULL,
-     content varchar(MAX) NOT NULL,
+     content varchar(8192) NOT NULL,
      comment_time datetime NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
      CONSTRAINT IDCOMMENTS PRIMARY KEY (comment_id));
 
 CREATE TABLE followings (
-     user_id_followed varchar(MAX) NOT NULL,
-     user_id_following varchar(MAX) NOT NULL,
+     user_id_followed varchar(30) NOT NULL,
+     user_id_following varchar(30) NOT NULL,
      CONSTRAINT IDFOLLOWINGS PRIMARY KEY (user_id_followed, user_id_following));
 
 CREATE TABLE likes (
      post_id char(16) NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      CONSTRAINT IDLIKES PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE messages (
      message_id char(16) NOT NULL,
-     content varchar(MAX),
-     media_path varchar(MAX),
+     content varchar(8192),
+     media_path varchar(4096),
      message_time datetime NOT NULL,
-     user_id_sender varchar(MAX) NOT NULL,
-     user_id_receiver varchar(MAX) NOT NULL,
+     user_id_sender varchar(30) NOT NULL,
+     user_id_receiver varchar(30) NOT NULL,
      CONSTRAINT IDMESSAGES PRIMARY KEY (message_id));
 
 CREATE TABLE notifications (
      notification_id char(16) NOT NULL,
-     content varchar(MAX) NOT NULL,
-     notification_type varchar(MAX) NOT NULL,     -- this one may be useless later on, keep an eye on it
+     content varchar(256) NOT NULL,
+     notification_type varchar(10) NOT NULL,     -- this one may be useless later on, keep an eye on it
      notification_time datetime NOT NULL,
      read_status char(1) NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      CONSTRAINT IDNOTIFICATIONS PRIMARY KEY (notification_id));
 
 CREATE TABLE posts (
      post_id char(16) NOT NULL,
-     content varchar(MAX),
-     media_path varchar(MAX),
+     content varchar(16384),
+     media_path varchar(4096),
      post_time datetime NOT NULL,
      num_likes int NOT NULL,
      num_comments int NOT NULL,
      num_tags int NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      CONSTRAINT IDPOSTS PRIMARY KEY (post_id));
 
 CREATE TABLE replies (
      reply_id char(16) NOT NULL,
-     content varchar(MAX) NOT NULL,
+     content varchar(8192) NOT NULL,
      reply_time datetime NOT NULL,
      story_id char(16) NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      CONSTRAINT IDREPLIES PRIMARY KEY (reply_id));
 
 CREATE TABLE stories (
      story_id char(16) NOT NULL,
-     media_path varchar(MAX) NOT NULL,
+     media_path varchar(4096) NOT NULL,
      story_time datetime NOT NULL,
      expiration_time datetime NOT NULL,
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      CONSTRAINT IDSTORIES PRIMARY KEY (story_id));
 
 CREATE TABLE tags (
-     user_id varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
      CONSTRAINT IDTAGS PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE users (
-     user_id varchar(MAX) NOT NULL,
-     user_name varchar(MAX) NOT NULL,
-     user_email varchar(MAX) NOT NULL,
+     user_id varchar(30) NOT NULL,
+     user_name varchar(128) NOT NULL,
+     user_email varchar(320) NOT NULL,
      user_password varchar(128) NOT NULL,
-     user_picture_path varchar(MAX) NOT NULL,
+     user_picture_path varchar(4096) NOT NULL,
+     user_bio varchar(256),
      num_posts int NOT NULL,
      num_followers int NOT NULL,
      num_following int NOT NULL,
