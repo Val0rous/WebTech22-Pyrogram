@@ -3,162 +3,164 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 20 2021              
--- * Generation date: Sat Dec 24 18:13:24 2022 
+-- * Generation date: Sun Dec 25 01:22:59 2022 
 -- * LUN file: /home/francesco/Desktop/WebDev-Project/db/Social_Network_TW.lun 
--- * Schema: Social_Network_Relational/1 
+-- * Schema: pyrogram/1 
 -- ********************************************* 
 
 
 -- Database Section
 -- ________________ 
 
-create database Social_Network_Relational;
-use Social_Network_Relational;
+CREATE DATABASE pyrogram;
+USE pyrogram;
 
 
 -- Tables Section
 -- _____________ 
 
-create table COMMENTS (
-     comment_ID char(16) not null,
-     content varchar(1) not null,
-     time date not null,
-     username varchar(1) not null,
-     post_ID char(16) not null,
-     constraint IDCOMMENTS primary key (comment_ID));
+CREATE TABLE comments (
+     comment_id char(16) NOT NULL,
+     content varchar(MAX) NOT NULL,
+     comment_time datetime NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     post_id char(16) NOT NULL,
+     CONSTRAINT IDCOMMENTS PRIMARY KEY (comment_id));
 
-create table FOLLOWINGS (
-     username_followed varchar(1) not null,
-     username_following varchar(1) not null,
-     constraint IDFOLLOWINGS primary key (username_followed, username_following));
+CREATE TABLE followings (
+     user_id_followed varchar(MAX) NOT NULL,
+     user_id_following varchar(MAX) NOT NULL,
+     CONSTRAINT IDFOLLOWINGS PRIMARY KEY (user_id_followed, user_id_following));
 
-create table LIKES (
-     post_ID char(16) not null,
-     username varchar(1) not null,
-     constraint IDLIKES primary key (username, post_ID));
+CREATE TABLE likes (
+     post_id char(16) NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     CONSTRAINT IDLIKES PRIMARY KEY (user_id, post_id));
 
-create table MESSAGES (
-     message_ID char(16) not null,
-     content varchar(1),
-     media char(69),
-     time date not null,
-     sender_username varchar(1) not null,
-     receiver_username varchar(1) not null,
-     constraint IDMESSAGES primary key (message_ID));
+CREATE TABLE messages (
+     message_id char(16) NOT NULL,
+     content varchar(MAX),
+     media_path varchar(MAX),
+     message_time datetime NOT NULL,
+     user_id_sender varchar(MAX) NOT NULL,
+     user_id_receiver varchar(MAX) NOT NULL,
+     CONSTRAINT IDMESSAGES PRIMARY KEY (message_id));
 
-create table NOTIFICATIONS (
-     notification_ID char(16) not null,
-     content varchar(1) not null,
-     type (???) char(69) not null,
-     time date not null,
-     read_status char not null,
-     username varchar(1) not null,
-     constraint IDNOTIFICATIONS primary key (notification_ID));
+CREATE TABLE notifications (
+     notification_id char(16) NOT NULL,
+     content varchar(MAX) NOT NULL,
+     notification_type varchar(MAX) NOT NULL,     -- this one may be useless later on, keep an eye on it
+     notification_time datetime NOT NULL,
+     read_status char(1) NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     CONSTRAINT IDNOTIFICATIONS PRIMARY KEY (notification_id));
 
-create table POSTS (
-     post_ID char(16) not null,
-     content varchar(1),
-     media char(69),
-     num_likes int not null,
-     num_comments int not null,
-     num_tags int not null,
-     username varchar(1) not null,
-     constraint IDPOSTS primary key (post_ID));
+CREATE TABLE posts (
+     post_id char(16) NOT NULL,
+     content varchar(MAX),
+     media_path varchar(MAX),
+     post_time datetime NOT NULL,
+     num_likes int NOT NULL,
+     num_comments int NOT NULL,
+     num_tags int NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     CONSTRAINT IDPOSTS PRIMARY KEY (post_id));
 
-create table REPLIES (
-     reply_ID char(16) not null,
-     content varchar(1) not null,
-     time date not null,
-     story_ID char(16) not null,
-     username varchar(1) not null,
-     constraint IDREPLIES primary key (reply_ID));
+CREATE TABLE replies (
+     reply_id char(16) NOT NULL,
+     content varchar(MAX) NOT NULL,
+     reply_time datetime NOT NULL,
+     story_id char(16) NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     CONSTRAINT IDREPLIES PRIMARY KEY (reply_id));
 
-create table STORIES (
-     story_ID char(16) not null,
-     media char(69) not null,
-     posting_time date not null,
-     expiration_time date not null,
-     username varchar(1) not null,
-     constraint IDSTORIES primary key (story_ID));
+CREATE TABLE stories (
+     story_id char(16) NOT NULL,
+     media_path varchar(MAX) NOT NULL,
+     story_time datetime NOT NULL,
+     expiration_time datetime NOT NULL,
+     user_id varchar(MAX) NOT NULL,
+     CONSTRAINT IDSTORIES PRIMARY KEY (story_id));
 
-create table TAGS (
-     username varchar(1) not null,
-     post_ID char(16) not null,
-     constraint IDTAGS primary key (username, post_ID));
+CREATE TABLE tags (
+     user_id varchar(MAX) NOT NULL,
+     post_id char(16) NOT NULL,
+     CONSTRAINT IDTAGS PRIMARY KEY (user_id, post_id));
 
-create table USERS (
-     username varchar(1) not null,
-     email varchar(1) not null,
-     password varchar(1) not null,
-     profile_pic char(69) not null,
-     num_posts int not null,
-     num_followers int not null,
-     num_following int not null,
-     constraint IDUSERS primary key (username));
+CREATE TABLE users (
+     user_id varchar(MAX) NOT NULL,
+     user_name varchar(MAX) NOT NULL,
+     user_email varchar(MAX) NOT NULL,
+     user_password varchar(128) NOT NULL,
+     user_picture_path varchar(MAX) NOT NULL,
+     num_posts int NOT NULL,
+     num_followers int NOT NULL,
+     num_following int NOT NULL,
+     CONSTRAINT IDUSERS PRIMARY KEY (user_id));
 
 
 -- Constraints Section
 -- ___________________ 
 
-alter table COMMENTS add constraint FKUSER_COMMENT
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE comments ADD CONSTRAINT FKUSER_COMMENT
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table COMMENTS add constraint FKPOST_COMMENT
-     foreign key (post_ID)
-     references POSTS (post_ID);
+ALTER TABLE comments ADD CONSTRAINT FKPOST_COMMENT
+     FOREIGN KEY (post_id)
+     REFERENCES posts (post_id);
 
-alter table FOLLOWINGS add constraint FKUSER_FOLLOWING
-     foreign key (username_following)
-     references USERS (username);
+ALTER TABLE followings ADD CONSTRAINT FKUSER_FOLLOWING
+     FOREIGN KEY (user_id_following)
+     REFERENCES users (user_id);
 
-alter table FOLLOWINGS add constraint FKUSER_FOLLOWED
-     foreign key (username_followed)
-     references USERS (username);
+ALTER TABLE followings ADD CONSTRAINT FKUSER_FOLLOWED
+     FOREIGN KEY (user_id_followed)
+     REFERENCES users (user_id);
 
-alter table LIKES add constraint FKUSER_LIKER
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE likes ADD CONSTRAINT FKUSER_LIKER
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table LIKES add constraint FKPOST_LIKED
-     foreign key (post_ID)
-     references POSTS (post_ID);
+ALTER TABLE likes ADD CONSTRAINT FKPOST_LIKED
+     FOREIGN KEY (post_id)
+     REFERENCES posts (post_id);
 
-alter table MESSAGES add constraint FKSENDER
-     foreign key (sender_username)
-     references USERS (username);
+ALTER TABLE messages ADD CONSTRAINT FKSENDER
+     FOREIGN KEY (user_id_sender)
+     REFERENCES users (user_id);
 
-alter table MESSAGES add constraint FKRECEIVER
-     foreign key (receiver_username)
-     references USERS (username);
+ALTER TABLE messages ADD CONSTRAINT FKRECEIVER
+     FOREIGN KEY (user_id_receiver)
+     REFERENCES users (user_id);
 
-alter table NOTIFICATIONS add constraint FKUSER_NOTIFICATIONS
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE notifications ADD CONSTRAINT FKUSER_NOTIFICATIONS
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table POSTS add constraint FKUPLOADING_POST
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE posts ADD CONSTRAINT FKUPLOADING_POST
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table REPLIES add constraint FKSTORY_REPLY
-     foreign key (story_ID)
-     references STORIES (story_ID);
+ALTER TABLE replies ADD CONSTRAINT FKSTORY_REPLY
+     FOREIGN KEY (story_id)
+     REFERENCES stories (story_id);
 
-alter table REPLIES add constraint FKUSER_REPLY
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE replies ADD CONSTRAINT FKUSER_REPLY
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table STORIES add constraint FKUPLOADING_STORY
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE stories ADD CONSTRAINT FKUPLOADING_STORY
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
-alter table TAGS add constraint FKPOST_TAG
-     foreign key (post_ID)
-     references POSTS (post_ID);
+ALTER TABLE tags ADD CONSTRAINT FKPOST_TAG
+     FOREIGN KEY (post_id)
+     REFERENCES posts (post_id);
 
-alter table TAGS add constraint FKUSER_TAG
-     foreign key (username)
-     references USERS (username);
+ALTER TABLE tags ADD CONSTRAINT FKUSER_TAG
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
 
 -- Index Section
