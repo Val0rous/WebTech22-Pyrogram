@@ -4,7 +4,7 @@
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 20 2021              
 -- * Generation date: Sun Dec 25 01:22:59 2022 
--- * LUN file: /home/francesco/Desktop/WebDev-Project/db/Social_Network_TW.lun 
+-- * LUN file: WebDev-Project/db/Social_Network_TW.lun 
 -- * Schema: pyrogram/1 
 -- ********************************************* 
 
