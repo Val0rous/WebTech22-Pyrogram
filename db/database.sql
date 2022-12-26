@@ -94,6 +94,7 @@ CREATE TABLE users (
      user_password varchar(128) NOT NULL,
      user_picture_path varchar(4096) NOT NULL,
      user_bio varchar(256),
+     account_active_status char(1) NOT NULL,      -- true if account is enabled
      num_posts int NOT NULL,
      num_followers int NOT NULL,
      num_following int NOT NULL,
