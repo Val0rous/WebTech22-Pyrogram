@@ -1,14 +1,3 @@
--- *********************************************
--- * SQL MySQL generation                      
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.2              
--- * Generator date: Sep 20 2021              
--- * Generation date: Sun Dec 25 01:22:59 2022 
--- * LUN file: WebDev-Project/db/Social_Network_TW.lun 
--- * Schema: pyrogram/1 
--- ********************************************* 
-
-
 -- Database Section
 -- ________________ 
 
@@ -25,17 +14,17 @@ CREATE TABLE comments (
      comment_time datetime NOT NULL,
      user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
-     CONSTRAINT IDCOMMENTS PRIMARY KEY (comment_id));
+     CONSTRAINT id_comments PRIMARY KEY (comment_id));
 
 CREATE TABLE followings (
      user_id_followed varchar(30) NOT NULL,
      user_id_following varchar(30) NOT NULL,
-     CONSTRAINT IDFOLLOWINGS PRIMARY KEY (user_id_followed, user_id_following));
+     CONSTRAINT id_followings PRIMARY KEY (user_id_followed, user_id_following));
 
 CREATE TABLE likes (
      post_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT IDLIKES PRIMARY KEY (user_id, post_id));
+     CONSTRAINT id_likes PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE messages (
      message_id char(16) NOT NULL,
@@ -44,16 +33,19 @@ CREATE TABLE messages (
      message_time datetime NOT NULL,
      user_id_sender varchar(30) NOT NULL,
      user_id_receiver varchar(30) NOT NULL,
-     CONSTRAINT IDMESSAGES PRIMARY KEY (message_id));
+     CONSTRAINT id_messages PRIMARY KEY (message_id));
 
 CREATE TABLE notifications (
      notification_id char(16) NOT NULL,
      content varchar(256) NOT NULL,
-     notification_type varchar(10) NOT NULL,     -- this one may be useless later on, keep an eye on it
+     notification_type varchar(10) NOT NULL,      -- this one may be useless later on, keep an eye on it
      notification_time datetime NOT NULL,
      read_status char(1) NOT NULL,
-     user_id varchar(30) NOT NULL,
-     CONSTRAINT IDNOTIFICATIONS PRIMARY KEY (notification_id));
+     user_id varchar(30) NOT NULL,                -- user who will receive a notification
+     follower_id varchar(30),
+     post_id char(16),
+     story_id char(16),
+     CONSTRAINT id_notifications PRIMARY KEY (notification_id));
 
 CREATE TABLE posts (
      post_id char(16) NOT NULL,
@@ -64,7 +56,7 @@ CREATE TABLE posts (
      num_comments int NOT NULL,
      num_tags int NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT IDPOSTS PRIMARY KEY (post_id));
+     CONSTRAINT id_posts PRIMARY KEY (post_id));
 
 CREATE TABLE replies (
      reply_id char(16) NOT NULL,
@@ -72,7 +64,7 @@ CREATE TABLE replies (
      reply_time datetime NOT NULL,
      story_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT IDREPLIES PRIMARY KEY (reply_id));
+     CONSTRAINT id_replies PRIMARY KEY (reply_id));
 
 CREATE TABLE stories (
      story_id char(16) NOT NULL,
@@ -80,12 +72,12 @@ CREATE TABLE stories (
      story_time datetime NOT NULL,
      expiration_time datetime NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT IDSTORIES PRIMARY KEY (story_id));
+     CONSTRAINT id_stories PRIMARY KEY (story_id));
 
 CREATE TABLE tags (
      user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
-     CONSTRAINT IDTAGS PRIMARY KEY (user_id, post_id));
+     CONSTRAINT id_tags PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE users (
      user_id varchar(30) NOT NULL,
@@ -98,73 +90,80 @@ CREATE TABLE users (
      num_posts int NOT NULL,
      num_followers int NOT NULL,
      num_following int NOT NULL,
-     CONSTRAINT IDUSERS PRIMARY KEY (user_id));
+     CONSTRAINT id_users PRIMARY KEY (user_id));
 
 
 -- Constraints Section
 -- ___________________ 
 
-ALTER TABLE comments ADD CONSTRAINT FKUSER_COMMENT
+ALTER TABLE comments ADD CONSTRAINT fk_user_comment
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE comments ADD CONSTRAINT FKPOST_COMMENT
+ALTER TABLE comments ADD CONSTRAINT fk_post_comment
      FOREIGN KEY (post_id)
      REFERENCES posts (post_id);
 
-ALTER TABLE followings ADD CONSTRAINT FKUSER_FOLLOWING
+ALTER TABLE followings ADD CONSTRAINT fk_user_following
      FOREIGN KEY (user_id_following)
      REFERENCES users (user_id);
 
-ALTER TABLE followings ADD CONSTRAINT FKUSER_FOLLOWED
+ALTER TABLE followings ADD CONSTRAINT fk_user_followed
      FOREIGN KEY (user_id_followed)
      REFERENCES users (user_id);
 
-ALTER TABLE likes ADD CONSTRAINT FKUSER_LIKER
+ALTER TABLE likes ADD CONSTRAINT fk_user_liker
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE likes ADD CONSTRAINT FKPOST_LIKED
+ALTER TABLE likes ADD CONSTRAINT fk_post_liked
      FOREIGN KEY (post_id)
      REFERENCES posts (post_id);
 
-ALTER TABLE messages ADD CONSTRAINT FKSENDER
+ALTER TABLE messages ADD CONSTRAINT fk_sender
      FOREIGN KEY (user_id_sender)
      REFERENCES users (user_id);
 
-ALTER TABLE messages ADD CONSTRAINT FKRECEIVER
+ALTER TABLE messages ADD CONSTRAINT fk_receiver
      FOREIGN KEY (user_id_receiver)
      REFERENCES users (user_id);
 
-ALTER TABLE notifications ADD CONSTRAINT FKUSER_NOTIFICATIONS
+ALTER TABLE notifications ADD CONSTRAINT fk_user_notifications
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE posts ADD CONSTRAINT FKUPLOADING_POST
+ALTER TABLE notifications ADD CONSTRAINT fk_follower_notifications
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE replies ADD CONSTRAINT FKSTORY_REPLY
-     FOREIGN KEY (story_id)
-     REFERENCES stories (story_id);
-
-ALTER TABLE replies ADD CONSTRAINT FKUSER_REPLY
-     FOREIGN KEY (user_id)
-     REFERENCES users (user_id);
-
-ALTER TABLE stories ADD CONSTRAINT FKUPLOADING_STORY
-     FOREIGN KEY (user_id)
-     REFERENCES users (user_id);
-
-ALTER TABLE tags ADD CONSTRAINT FKPOST_TAG
+ALTER TABLE notifications ADD CONSTRAINT fk_post_notifications
      FOREIGN KEY (post_id)
      REFERENCES posts (post_id);
 
-ALTER TABLE tags ADD CONSTRAINT FKUSER_TAG
+ALTER TABLE notifications ADD CONSTRAINT fk_story_notifications
+     FOREIGN KEY (story_id)
+     REFERENCES stories (story_id);
+
+ALTER TABLE posts ADD CONSTRAINT fk_uploading_post
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
+ALTER TABLE replies ADD CONSTRAINT fk_story_reply
+     FOREIGN KEY (story_id)
+     REFERENCES stories (story_id);
 
--- Index Section
--- _____________ 
+ALTER TABLE replies ADD CONSTRAINT fk_user_reply
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
+ALTER TABLE stories ADD CONSTRAINT fk_uploading_story
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
+
+ALTER TABLE tags ADD CONSTRAINT fk_post_tag
+     FOREIGN KEY (post_id)
+     REFERENCES posts (post_id);
+
+ALTER TABLE tags ADD CONSTRAINT fk_user_tag
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
