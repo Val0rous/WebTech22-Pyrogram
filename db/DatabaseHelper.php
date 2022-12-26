@@ -12,11 +12,11 @@ class DatabaseHelper
     }
 
     /** Add a user to DB.
-     * @param $id user id (username)
-     * @param $name user name (his normal name, not his username)
-     * @param $email account email
-     * @param $password account password
-     * @param $picture_path path to user picture (saved outside DB)
+     * @param string $id user id (username)
+     * @param string $name user name (his normal name, not his username)
+     * @param string $email account email
+     * @param string $password account password
+     * @param string $picture_path path to user picture (saved outside DB)
      */
     public function addUser($id, $name, $email, $password, $picture_path)
     {
@@ -31,12 +31,12 @@ class DatabaseHelper
 
     /**
      * Search for a user in database.
-     * @param mixed $id user id
-     * @return mixed user id if exists, "not found" if it does not exist
+     * @param string $id user id
+     * @return mixed query result
      */
     public function exactSearchUser($id)
     {
-        $query = "SELECT user_id 
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
                   WHERE user_id = '?'
                   AND account_active_status = '1'";
@@ -51,12 +51,12 @@ class DatabaseHelper
     /**
      * Incrementally search for a user in database, including all partial matches.
      * A partial match is a string having the same id specified as argument plus any prefix or suffix.
-     * @param mixed $id
+     * @param string $id
      * @return array array containing all matches
      */
     public function incrementalSearchUser($id)
     {
-        $query = "SELECT user_id 
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
                   WHERE user_id LIKE '%?%' 
                   AND account_active_status = '1' 
@@ -76,38 +76,30 @@ class DatabaseHelper
     }
 
     /**
-     * Deactivate a user's account.
-     * @param mixed $id
-     * @return void
+     * Change activity status to a user's account
+     * @param string $id user id
+     * @param bool $status true to activate, false to deactivate
      */
-    public function deactivateUser($id)
+    public function setUserActivityStatus($id, $status)
     {
+        if ($status === true) {
+            // activate
+            $flag = "1";
+        } else {
+            // deactivate
+            $flag = "0";
+        }
         $query = "UPDATE users 
-                  SET account_active_status = '0' 
+                  SET account_active_status = '?' 
                   WHERE user_id = '?'";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-    }
-
-    /**
-     * Activate a user's account.
-     * @param mixed $id
-     * @return void
-     */
-    public function activateUser($id)
-    {
-        $query = "UPDATE users 
-                  SET account_active_status = '1' 
-                  WHERE user_id = '?'";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
+        $stmt->bind_param("ss", $flag, $id);
         $stmt->execute();
     }
 
     /**
      * Check if a given user account is active.
-     * @param mixed $id user id to check
+     * @param string $id user id to check
      * @return bool true if user is active, false if it is inactive
      */
     public function isUserActive($id)
@@ -145,9 +137,8 @@ class DatabaseHelper
     }
 
     /** Check if a given user ID is available.
-     * @param mixed $id user ID to check
-     * @return bool true if user ID is available
-     * @return bool false if user ID is not available
+     * @param string $id user ID to check
+     * @return bool true if user ID is available, false if user ID is not available
      */
     public function checkUserIDAvailability($id)
     {
@@ -175,4 +166,14 @@ class DatabaseHelper
             return false;
         }
     }
+
+    //change user id
+    //change user name
+    //change user email
+    //change user password
+    //change user picture path
+    //change user bio
+    //increment/decrement num posts
+    //increment/decrement num followers
+    //increment/decrement num following
 }
