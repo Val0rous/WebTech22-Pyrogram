@@ -104,21 +104,21 @@ ALTER TABLE comments ADD CONSTRAINT fk_post_comment
      FOREIGN KEY (post_id)
      REFERENCES posts (post_id);
 
-ALTER TABLE followings ADD CONSTRAINT fk_user_following
-     FOREIGN KEY (user_id_following)
-     REFERENCES users (user_id);
-
 ALTER TABLE followings ADD CONSTRAINT fk_user_followed
      FOREIGN KEY (user_id_followed)
      REFERENCES users (user_id);
 
-ALTER TABLE likes ADD CONSTRAINT fk_user_liker
-     FOREIGN KEY (user_id)
+ALTER TABLE followings ADD CONSTRAINT fk_user_following
+     FOREIGN KEY (user_id_following)
      REFERENCES users (user_id);
 
 ALTER TABLE likes ADD CONSTRAINT fk_post_liked
      FOREIGN KEY (post_id)
      REFERENCES posts (post_id);
+
+ALTER TABLE likes ADD CONSTRAINT fk_user_liker
+     FOREIGN KEY (user_id)
+     REFERENCES users (user_id);
 
 ALTER TABLE messages ADD CONSTRAINT fk_sender
      FOREIGN KEY (user_id_sender)
@@ -133,7 +133,7 @@ ALTER TABLE notifications ADD CONSTRAINT fk_user_notifications
      REFERENCES users (user_id);
 
 ALTER TABLE notifications ADD CONSTRAINT fk_follower_notifications
-     FOREIGN KEY (user_id)
+     FOREIGN KEY (follower_id)
      REFERENCES users (user_id);
 
 ALTER TABLE notifications ADD CONSTRAINT fk_post_notifications
@@ -160,10 +160,10 @@ ALTER TABLE stories ADD CONSTRAINT fk_uploading_story
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE tags ADD CONSTRAINT fk_post_tag
-     FOREIGN KEY (post_id)
-     REFERENCES posts (post_id);
-
 ALTER TABLE tags ADD CONSTRAINT fk_user_tag
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
+
+ALTER TABLE tags ADD CONSTRAINT fk_post_tag
+     FOREIGN KEY (post_id)
+     REFERENCES posts (post_id);
