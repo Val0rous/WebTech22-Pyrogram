@@ -167,6 +167,14 @@ class DatabaseHelper
         }
     }
 
+    ////create user
+    //delete user
+    ////activate user
+    ////deactivate user
+    ////search user incrementally
+    ////search user exactly (find/select)
+    ////check user account activity status
+    ////check availability of a user id
     //change user id
     //change user name
     //change user email
@@ -176,4 +184,33 @@ class DatabaseHelper
     //increment/decrement num posts
     //increment/decrement num followers
     //increment/decrement num following
+    
+    //create comment on post
+    //delete comment
+    //edit comment (???) (IDK, maybe comments should be made not editable)
+
+    //add follower/following
+    //remove follower/following
+
+    //add like to post
+    //remove like
+
+    //create message
+    //delete message
+
+    //post notification
+    //delete notification
+
+    //create post
+    //delete post
+    //edit post (???) (Optional but I believe it should be a feature)
+
+    //create reply to story
+    //delete reply
+
+    //create story
+    //delete story
+
+    //add tag to post
+    //remove tag
 }
