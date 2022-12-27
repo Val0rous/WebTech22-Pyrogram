@@ -50,7 +50,16 @@ CREATE TABLE notifications (
 CREATE TABLE posts (
      post_id char(16) NOT NULL,
      content varchar(16384),
-     media_path varchar(4096),
+     media_path0 varchar(4096),
+     media_path1 varchar(4096),
+     media_path2 varchar(4096),
+     media_path3 varchar(4096),
+     media_path4 varchar(4096),
+     media_path5 varchar(4096),
+     media_path6 varchar(4096),
+     media_path7 varchar(4096),
+     media_path8 varchar(4096),
+     media_path9 varchar(4096),
      post_time datetime NOT NULL,
      num_likes int NOT NULL,
      num_comments int NOT NULL,
@@ -85,7 +94,7 @@ CREATE TABLE users (
      user_email varchar(320) NOT NULL,
      user_password varchar(128) NOT NULL,
      user_picture_path varchar(4096) NOT NULL,
-     user_bio varchar(256),
+     user_bio varchar(256) NOT NULL,              -- '' if empty
      account_active_status char(1) NOT NULL,      -- true if account is enabled
      num_posts int NOT NULL,
      num_followers int NOT NULL,
