@@ -10,7 +10,7 @@ USE pyrogram;
 
 CREATE TABLE comments (
      comment_id char(16) NOT NULL,
-     content varchar(8192) NOT NULL,
+     content text NOT NULL,
      comment_time datetime NOT NULL,
      user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE likes (
 
 CREATE TABLE messages (
      message_id char(16) NOT NULL,
-     content varchar(8192),
+     content text,
      media_path varchar(4096),
      message_time datetime NOT NULL,
      user_id_sender varchar(30) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE messages (
 
 CREATE TABLE notifications (
      notification_id char(16) NOT NULL,
-     content varchar(256) NOT NULL,
+     content tinytext NOT NULL,
      notification_type varchar(10) NOT NULL,      -- this one may be useless later on, keep an eye on it
      notification_time datetime NOT NULL,
      read_status char(1) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE notifications (
 
 CREATE TABLE posts (
      post_id char(16) NOT NULL,
-     content varchar(16384),
+     content text,
      media_path0 varchar(4096),
      media_path1 varchar(4096),
      media_path2 varchar(4096),
@@ -69,7 +69,7 @@ CREATE TABLE posts (
 
 CREATE TABLE replies (
      reply_id char(16) NOT NULL,
-     content varchar(8192) NOT NULL,
+     content text NOT NULL,
      reply_time datetime NOT NULL,
      story_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE users (
      user_email varchar(320) NOT NULL,
      user_password varchar(128) NOT NULL,
      user_picture_path varchar(4096) NOT NULL,
-     user_bio varchar(256) NOT NULL,              -- '' if empty
+     user_bio tinytext NOT NULL,              -- '' if empty
      account_active_status char(1) NOT NULL,      -- true if account is enabled
      num_posts int NOT NULL,
      num_followers int NOT NULL,
