@@ -14,17 +14,17 @@ CREATE TABLE comments (
      comment_time datetime NOT NULL,
      user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
-     CONSTRAINT id_comments PRIMARY KEY (comment_id));
+     CONSTRAINT pk_id_comments PRIMARY KEY (comment_id));
 
 CREATE TABLE followings (
      user_id_followed varchar(30) NOT NULL,
      user_id_following varchar(30) NOT NULL,
-     CONSTRAINT id_followings PRIMARY KEY (user_id_followed, user_id_following));
+     CONSTRAINT pk_id_followings PRIMARY KEY (user_id_followed, user_id_following));
 
 CREATE TABLE likes (
      post_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT id_likes PRIMARY KEY (user_id, post_id));
+     CONSTRAINT pk_id_likes PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE messages (
      message_id char(16) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE messages (
      message_time datetime NOT NULL,
      user_id_sender varchar(30) NOT NULL,
      user_id_receiver varchar(30) NOT NULL,
-     CONSTRAINT id_messages PRIMARY KEY (message_id));
+     CONSTRAINT pk_id_messages PRIMARY KEY (message_id));
 
 CREATE TABLE notifications (
      notification_id char(16) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE notifications (
      follower_id varchar(30),
      post_id char(16),
      story_id char(16),
-     CONSTRAINT id_notifications PRIMARY KEY (notification_id));
+     CONSTRAINT pk_id_notifications PRIMARY KEY (notification_id));
 
 CREATE TABLE posts (
      post_id char(16) NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE posts (
      num_comments int NOT NULL,
      num_tags int NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT id_posts PRIMARY KEY (post_id));
+     CONSTRAINT pk_id_posts PRIMARY KEY (post_id));
 
 CREATE TABLE replies (
      reply_id char(16) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE replies (
      reply_time datetime NOT NULL,
      story_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT id_replies PRIMARY KEY (reply_id));
+     CONSTRAINT pk_id_replies PRIMARY KEY (reply_id));
 
 CREATE TABLE stories (
      story_id char(16) NOT NULL,
@@ -81,12 +81,12 @@ CREATE TABLE stories (
      story_time datetime NOT NULL,
      expiration_time datetime NOT NULL,
      user_id varchar(30) NOT NULL,
-     CONSTRAINT id_stories PRIMARY KEY (story_id));
+     CONSTRAINT pk_id_stories PRIMARY KEY (story_id));
 
 CREATE TABLE tags (
      user_id varchar(30) NOT NULL,
      post_id char(16) NOT NULL,
-     CONSTRAINT id_tags PRIMARY KEY (user_id, post_id));
+     CONSTRAINT pk_id_tags PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE users (
      user_id varchar(30) NOT NULL,
@@ -99,7 +99,8 @@ CREATE TABLE users (
      num_posts int NOT NULL,
      num_followers int NOT NULL,
      num_following int NOT NULL,
-     CONSTRAINT id_users PRIMARY KEY (user_id));
+     CONSTRAINT pk_id_users PRIMARY KEY (user_id),
+     CONSTRAINT uc_email_users UNIQUE (user_email));
 
 
 -- Constraints Section
