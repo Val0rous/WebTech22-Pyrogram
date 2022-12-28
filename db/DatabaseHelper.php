@@ -11,7 +11,7 @@ class DatabaseHelper
      * @param string $dbname name of database
      * @param int $port MySQL port
      */
-    public function __construct($servername, $username, $password, $dbname, $port)
+    public function __construct($servername = "localhost", $username = "", $password = "", $dbname = "pyrogram", $port = 3306)
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
@@ -54,8 +54,7 @@ class DatabaseHelper
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
-                  WHERE user_id = '?'
-                  AND account_active_status = '1'";
+                  WHERE user_id = '?'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $id);
         $stmt->execute();
