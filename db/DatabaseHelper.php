@@ -3,6 +3,14 @@ class DatabaseHelper
 {
     private $db;
 
+    /**
+     * Open connection to database.
+     * @param string $servername name of server where DB is hosted
+     * @param string $username username
+     * @param string $password password
+     * @param string $dbname name of database
+     * @param int $port MySQL port
+     */
     public function __construct($servername, $username, $password, $dbname, $port)
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
@@ -11,14 +19,22 @@ class DatabaseHelper
         }
     }
 
+    /**
+     * Close connection to database.
+     */
+    public function __destruct()
+    {
+        $this->db->close();
+    }
+
     /** Add a user to DB.
      * @param string $id user id (username)
-     * @param string $name user name (his normal name, not his username)
+     * @param string $name username (his normal name, not his username)
      * @param string $email account email
      * @param string $password account password
      * @param string $picture_path path to user picture (saved outside DB)
      */
-    public function addUser($id, $name, $email, $password, $picture_path)
+    public function createUser($id, $name, $email, $password, $picture_path)
     {
         if ($this->checkUserIDAvailability($id)) {
             $query = "INSERT INTO users (user_id, user_name, user_email, user_password, user_picture_path, user_bio, account_active_status, num_posts, num_followers, num_following) 
@@ -34,7 +50,7 @@ class DatabaseHelper
      * @param string $id user id
      * @return mixed query result
      */
-    public function exactSearchUser($id)
+    public function findUser($id)
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
@@ -51,10 +67,12 @@ class DatabaseHelper
     /**
      * Incrementally search for a user in database, including all partial matches.
      * A partial match is a string having the same id specified as argument plus any prefix or suffix.
+     * ONLY USE in search box
+     * DO NOT USE in any queries
      * @param string $id
      * @return array array containing all matches
      */
-    public function incrementalSearchUser($id)
+    public function searchUser($id)
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
@@ -80,7 +98,7 @@ class DatabaseHelper
      * @param string $id user id
      * @param bool $status true to activate, false to deactivate
      */
-    public function setUserActivityStatus($id, $status)
+    private function setUserActivityStatus($id, $status)
     {
         if ($status === true) {
             // activate
@@ -95,6 +113,24 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $flag, $id);
         $stmt->execute();
+    }
+
+    /**
+     * Activate user account.
+     * @param string $id user id
+     */
+    public function activateUser($id)
+    {
+        $this->setUserActivityStatus($id, true);
+    }
+
+    /**
+     * Deactivate user account.
+     * @param mixed $id user id
+     */
+    public function deactivateUser($id)
+    {
+        $this->setUserActivityStatus($id, false);
     }
 
     /**
@@ -142,7 +178,7 @@ class DatabaseHelper
      */
     public function checkUserIDAvailability($id)
     {
-        if ($this->isQueryResultEmpty($this->exactSearchUser($id))) {
+        if ($this->isQueryResultEmpty($this->findUser($id))) {
             // available
             return true;
         } else {
@@ -156,7 +192,7 @@ class DatabaseHelper
      * @param mixed $query_result the query result to be checked
      * @return bool true if empty, false if not empty
      */
-    public function isQueryResultEmpty($query_result)
+    private function isQueryResultEmpty($query_result)
     {
         if ($query_result->num_rows === 0) {
             // empty
@@ -167,6 +203,55 @@ class DatabaseHelper
         }
     }
 
+    /**
+     * Change ID of a user
+     * @param string $old_id old ID
+     * @param string $new_id new ID
+     */
+    public function changeUserID($old_id, $new_id)
+    {
+        if ($this->checkUserIDAvailability($old_id)) {
+            $query = "UPDATE users 
+                  SET user_id = '?' 
+                  WHERE user_id = '?'";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ss", $new_id, $old_id);
+            $stmt->execute();
+        }
+    }
+
+    /**
+     * Change name of a user
+     * @param string $id user ID
+     * @param string $name user name
+     */
+    public function changeUserName($id, $name)
+    {
+        $query = "UPDATE users 
+                  SET user_name = '?' 
+                  WHERE user_id = '?'";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ss", $name, $id);
+            $stmt->execute();
+    }
+
+    /**
+     * Change email of a user
+     * @param string $id user ID
+     * @param string $email user email
+     */
+    public function changeUserEmail($id, $email)
+    {
+        $query = "UPDATE users 
+                  SET user_email = '?' 
+                  WHERE user_id = '?'";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ss", $email, $id);
+            $stmt->execute();
+    }
+
+
+
     ////create user
     //delete user
     ////activate user
@@ -175,9 +260,9 @@ class DatabaseHelper
     ////search user exactly (get user)
     ////check user account activity status
     ////check availability of a user id
-    //change user id
-    //change user name
-    //change user email
+    ////change user id
+    ////change user name
+    ////change user email
     //change user password
     //change user picture path
     //change user bio
@@ -210,7 +295,7 @@ class DatabaseHelper
     //get post(s)
     //create post
     //delete post
-    //edit post (???) (Optional but I believe it should be a feature)
+    //edit post (???) (Optional, but I believe it should be a feature)
 
     //get replies
     //create reply to story
