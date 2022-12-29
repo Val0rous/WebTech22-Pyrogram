@@ -18,7 +18,7 @@ trait SearchTrait
         $stmt->bind_param("s", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
 
     /**
@@ -34,6 +34,7 @@ trait SearchTrait
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
                   WHERE user_id LIKE '%?%' 
+                  OR user_name LIKE '%?%' 
                   AND account_active_status = '1' 
                   ORDER BY LENGTH(SUBSTRING_INDEX(user_id, ?, 1))";
         $stmt = $this->db->prepare($query);
