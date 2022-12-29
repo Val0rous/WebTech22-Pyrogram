@@ -70,14 +70,38 @@ trait SearchTrait
         return $result->fetch_all(MYSQLI_ASSOC)["user_password"];
     }
 
+    /**
+     * Find comment by ID in database.
+     * @param string $comment comment ID
+     * @return array query result 
+     */
     public function findComment($comment)
     {
-        
+        $query = "SELECT * 
+                  FROM comments 
+                  WHERE comment_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $comment);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 
+    /**
+     * Find all comments of a post in database
+     * @param string $post post ID
+     * @return array query result
+     */
     public function findAllComments($post)
     {
-
+        $query = "SELECT * 
+                  FROM comments 
+                  WHERE post_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQL_ASSOC);
     }
 
 
