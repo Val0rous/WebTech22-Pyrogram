@@ -1,6 +1,12 @@
 <?php
 class DatabaseHelper
 {
+    use CreateTrait;
+    use SearchTrait;
+    use ChangeTrait;
+    use ActionTrait;
+    use DeleteTrait;
+
     private $db;
 
     /**
@@ -27,71 +33,6 @@ class DatabaseHelper
         $this->db->close();
     }
 
-    /** Add a user to DB.
-     * @param string $id user id (username)
-     * @param string $name username (his normal name, not his username)
-     * @param string $email account email
-     * @param string $password account password
-     * @param string $picture_path path to user picture (saved outside DB)
-     */
-    public function createUser($id, $name, $email, $password, $picture_path)
-    {
-        if ($this->checkUserIDAvailability($id)) {
-            $query = "INSERT INTO users (user_id, user_name, user_email, user_password, user_picture_path, user_bio, account_active_status, num_posts, num_followers, num_following) 
-                      VALUES ('?', '?', '?', '?', '?', '', '1', 0, 0, 0)";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sssss", $id, $name, $email, $password, $picture_path);
-            $stmt->execute();
-        }
-    }
-
-    /**
-     * Search for a user in database.
-     * @param string $id user id
-     * @return mixed query result
-     */
-    public function findUser($id)
-    {
-        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
-                  FROM users 
-                  WHERE user_id = '?'";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $stmt->bind_result($result);
-        $stmt->fetch();
-        return $result;
-    }
-
-    /**
-     * Incrementally search for a user in database, including all partial matches.
-     * A partial match is a string having the same id specified as argument plus any prefix or suffix.
-     * ONLY USE in search box
-     * DO NOT USE in any queries
-     * @param string $id
-     * @return array array containing all matches
-     */
-    public function searchUser($id)
-    {
-        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
-                  FROM users 
-                  WHERE user_id LIKE '%?%' 
-                  AND account_active_status = '1' 
-                  ORDER BY LENGTH(SUBSTRING_INDEX(user_id, '?', 1))";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ss", $id, $id);
-        $stmt->execute();
-        $stmt->bind_result($row);
-        // creating array
-        $array = [];
-        while ($stmt->fetch()) {
-            static $index = 0;
-            $array[$index] = $row;
-            $index++;
-        }
-        return $array;
-    }
-
     /**
      * Change activity status to a user's account
      * @param string $id user id
@@ -115,24 +56,6 @@ class DatabaseHelper
     }
 
     /**
-     * Activate user account.
-     * @param string $id user id
-     */
-    public function activateUser($id)
-    {
-        $this->setUserActivityStatus($id, true);
-    }
-
-    /**
-     * Deactivate user account.
-     * @param mixed $id user id
-     */
-    public function deactivateUser($id)
-    {
-        $this->setUserActivityStatus($id, false);
-    }
-
-    /**
      * Check if a given user account is active.
      * @param string $id user id to check
      * @return bool true if user is active, false if it is inactive
@@ -152,23 +75,6 @@ class DatabaseHelper
         } else {
             return false;
         }
-    }
-
-    public function deleteUser($id)
-    {
-        //TODO: remove all notifications of/from this user
-        //TODO: delete all comments of/from this user
-        //TODO: delete all stories from this user
-        //TODO: delete all tags of/from this user
-        //TODO: remove all following/follower links
-        //TODO: remove all likes of/from this user
-        //TODO: delete all posts from this user
-        //TODO: delete all messages of/from this user (maybe leave them, IDK)
-        $query = "DELETE FROM users 
-                  WHERE user_id = '?'";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
     }
 
     /** Check if a given user ID is available.
@@ -202,52 +108,6 @@ class DatabaseHelper
         }
     }
 
-    /**
-     * Change ID of a user
-     * @param string $old_id old ID
-     * @param string $new_id new ID
-     */
-    public function changeUserID($old_id, $new_id)
-    {
-        if ($this->checkUserIDAvailability($old_id)) {
-            $query = "UPDATE users 
-                  SET user_id = '?' 
-                  WHERE user_id = '?'";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ss", $new_id, $old_id);
-            $stmt->execute();
-        }
-    }
-
-    /**
-     * Change name of a user
-     * @param string $id user ID
-     * @param string $name user name
-     */
-    public function changeUserName($id, $name)
-    {
-        $query = "UPDATE users 
-                  SET user_name = '?' 
-                  WHERE user_id = '?'";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ss", $name, $id);
-            $stmt->execute();
-    }
-
-    /**
-     * Change email of a user
-     * @param string $id user ID
-     * @param string $email user email
-     */
-    public function changeUserEmail($id, $email)
-    {
-        $query = "UPDATE users 
-                  SET user_email = '?' 
-                  WHERE user_id = '?'";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ss", $email, $id);
-            $stmt->execute();
-    }
 
 
 
