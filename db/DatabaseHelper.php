@@ -123,17 +123,106 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($this->isQueryResultEmpty($result)) {
-            return "0000000000000000";
+        return $this->getFirstAvailableID($result, "comment_id");
+    }
+
+    /**
+     * Get first available message ID.
+     * @return string first available message ID.
+     */
+    private function getNextMessageID()
+    {
+        $query = "SELECT message_id 
+                  FROM messages 
+                  ORDER BY message_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->getFirstAvailableID($result, "message_id");
+    }
+
+    /**
+     * Get first available notification ID.
+     * @return string first available notification ID
+     */
+    private function getNextNotificationID()
+    {
+        $query = "SELECT notification_id 
+                  FROM notifications 
+                  ORDER BY notification_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->getFirstAvailableID($result, "notification_id");
+    }
+
+    /**
+     * Get first available post ID.
+     * @return string first available post ID
+     */
+    private function getNextPostID()
+    {
+        $query = "SELECT post_id 
+                  FROM posts 
+                  ORDER BY post_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->getFirstAvailableID($result, "post_id");
+    }
+
+    /**
+     * Get first available reply ID.
+     * @return string first available reply ID
+     */
+    private function getNextReplyID()
+    {
+        $query = "SELECT reply_id 
+                  FROM replies 
+                  ORDER BY reply_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->getFirstAvailableID($result, "reply_id");
+    }
+    
+    /**
+     * Get first available story ID.
+     * @return string first available story ID
+     */
+    private function getNextStoryID()
+    {
+        $query = "SELECT story_id 
+                  FROM stories 
+                  ORDER BY story_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->getFirstAvailableID($result, "story_id");
+    }
+
+    /**
+     * Get first available ID in a query result.
+     * @param mixed $list list of IDs as table rows, gathered from a query result
+     * @param mixed $id name of the ID column
+     * @return string first available ID
+     */
+    private function getFirstAvailableID($list, $id)
+    {
+        if ($this->isQueryResultEmpty($list)) {
+            // no comments
+            return $this->padString(strval(0));
         } else {
-            $rows = $result->fetch_all(MYSQLI_ASSOC);
-            foreach ($rows as $row) {
-                static $index = 0;
-                if ($row) {
-                    //TODO: check for first available comment ID
+            // run through list to find first available comment ID
+            $num_rows = $list->fetch_all(MYSQLI_ASSOC);
+            $index = 0;
+            while ($index < $list->num_rows) {
+                if (intval($list->fetch_assoc()[$id]) > $index) {
+                    return $this->padString(strval($index));
                 }
                 $index++;
             }
+            return $this->padString(strval($index));
         }
     }
 
