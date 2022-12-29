@@ -1,4 +1,7 @@
 <?php
+/**
+ * Main actions that will be performed on website.
+ */
 trait ActionTrait
 {
     /**

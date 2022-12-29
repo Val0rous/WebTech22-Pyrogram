@@ -1,4 +1,7 @@
 <?php
+/**
+ * Handle database connection and queries.
+ */
 class DatabaseHelper
 {
     use CreateTrait;
@@ -48,8 +51,8 @@ class DatabaseHelper
             $flag = "0";
         }
         $query = "UPDATE users 
-                  SET account_active_status = '?' 
-                  WHERE user_id = '?'";
+                  SET account_active_status = ? 
+                  WHERE user_id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $flag, $id);
         $stmt->execute();
@@ -64,7 +67,7 @@ class DatabaseHelper
     {
         $query = "SELECT account_active_status 
                   FROM users 
-                  WHERE user_id = '?'";
+                  WHERE user_id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $id);
         $stmt->execute();
@@ -108,6 +111,42 @@ class DatabaseHelper
         }
     }
 
+    /**
+     * Get first available comment ID.
+     * @return string first available comment ID
+     */
+    private function getNextCommentID()
+    {
+        $query = "SELECT comment_id 
+                  FROM comments 
+                  ORDER BY comment_id ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($this->isQueryResultEmpty($result)) {
+            return "0000000000000000";
+        } else {
+            $rows = $result->fetch_all(MYSQLI_ASSOC);
+            foreach ($rows as $row) {
+                static $index = 0;
+                if ($row) {
+                    //TODO: check for first available comment ID
+                }
+                $index++;
+            }
+        }
+    }
+
+    /**
+     * Format string as ID.
+     * @param string $string string to pad
+     * @return string padded string
+     */
+    private function padString($string)
+    {
+        return str_pad($string, 16, "0", STR_PAD_LEFT);
+    }
+
 
 
 
@@ -122,16 +161,16 @@ class DatabaseHelper
     ////change user id
     ////change user name
     ////change user email
-    //change user password
-    //change user picture path
-    //change user bio
-    //increment/decrement num posts
-    //increment/decrement num followers
-    //increment/decrement num following
+    ////change user password
+    ////change user picture path
+    ////change user bio
+    ////increment/decrement num posts
+    ////increment/decrement num followers
+    ////increment/decrement num following
 
     //get comment
     //create comment on post
-    //delete comment
+    ////delete comment
     //edit comment (???) (IDK, maybe comments should be made not editable)
 
     //get followings
