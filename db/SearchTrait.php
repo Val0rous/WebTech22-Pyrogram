@@ -69,4 +69,16 @@ trait SearchTrait
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)["user_password"];
     }
+
+    public function findComment($comment)
+    {
+        
+    }
+
+    public function findAllComments($post)
+    {
+
+    }
+
+
 }
