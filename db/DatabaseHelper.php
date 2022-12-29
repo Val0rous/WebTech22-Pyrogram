@@ -1,4 +1,10 @@
 <?php
+require_once("CreateTrait.php");
+require_once("SearchTrait.php");
+require_once("ChangeTrait.php");
+require_once("ActionTrait.php");
+require_once("DeleteTrait.php");
+
 /**
  * Handle database connection and queries.
  */
@@ -20,7 +26,7 @@ class DatabaseHelper
      * @param string $dbname name of database
      * @param int $port MySQL port
      */
-    public function __construct($servername = "localhost", $username = "", $password = "", $dbname = "pyrogram", $port = 3306)
+    public function __construct($servername = "localhost", $username = "root", $password = "", $dbname = "pyrogram", $port = 3306)
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
