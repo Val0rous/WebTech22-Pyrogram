@@ -10,7 +10,7 @@
     <!-- Top bar header -->
     <header>
         <h1>Pyrogram</h1>
-        <input id="#messages" class="navbar-icon" type="image" src="../img/messages.png" alt="Messages">  <!-- Andrà modificato poi -->
+        <input id="#messages" class="navbar-icon" type="image" src="../img/messages.png" alt="Messages">  <!-- Andrà modificato poi aggiungendo il collegamento alla pagina -->
     </header>
 
     <!-- Content to be added with PHP later -->

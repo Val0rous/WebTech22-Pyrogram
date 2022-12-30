@@ -1,2 +1,2 @@
 <!-- In main -->
-<h2>Search<h2>
+<h2>Messages<h2>
