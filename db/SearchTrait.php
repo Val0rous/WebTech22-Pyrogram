@@ -107,5 +107,8 @@ trait SearchTrait
         return $result->fetch_all(MYSQL_ASSOC);
     }
 
-
+    public function findPost($post)
+    {
+        
+    }
 }
