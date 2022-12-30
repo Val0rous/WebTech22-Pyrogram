@@ -19,9 +19,9 @@ final class DatabaseHelperTest
 
 $test = new DatabaseHelper();
 //echo '<pre>' , var_dump($test) , '</pre>';
-$test->createUser("valent", "Francesco Valentini", "fv26012001@gmail.com", "password", "hehe");
-$test->createUser("_annavalentini", "Anna Valentini", "anna.vale107a@gmail.com", "password", "haha");
-$test->createUser("val_orosa", "Valentina Di Bernardo", "sonolavale@taaaac.com", "password", "taaaac");
+//$test->createUser("valent", "Francesco Valentini", "fv26012001@gmail.com", "password", "hehe");
+//$test->createUser("_annavalentini", "Anna Valentini", "anna.vale107a@gmail.com", "password", "haha");
+//$test->createUser("val_orosa", "Valentina Di Bernardo", "sonolavale@taaaac.com", "password", "taaaac");
 echo '<pre>' , var_dump($test->searchUser("Val")) , '</pre>';
 //$test->createPost("lorem ipsum dolor sticazzi", "valent", array("hihi", "hoho", "lol"));
 //$test->createComment("Scemo chi legge", "valent", "0000000000000000");
