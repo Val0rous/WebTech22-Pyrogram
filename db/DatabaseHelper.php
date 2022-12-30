@@ -108,7 +108,7 @@ class DatabaseHelper
      */
     private function isQueryResultEmpty($query_result)
     {
-        if ($query_result->num_rows === 0) {
+        if ($query_result === null) {
             // empty
             return true;
         } else {
