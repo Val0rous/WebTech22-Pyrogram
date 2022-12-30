@@ -27,28 +27,28 @@ trait DeleteTrait
 
     /**
      * Delete a comment from DB.
-     * @param string $id comment id
+     * @param string $comment comment id
      */
-    public function deleteComment($id)
+    public function deleteComment($comment)
     {
         $query = "DELETE FROM comments 
                   WHERE comment_id = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
+        $stmt->bind_param("s", $comment);
         $stmt->execute();
     }
 
     /**
      * Delete all comments of a user from DB.
      * ONLY USE in deleteUser()
-     * @param string $id user id
+     * @param string $user user id
      */
-    private function deleteAllComments($id)
+    private function deleteAllComments($user)
     {
         $query = "DELETE FROM comments 
                   WHERE user_id = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $id);
+        $stmt->bind_param("s", $user);
         $stmt->execute();
     }
 }
