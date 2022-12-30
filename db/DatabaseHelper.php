@@ -16,17 +16,17 @@ class DatabaseHelper
     use ActionTrait;
     use DeleteTrait;
 
-    private $db;
+    private mysqli $db;
 
     /**
      * Open connection to database.
-     * @param string $servername name of server where DB is hosted
+     * @param string $servername name of server where DB is hosted (use 127.0.0.1 instead of localhost or it may not work)
      * @param string $username username
      * @param string $password password
      * @param string $dbname name of database
      * @param int $port MySQL port
      */
-    public function __construct($servername = "localhost", $username = "root", $password = "", $dbname = "pyrogram", $port = 3306)
+    public function __construct(string $servername = "127.0.0.1", string $username = "root", string $password = "", string $dbname = "pyrogram", int $port = 3306)
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
