@@ -9,7 +9,7 @@ trait SearchTrait
      * @param string $id user id
      * @return array query result
      */
-    public function findUser($id)
+    public function findUser(string $id): array
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
@@ -29,7 +29,7 @@ trait SearchTrait
      * @param string $search_string search string
      * @return array associative array containing all matches
      */
-    public function searchUser($search_string)
+    public function searchUser(string $search_string): array
     {
         $search_string = strtolower($search_string);
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
@@ -61,7 +61,7 @@ trait SearchTrait
      * @param string $id user id
      * @return string user password
      */
-    private function findUserPassword($id)
+    private function findUserPassword(string $id): string
     {
         $query = "SELECT user_password 
                   FROM users 
@@ -78,7 +78,7 @@ trait SearchTrait
      * @param string $comment comment ID
      * @return array query result 
      */
-    public function findComment($comment)
+    public function findComment(string $comment): array
     {
         $query = "SELECT * 
                   FROM comments 
@@ -95,7 +95,7 @@ trait SearchTrait
      * @param string $post post ID
      * @return array query result
      */
-    public function findAllComments($post)
+    public function findAllComments(string $post): array
     {
         $query = "SELECT * 
                   FROM comments 
@@ -104,7 +104,7 @@ trait SearchTrait
         $stmt->bind_param("s", $post);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQL_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function findPost($post)
