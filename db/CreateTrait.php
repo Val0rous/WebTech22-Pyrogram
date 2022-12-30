@@ -46,6 +46,7 @@ trait CreateTrait
                     $media_path_array[3], $media_path_array[4], $media_path_array[5], 
                     $media_path_array[6], $media_path_array[7], $media_path_array[8], 
                     $media_path_array[9], $user);
+            $stmt->execute();
         }
     }
 
