@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require_once("DatabaseHelper.php");
 
+/*
 final class DatabaseHelperTest
 {
     private $db;
@@ -14,6 +15,7 @@ final class DatabaseHelperTest
         echo "Database loaded successfully\n";
     }    
 }
+*/
 
 $test = new DatabaseHelper();
 //echo '<pre>' , var_dump($test) , '</pre>';
