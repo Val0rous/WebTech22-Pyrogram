@@ -26,19 +26,21 @@ trait SearchTrait
      * A partial match is a string having the same id specified as argument plus any prefix or suffix.
      * ONLY USE in search box
      * DO NOT USE in any queries
-     * @param string $id
+     * @param string $search_string search string
      * @return array associative array containing all matches
      */
-    public function searchUser($id)
+    public function searchUser($search_string)
     {
+        $search_string = strtolower($search_string);
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
-                  WHERE user_id LIKE '%?%' 
-                  OR user_name LIKE '%?%' 
+                  WHERE user_id LIKE ? 
+                  OR LOWER(user_name) LIKE ? 
                   AND account_active_status = '1' 
-                  ORDER BY LENGTH(SUBSTRING_INDEX(user_id, ?, 1))";
+                  ORDER BY LENGTH(SUBSTRING_INDEX(user_id, ?, 1)) ASC, LENGTH(SUBSTRING_INDEX(LOWER(user_name), ?, 1)) ASC";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ss", $id, $id);
+        $formatted_search_string = "%" . $search_string . "%";
+        $stmt->bind_param("ssss", $formatted_search_string, $formatted_search_string, $search_string, $search_string);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
