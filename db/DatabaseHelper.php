@@ -121,7 +121,7 @@ class DatabaseHelper
      * Get first available comment ID.
      * @return string first available comment ID
      */
-    private function getNextCommentID()
+    private function getNextCommentID(): string
     {
         $query = "SELECT comment_id 
                   FROM comments 

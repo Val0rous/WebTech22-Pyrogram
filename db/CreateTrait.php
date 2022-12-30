@@ -41,7 +41,8 @@ trait CreateTrait
             $query = "INSERT INTO posts (post_id, content, media_path0, media_path1, media_path2, media_path3, media_path4, media_path5, media_path6, media_path7, media_path8, media_path9, post_time, num_likes, num_comments, num_tags, user_id) 
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, 0, ?)";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sssssssssssss", $this->getNextPostID(), $content, 
+            $next_post_id = $this->getNextPostID();
+            $stmt->bind_param("sssssssssssss", $next_post_id, $content,
                     $media_path_array[0], $media_path_array[1], $media_path_array[2], 
                     $media_path_array[3], $media_path_array[4], $media_path_array[5], 
                     $media_path_array[6], $media_path_array[7], $media_path_array[8], 
@@ -61,7 +62,8 @@ trait CreateTrait
         $query = "INSERT INTO comments (comment_id, content, comment_time, user_id, post_id) 
                   VALUES (?, ?, NOW(), ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssss", $this->getNextCommentID(), $content, $user, $post);
+        $next_comment_id = $this->getNextCommentID();
+        $stmt->bind_param("ssss", $next_comment_id, $content, $user, $post);
         $stmt->execute();
     }
 }
