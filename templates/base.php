@@ -3,34 +3,35 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" type="text/css" href="../css/navbar_style.css" />
 </head>
 <body>
     <!-- Top bar header -->
     <header>
         <h1>Pyrogram</h1>
-        <input id="#messages" type="image" src="messages.png" alt="Messages">  <!-- Andrà modificato poi -->
+        <input id="#messages" class="navbar-icon" type="image" src="../img/messages.png" alt="Messages">  <!-- Andrà modificato poi -->
     </header>
-    
+
     <!-- Content to be added with PHP later -->
     <main>
     <?php
     if (isset($templateParams["name"])) {
         require("templates/".$templateParams["name"]);
     } else {
-        require("templates/index.php");
+        //TODO: fix this shit
+        //require("templates/index.php");
     }
     ?>
     </main>
 
     <!-- Navigation bar -->
     <nav>
-        <ul>
-            <li><a href="templates/home.php"><img src="home.png" alt="Home"/></a></li>
-            <li><a href="templates/search.php"><img src="search.png" alt="Search"/></a></li>
-            <li><a href="templates/create.php"><img src="create.png" alt="Create"/></a></li>
-            <li><a href="templates/notifications.php"><img src="notifications.png" alt="Notifications"/></a></li>
-            <li><a href="profile.php"><img src="profile.png" alt="Profile"/></a></li>
+            <a href="home.php"><img class="navbar-icon" src="../img/home.png" alt="Home"/></a>
+            <a href="search.php"><img class="navbar-icon" src="../img/search.png" alt="Search"/></a>
+            <a href="create.php"><img class="navbar-icon" src="../img/create.png" alt="Create"/></a>
+            <a href="notifications.php"><img class="navbar-icon" src="../img/notifications.png" alt="Notifications"/></a>
+            <a href="profile.php"><img class="navbar-icon" src="../img/profile.png" alt="Profile"/></a>
             
             <!--
             <li><input type="image" src="home.png" alt="Home"></li>
@@ -45,7 +46,6 @@
             <li><a href="notifications.html">Notifications</a></li>
             <li><a href="profile.html">Profile</a></li>
             -->
-        </ul>
     </nav>
 </body>
 </html>
