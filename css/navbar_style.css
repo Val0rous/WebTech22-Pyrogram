@@ -1,12 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+@import url('//fonts.cdnfonts.com/css/billabong');
+
+body {
+    background-color: #fafafa;
+}
+
 .navbar-icon {
-    width: 48px;
+    width: 36px;
     display: inline-block;
 }
 
-h1 {
-    font-family: "Sofia", sans-serif;
-    font-size: 64px;
+.logo {
+    font-family: "Sofia", sans-serif; /* consider using Billabong instead */
+    font-size: 48px;
     display: inline-block;
+    font-weight: bold;
+}
+
+/* Remove underline from a link */
+.no-underline {
+    color: black;
+    text-decoration: unset;
 }
 
 header {
@@ -17,4 +31,3 @@ header {
     display: -webkit-box;
     margin-left: auto;
 }
-
