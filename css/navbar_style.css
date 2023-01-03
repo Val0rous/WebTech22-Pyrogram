@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Sofia");
-@import url('//fonts.cdnfonts.com/css/billabong');
+@import url("//fonts.cdnfonts.com/css/billabong");
 
 body {
     background-color: #fafafa;
@@ -24,7 +24,42 @@ body {
 }
 
 header {
+    background-color: white;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px;
+    box-sizing: border-box;
+    z-index: 2;
+    /* animation magic */
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
 
+.shrink {
+    height: 50px;
+}
+
+nav {
+    background-color: white;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.0975);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /*padding: 0px 50px;*/
+    box-sizing: border-box;
 }
 
 #messages {

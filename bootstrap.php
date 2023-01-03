@@ -6,3 +6,4 @@ require_once "db/DatabaseHelper.php";
 //require_once("utils/functions.php");
 ////require_once("db/database.php");
 $dbh = new DatabaseHelper();
+echo $_SERVER['DOCUMENT_ROOT'];
