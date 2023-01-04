@@ -9,8 +9,9 @@ trait ChangeTrait
      * Change ID of a user.
      * @param string $old_id old ID
      * @param string $new_id new ID
+     * @return void
      */
-    public function changeUserID($old_id, $new_id)
+    public function changeUserID(string $old_id, string $new_id): void
     {
         if ($this->checkUserIDAvailability($old_id)) {
             $query = "UPDATE users 
@@ -26,8 +27,9 @@ trait ChangeTrait
      * Change name of a user.
      * @param string $id user ID
      * @param string $name user name
+     * @return void
      */
-    public function changeUserName($id, $name)
+    public function changeUserName(string $id, string $name): void
     {
         $query = "UPDATE users 
                   SET user_name = ? 
@@ -41,8 +43,9 @@ trait ChangeTrait
      * Change email of a user.
      * @param string $id user ID
      * @param string $email user email
+     * @return void
      */
-    public function changeUserEmail($id, $email)
+    public function changeUserEmail(string $id, string $email): void
     {
         $query = "UPDATE users 
                   SET user_email = ? 
@@ -57,8 +60,9 @@ trait ChangeTrait
      * @param string $id user id
      * @param string $old_password old password
      * @param string $new_password new password
+     * @return void
      */
-    public function changeUserPassword($id, $old_password, $new_password)
+    public function changeUserPassword(string $id, string $old_password, string $new_password): void
     {
         if ($this->findUserPassword($id) === $old_password) {
             $query = "UPDATE users 
@@ -74,8 +78,9 @@ trait ChangeTrait
      * Change profile picture of a user.
      * @param string $id user id
      * @param string $picture_path path of user profile picture
+     * @return void
      */
-    public function changeUserPicture($id, $picture_path)
+    public function changeUserPicture(string $id, string $picture_path): void
     {
         $query = "UPDATE users 
                   SET user_picture_path = ? 
@@ -89,8 +94,9 @@ trait ChangeTrait
      * Change bio of a user.
      * @param string $id user id
      * @param string $bio user bio
+     * @return void
      */
-    public function changeUserBio($id, $bio)
+    public function changeUserBio(string $id, string $bio): void
     {
         $query = "UPDATE users 
                   SET user_bio = ? 
@@ -104,8 +110,9 @@ trait ChangeTrait
      * Change number of posts of a user.
      * @param string $id user id
      * @param int $increment 1 to increment, -1 to decrement
+     * @return void
      */
-    private function changeNumPosts($id, $increment)
+    private function changeNumPosts(string $id, int $increment): void
     {
         if ($increment === 1 or $increment === -1) {
             $query = "UPDATE users 
@@ -120,8 +127,9 @@ trait ChangeTrait
     /**
      * Increment number of posts of a user.
      * @param string $id user id
+     * @return void
      */
-    public function incNumPosts($id)
+    public function incNumPosts(string $id): void
     {
         $this->changeNumPosts($id, 1);
     }
@@ -129,8 +137,9 @@ trait ChangeTrait
     /**
      * Decrement number of posts of a user.
      * @param string $id user id
+     * @return void
      */
-    public function decNumPosts($id)
+    public function decNumPosts(string $id): void
     {
         $this->changeNumPosts($id, -1);
     }
@@ -139,8 +148,9 @@ trait ChangeTrait
      * Change number of followers of a user.
      * @param string $id user id
      * @param int $increment 1 to increment, -1 to decrement
+     * @return void
      */
-    private function changeNumFollowers($id, $increment)
+    private function changeNumFollowers(string $id, int $increment): void
     {
         if ($increment === 1 or $increment === -1) {
             $query = "UPDATE users 
@@ -155,8 +165,9 @@ trait ChangeTrait
     /**
      * Increment number of followers of a user.
      * @param string $id user id
+     * @return void
      */
-    public function incNumFollowers($id)
+    public function incNumFollowers(string $id): void
     {
         $this->changeNumFollowers($id, 1);
     }
@@ -164,8 +175,9 @@ trait ChangeTrait
     /**
      * Decrement number of followers of a user.
      * @param string $id user id
+     * @return void
      */
-    public function decNumFollowers($id)
+    public function decNumFollowers(string $id): void
     {
         $this->changeNumFollowers($id, -1);
     }
@@ -174,8 +186,9 @@ trait ChangeTrait
      * Change number of following of a user.
      * @param string $id user id
      * @param int $increment 1 to increment, -1 to decrement
+     * @return void
      */
-    private function changeNumFollowing($id, $increment)
+    private function changeNumFollowing(string $id, int $increment): void
     {
         if ($increment === 1 or $increment === -1) {
             $query = "UPDATE users 
@@ -190,8 +203,9 @@ trait ChangeTrait
     /**
      * Increment number of following of a user.
      * @param string $id user id
+     * @return void
      */
-    public function incNumFollowing($id)
+    public function incNumFollowing(string $id): void
     {
         $this->changeNumFollowing($id, 1);
     }
@@ -199,8 +213,9 @@ trait ChangeTrait
     /**
      * Decrement number of following of a user.
      * @param string $id user id
+     * @return void
      */
-    public function decNumFollowing($id)
+    public function decNumFollowing(string $id): void
     {
         $this->changeNumFollowing($id, -1);
     }

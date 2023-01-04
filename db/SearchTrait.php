@@ -109,10 +109,10 @@ trait SearchTrait
 
     /**
      * Find a post in database.
-     * @param $post post id
+     * @param string $post post id
      * @return array query result
      */
-    public function findPost($post): array
+    public function findPost(string $post): array
     {
         $query = "SELECT * 
                   FROM posts 

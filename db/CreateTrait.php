@@ -10,8 +10,9 @@ trait CreateTrait
      * @param string $email account email
      * @param string $password account password
      * @param string $picture_path path to user picture (saved outside DB)
+     * @return void
      */
-    public function createUser($id, $name, $email, $password, $picture_path)
+    public function createUser(string $id, string $name, string $email, string $password, string $picture_path): void
     {
         if ($this->checkUserIDAvailability($id)) {
             $query = "INSERT INTO users (user_id, user_name, user_email, user_password, user_picture_path, user_bio, account_active_status, num_posts, num_followers, num_following) 
@@ -26,9 +27,10 @@ trait CreateTrait
      * Add a post to DB.
      * @param string $content text of post
      * @param string $user user id
-     * @param array $media_path_array list of media paths (if any)
+     * @param array|null $media_path_array list of media paths (if any)
+     * @return void
      */
-    public function createPost($content, $user, $media_path_array = null)
+    public function createPost(string $content, string $user, array $media_path_array = null): void
     {
         $size = count($media_path_array);
         if ($size <= 10) {
@@ -54,11 +56,12 @@ trait CreateTrait
 
     /**
      * Add a comment to DB.
-     * @param mixed $content text of comment
-     * @param mixed $user user id
-     * @param mixed $post post id
+     * @param string $content text of comment
+     * @param string $user user id
+     * @param string $post post id
+     * @return void
      */
-    public function createComment($content, $user, $post)
+    public function createComment(string $content, string $user, string $post): void
     {
         $query = "INSERT INTO comments (comment_id, content, comment_time, user_id, post_id) 
                   VALUES (?, ?, NOW(), ?, ?)";
@@ -70,11 +73,11 @@ trait CreateTrait
 
     /**
      * Add a following to DB.
-     * @param $user_following user who follows another one
-     * @param $user_followed user who is followed by another one
+     * @param string $user_following user who follows another one
+     * @param string $user_followed user who is followed by another one
      * @return void
      */
-    public function createFollowing($user_following, $user_followed)
+    public function createFollowing(string $user_following, string $user_followed): void
     {
         $query = "INSERT INTO followings (user_id_following, user_id_followed) 
                   VALUES (?, ?)";

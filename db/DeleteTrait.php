@@ -7,8 +7,9 @@ trait DeleteTrait
     /**
      * Delete user and remove all of its data from DB.
      * @param string $id user id
+     * @return void
      */
-    public function deleteUser($id)
+    public function deleteUser(string $id): void
     {
         //TODO: remove all notifications of/from this user
         //TODO: delete all comments of/from this user
@@ -28,8 +29,9 @@ trait DeleteTrait
     /**
      * Delete a comment from DB.
      * @param string $comment comment id
+     * @return void
      */
-    public function deleteComment($comment)
+    public function deleteComment(string $comment): void
     {
         $query = "DELETE FROM comments 
                   WHERE comment_id = ?";
@@ -42,8 +44,9 @@ trait DeleteTrait
      * Delete all comments of a user from DB.
      * ONLY USE in deleteUser()
      * @param string $user user id
+     * @return void
      */
-    private function deleteAllComments($user)
+    private function deleteAllComments(string $user): void
     {
         $query = "DELETE FROM comments 
                   WHERE user_id = ?";
@@ -54,10 +57,10 @@ trait DeleteTrait
 
     /**
      * Delete a post from DB.
-     * @param $post post id
+     * @param string $post post id
      * @return void
      */
-    public function deletePost($post)
+    public function deletePost(string $post): void
     {
         $user = $this->findPost($post)["user_id"];
         $query = "DELETE FROM posts 
@@ -70,11 +73,11 @@ trait DeleteTrait
 
     /**
      * Delete a following from DB.
-     * @param $user_following user who follows another one
-     * @param $user_followed user who is followed by another one
+     * @param string $user_following user who follows another one
+     * @param string $user_followed user who is followed by another one
      * @return void
      */
-    public function deleteFollowing($user_following, $user_followed)
+    public function deleteFollowing(string $user_following, string $user_followed): void
     {
         $query = "DELETE FROM followings 
                   WHERE user_id_following = ? 
