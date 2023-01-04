@@ -37,7 +37,7 @@ trait SearchTrait
                   WHERE user_id LIKE ? 
                   OR LOWER(user_name) LIKE ? 
                   AND account_active_status = '1' 
-                  ORDER BY LENGTH(SUBSTRING_INDEX(user_id, ?, 1)) ASC, LENGTH(SUBSTRING_INDEX(LOWER(user_name), ?, 1)) ASC";
+                  ORDER BY LENGTH(SUBSTRING_INDEX(user_id, ?, 1)), LENGTH(SUBSTRING_INDEX(LOWER(user_name), ?, 1))";
         $stmt = $this->db->prepare($query);
         $formatted_search_string = "%" . $search_string . "%";
         $stmt->bind_param("ssss", $formatted_search_string, $formatted_search_string, $search_string, $search_string);
