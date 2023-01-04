@@ -91,7 +91,7 @@ trait SearchTrait
     }
 
     /**
-     * Find all comments of a post in database
+     * Find all comments of a post in database.
      * @param string $post post ID
      * @return array query result
      */
@@ -107,8 +107,75 @@ trait SearchTrait
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function findPost($post)
+    /**
+     * Find a post in database.
+     * @param $post post id
+     * @return array query result
+     */
+    public function findPost($post): array
     {
-        
+        $query = "SELECT * 
+                  FROM posts 
+                  WHERE post_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    /**
+     * Find all posts of a user in database.
+     * @param string $user user id
+     * @return array query result
+     */
+    public function findAllPosts(string $user): array
+    {
+        $query = "SELECT * 
+                  FROM posts 
+                  WHERE user_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Find all followers of a user.
+     * @param string $user user id of followed account
+     * @return array query result
+     */
+    public function findAllFollowers(string $user): array
+    {
+        $query = "SELECT u.user_id, u.user_name, u.user_picture_path, u.user_bio, u.num_posts, u.num_followers, u.num_following 
+                  FROM users u 
+                  JOIN followings f 
+                  ON u.user_id = f.user_id_following 
+                  WHERE f.user_id_followed = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Find all followings of a user.
+     * @param string $user user id of following account
+     * @return array query result
+     */
+    public function findAllFollowings(string $user): array
+    {
+        $query = "SELECT u.user_id, u.user_name, u.user_picture_path, u.user_bio, u.num_posts, u.num_followers, u.num_following 
+                  FROM users u 
+                  JOIN followings f 
+                  ON u.user_id = f.user_id_followed 
+                  WHERE f.user_id_following = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
