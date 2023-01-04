@@ -17,8 +17,8 @@ CREATE TABLE comments (
      CONSTRAINT pk_id_comments PRIMARY KEY (comment_id));
 
 CREATE TABLE followings (
-     user_id_followed varchar(30) NOT NULL,
      user_id_following varchar(30) NOT NULL,
+     user_id_followed varchar(30) NOT NULL,
      CONSTRAINT pk_id_followings PRIMARY KEY (user_id_followed, user_id_following));
 
 CREATE TABLE likes (
