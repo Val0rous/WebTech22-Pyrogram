@@ -33,11 +33,13 @@ trait DeleteTrait
      */
     public function deleteComment(string $comment): void
     {
+        $post = $this->findComment($comment)["post_id"];
         $query = "DELETE FROM comments 
                   WHERE comment_id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $comment);
         $stmt->execute();
+        $this->decNumComments($post);
     }
 
     /**
@@ -87,5 +89,22 @@ trait DeleteTrait
         $stmt->execute();
         $this->decNumFollowing($user_following);
         $this->decNumFollowers($user_followed);
+    }
+
+    /**
+     * Delete a like from DB.
+     * @param string $user user id
+     * @param string $post post id
+     * @return void
+     */
+    public function deleteLike(string $user, string $post): void
+    {
+        $query = "DELETE FROM likes 
+                  WHERE user_id = ? 
+                  AND post_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $user, $post);
+        $stmt->execute();
+        $this->decNumLikes($post);
     }
 }

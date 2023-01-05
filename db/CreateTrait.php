@@ -69,6 +69,7 @@ trait CreateTrait
         $next_comment_id = $this->getNextCommentID();
         $stmt->bind_param("ssss", $next_comment_id, $content, $user, $post);
         $stmt->execute();
+        $this->incNumComments($post);
     }
 
     /**
@@ -86,5 +87,15 @@ trait CreateTrait
         $stmt->execute();
         $this->incNumFollowing($user_following);
         $this->incNumFollowers($user_followed);
+    }
+
+    public function createLike(string $user, string $post): void
+    {
+        $query = "INSERT INTO likes (user_id, post_id) 
+                  VALUES (?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $user, $post);
+        $stmt->execute();
+        $this->incNumLikes($post);
     }
 }
