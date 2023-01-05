@@ -22,8 +22,8 @@ CREATE TABLE followings (
      CONSTRAINT pk_id_followings PRIMARY KEY (user_id_followed, user_id_following));
 
 CREATE TABLE likes (
-     post_id char(16) NOT NULL,
      user_id varchar(30) NOT NULL,
+     post_id char(16) NOT NULL,
      CONSTRAINT pk_id_likes PRIMARY KEY (user_id, post_id));
 
 CREATE TABLE messages (
