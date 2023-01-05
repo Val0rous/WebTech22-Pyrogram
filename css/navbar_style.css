@@ -64,7 +64,7 @@ nav {
 
 main {
     display: flex;
-    padding: 80px 0;
+    margin: 80px 0;
 }
 
 #messages {
