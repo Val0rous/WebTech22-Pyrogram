@@ -1,2 +1,17 @@
-@import "navbar_mobile.css" /*screen and (max-width: 768px)*/;
-/*@import "navbar_desktop.css" screen and (min-width: 769px);*/
+@use "navbar_mobile";
+@use "navbar_desktop";
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+@import url("//fonts.cdnfonts.com/css/billabong");
+
+body {
+  background-color: #fafafa;
+}
+
+/* Remove underline from a link */
+.no-underline {
+  color: black;
+  text-decoration: unset;
+  /*text-decoration: none;*/
+}
+
+//TODO: rifare le classi dei vari elementi in html e semplificare tutto sto schifo di (S)CSS

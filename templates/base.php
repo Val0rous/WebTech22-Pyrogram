@@ -3,17 +3,28 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../scss/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/scroll_animation.js"></script>
 </head>
 <body>
     <!-- Top bar header -->
-    <header>
-        <div class="logo">
-            <a class="no-underline" href="home.php">
-                Pyrogram
-            </a>
+    <header class="navigation">
+        <a class="logo no-underline" href="home.php">
+            Pyrogram
+        </a>
+        <div class="navigation-search-container">
+            <i class="fa fa-search"></i>
+            <label>
+                <input class="search-field" type="text" placeholder="Search">
+            </label>
+            <div class="search-container">
+                <div class="search-container-box">
+                    <div class="search-results">
+
+                    </div>
+                </div>
+            </div>
         </div>
         <a class="messages-icon no-underline" href="messages.php">
             <img class="navbar-icon" src="../img/messages.png" alt="Messages">
@@ -39,7 +50,7 @@
     </main>
 
     <!-- Navigation bar -->
-    <nav>
+    <nav class="navigation">
             <a class="home-icon no-underline" href="home.php">
                 <img class="navbar-icon" src="../img/home.png" alt="Home"/>
             </a>

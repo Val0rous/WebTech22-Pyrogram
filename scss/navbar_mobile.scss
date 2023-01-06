@@ -1,32 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Sofia");
-@import url("//fonts.cdnfonts.com/css/billabong");
-
-$background_color: #fafafa;
-$icon_size: 36px;
-
-body {
-    background-color: $background_color;
-}
-
-.navbar-icon {
-    width: $icon_size;
+@media screen and (max-width: 768.99px) {
+  .navbar-icon {
+    width: 36px;
     display: inline-block;
-}
+  }
 
-.logo {
+  .logo {
     font-family: "Sofia", sans-serif; /* consider using Billabong instead */
     font-size: 48px;
     display: inline-block;
     font-weight: bold;
-}
+  }
 
-/* Remove underline from a link */
-.no-underline {
-    color: black;
-    text-decoration: unset;
-}
-
-header {
+  header {
     background-color: white;
     height: 80px;
     position: fixed;
@@ -44,13 +29,17 @@ header {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
-}
+  }
 
-.shrink {
+  .navigation-search-container {
+    display: none;
+  }
+
+  .shrink {
     /*height: 50px;*/
-}
+  }
 
-nav {
+  nav {
     background-color: white;
     height: 80px;
     position: fixed;
@@ -63,14 +52,15 @@ nav {
     justify-content: space-around;
     /*padding: 0px 50px;*/
     box-sizing: border-box;
-}
+  }
 
-main {
+  main {
     display: flex;
     margin: 80px 0;
-}
+  }
 
-#messages {
+  #messages {
     display: -webkit-box;
     margin-left: auto;
+  }
 }
