@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Sofia");
 @import url("//fonts.cdnfonts.com/css/billabong");
 
+$background_color: #fafafa;
+$icon_size: 36px;
+
 body {
-    background-color: #fafafa;
+    background-color: $background_color;
 }
 
 .navbar-icon {
-    width: 36px;
+    width: $icon_size;
     display: inline-block;
 }
 
