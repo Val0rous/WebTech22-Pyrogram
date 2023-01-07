@@ -1,66 +1,67 @@
 @media screen and (max-width: 768.99px) {
+  $icon_size: 32px;
+  $logo_size: 36px;
+  $nav_height: 60px;
+
   .navbar-icon {
-    width: 36px;
-    display: inline-block;
+    width: $icon_size;
+    //display: inline-block; //has no effect
   }
 
-  .logo {
-    font-family: "Sofia", sans-serif; /* consider using Billabong instead */
-    font-size: 48px;
-    display: inline-block;
-    font-weight: bold;
+  .labels {
+    display: none;
   }
 
   header {
     background-color: white;
-    height: 80px;
+    height: $nav_height;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    right: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 5% 0 2.5%;
     box-sizing: border-box;
-    z-index: 2;
-    /* animation magic */
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-  }
+    //z-index: 2;
 
-  .navigation-search-container {
-    display: none;
-  }
+    .logo {
+      //display: flex;
+      font-size: $logo_size;
+      align-items: center;
+      line-height: $logo_size;
+      //display: inline-block;
+    }
 
-  .shrink {
-    /*height: 50px;*/
-  }
-
-  nav {
-    background-color: white;
-    height: 80px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.0975);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /*padding: 0px 50px;*/
-    box-sizing: border-box;
+    .messages {
+      //margin-left: auto;
+      //display: inline-block;
+      //z-index: 3;
+    }
   }
 
   main {
     display: flex;
-    margin: 80px 0;
+    margin: $nav_height 0;
+    justify-content: center;
   }
 
-  #messages {
-    display: -webkit-box;
-    margin-left: auto;
+  nav {
+    background-color: white;
+    height: $nav_height;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.0975);
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    justify-content: space-between;
+    box-sizing: border-box;
   }
 }

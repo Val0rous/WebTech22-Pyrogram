@@ -7,6 +7,12 @@ body {
   background-color: #fafafa;
 }
 
+.logo {
+  //font-family: "Sofia", sans-serif; /* consider using Billabong instead */
+  font-family: "billabong", sans-serif;
+  font-weight: bold;
+}
+
 /* Remove underline from a link */
 .no-underline {
   color: black;

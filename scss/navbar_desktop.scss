@@ -1,68 +1,90 @@
 @media screen and (min-width: 769px) {
+  $icon_size: 32px;
+  $logo_size: 36px;
+  $nav_width: 240px;
+
   .navbar-icon {
-    width: 36px;
-    display: flex;
+    width: $icon_size;
   }
 
   .navigation {
-    background-color: white;
-    height: 80px;
+    width: $nav_width;
     position: fixed;
-    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    bottom: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.0975);
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 50px;
-    box-sizing: border-box;
-    z-index: 2;
-    /* animation magic */
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
+    align-items: flex-start;
+    //justify-content: space-between;
+    flex-flow: column wrap;
+    padding-left: 20px;
+    //row-gap: 15px;
+
+    a {
+      display: flex;
+      align-items: center;
+      img {
+        display: inline-block;
+      }
+      span {
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+
+    .logo {
+      order: 1;
+      font-size: $logo-size;
+      line-height: $logo-size;
+      margin-top: 30px;
+    }
+
+    .home {
+      order: 2;
+      margin-top: 110px;
+    }
+
+    .search {
+      order: 3;
+      margin-top: 10px;
+    }
+
+    .messages {
+      order: 4;
+      margin-top: 150px;
+    }
+
+    .notifications {
+      order: 5;
+      margin-top: 70px;
+    }
+
+    .create {
+      order: 6;
+      margin-top: 10px;
+    }
+
+    .profile {
+      order: 7;
+      margin-top: 10px;
+    }
+
+    .logo, .home, .search, .messages, .notifications, .create, .profile {
+      align-self: flex-start;
+      flex-basis: 50px;
+    }
   }
 
-  .shrink {
-    height: 50px;
+  main {
+    display: flex;
+    margin-left: $nav_width;
+    align-items: flex-start;
+    justify-content: center;
   }
 
-  .logo {
-    position: relative;
-    color: black;
-    font-size: 30px;
-    font-family: "billabong", sans-serif;
-    text-decoration: none;
-  }
-
-  .navigation-search-container {
-    position: relative;
-  }
-
-  .navigation-search-container input {
-    background-color: #fafafa;
-    padding: 3px 20px 3px 25px;
-    height: 30px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.0975);
-    border-radius: 3px;
-    font-size: 14px;
-  }
-
-  .navigation-search-container .fa-search {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 11px;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .navigation-search-container input:focus {
-    outline: none;
-  }
-
-  .navigation-search-container input::placeholder {
-    text-align: center;
+  header, nav {
+    z-index: 10;
   }
 }
