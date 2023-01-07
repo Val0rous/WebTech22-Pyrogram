@@ -7,7 +7,19 @@
     width: $icon_size;
   }
 
+  header, nav {
+    display: contents;
+  }
+
+  main {
+    display: flex;
+    margin-left: $nav_width;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
   .navigation {
+    background-color: white;
     width: $nav_width;
     position: fixed;
     height: 100%;
@@ -17,10 +29,9 @@
     border-right: 1px solid rgba(0, 0, 0, 0.0975);
     display: flex;
     align-items: flex-start;
-    //justify-content: space-between;
-    flex-flow: column wrap;
+    flex-flow: column;
     padding-left: 20px;
-    //row-gap: 15px;
+    row-gap: 10px;
 
     a {
       display: flex;
@@ -38,54 +49,31 @@
       order: 1;
       font-size: $logo-size;
       line-height: $logo-size;
-      margin-top: 30px;
+      margin: 30px 0;
     }
 
     .home {
       order: 2;
-      margin-top: 110px;
     }
 
     .search {
       order: 3;
-      margin-top: 10px;
     }
 
     .messages {
       order: 4;
-      margin-top: 150px;
     }
 
     .notifications {
       order: 5;
-      margin-top: 70px;
     }
 
     .create {
       order: 6;
-      margin-top: 10px;
     }
 
     .profile {
       order: 7;
-      margin-top: 10px;
     }
-
-    .logo, .home, .search, .messages, .notifications, .create, .profile {
-      align-self: flex-start;
-      flex-basis: 50px;
-      pointer-events: auto;
-    }
-  }
-
-  main {
-    display: flex;
-    margin-left: $nav_width;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  header, nav {
-    pointer-events: none;
   }
 }
