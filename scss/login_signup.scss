@@ -1,0 +1,57 @@
+@use "login_signup_mobile";
+@use "login_signup_desktop";
+@import url("//fonts.cdnfonts.com/css/billabong");
+
+$padding: 20px;
+$button_color: #2b78e4;
+$button_height: 45px;
+$font_size: 1.15em;
+
+body {
+  background-color: #fafafa;
+}
+
+/*
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  row-gap: 20px;
+}
+*/
+
+form {
+  background-color: white;
+  width: 20%;
+  padding: $padding;
+  display: flex;
+  flex-flow: column;
+  border: 1px solid black;
+
+  h1 {
+    font-family: "billabong", sans-serif;
+    align-self: center;
+    font-size: 3em;
+  }
+
+  input {
+    height: $button_height;
+  }
+
+  button {
+    height: $button_height;
+    background-color: $button_color;
+    color: white;
+    border: 1px solid $button_color;
+    border-radius: 5px;
+    font-size: $font_size;
+  }
+}
+
+div {
+  background-color: white;
+  width: 20%;
+  border: 1px solid black;
+  padding: $padding;
+}
