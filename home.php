@@ -1,4 +1,7 @@
 <?php
-//require_once "bootstrap.php";
+require_once "bootstrap.php";
+
+// Params for the Base Template
 $templateParams["name"] = "home.php";
-require_once "templates/base.php";
+
+require "templates/base.php";

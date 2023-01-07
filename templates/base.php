@@ -22,14 +22,13 @@
     <main>
     <?php
     if (isset($templateParams["name"])) {
-        require("templates/".$templateParams["name"]);
+        require($templateParams["name"]);
     } else {
-        //TODO: fix this shit
-        //require("templates/index.php");
+        require("templates/home.php");
     }
     ?>
         <!-- scroll down test--->
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
