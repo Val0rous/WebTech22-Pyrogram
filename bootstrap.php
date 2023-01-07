@@ -1,9 +1,7 @@
 <?php
-session_start();
-require_once "home.php";
+//session_start();
 require_once "db/DatabaseHelper.php";
-//define("UPLOAD_DIR", "./upload/");
+define("UPLOAD_DIR", "img/");
 //require_once("utils/functions.php");
-////require_once("db/database.php");
 $dbh = new DatabaseHelper();
-echo $_SERVER['DOCUMENT_ROOT'];
+//echo $_SERVER['DOCUMENT_ROOT'];

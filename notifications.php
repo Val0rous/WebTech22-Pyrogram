@@ -1,3 +1,7 @@
 <?php
+require_once "bootstrap.php";
+
+// Params for the Base Template
 $templateParams["name"] = "notifications.php";
-require_once "templates/base.php";
+
+require "templates/base.php";
