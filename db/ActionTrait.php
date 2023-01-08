@@ -25,13 +25,11 @@ trait ActionTrait
     }
 
     /**
-     * Fetch all posts published by all users followed by current user, and filters them showing only 10 at a time: the
-     * latest ones posted before the specified date and time.
+     * Fetch all posts published by all users followed by current user.
      * @param string $user user id
-     * @param string $datetime date and time, format YYYY-MM-DDTHH:MM:SS.SSS
      * @return array list of posts to be shown in feed, or an empty array if there are no posts to be shown
      */
-    public function fetchPosts(string $user, string $datetime): array
+    public function fetchPosts(string $user): array
     {
         $followings = $this->findAllFollowings($user)["user_id"];
         $posts = array();
