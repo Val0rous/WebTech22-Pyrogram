@@ -11,7 +11,34 @@ body {
   background-color: #fafafa;
 }
 
-/*
+form {
+  h1 {
+    font-family: "billabong", sans-serif;
+    align-self: center;
+    font-size: 3em;
+  }
+
+  label {
+    padding: 10px;
+    pointer-events: none;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0.5;
+    background: white;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  input:focus + label, input:not(placeholder-shown) + label {
+    opacity: 1;
+    transform: scale(0.75) translateY(-70%) translateX(-14px);
+  }
+}
+
+
 main {
   width: 100%;
   display: flex;
@@ -19,8 +46,8 @@ main {
   flex-flow: column;
   row-gap: 20px;
 }
-*/
 
+/*
 form {
   background-color: white;
   width: 20%;
@@ -29,15 +56,6 @@ form {
   flex-flow: column;
   border: 1px solid black;
 
-  h1 {
-    font-family: "billabong", sans-serif;
-    align-self: center;
-    font-size: 3em;
-  }
-
-  input {
-    height: $button_height;
-  }
 
   button {
     height: $button_height;
@@ -55,3 +73,5 @@ div {
   border: 1px solid black;
   padding: $padding;
 }
+
+ */

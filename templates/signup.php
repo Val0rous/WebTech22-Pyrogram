@@ -7,14 +7,22 @@
 <main>
     <form>
         <h1>Pyrogram</h1>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email"><br>
-        <label for="full_name">Full Name:</label><br>
-        <input type="text" id="full_name" name="full_name"><br>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
+        <div class="input-box">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+        </div>
+        <div class="input-box">
+            <label for="full_name">Full Name:</label><br>
+            <input type="text" id="full_name" name="full_name"><br>
+        </div>
+        <div class="input-box">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+        </div>
+        <div class="input-box">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+        </div>
         <button type="submit" value="signup">Sign Up</button>
     </form>
     <div>

@@ -1,6 +1,21 @@
 @media screen and (max-width: 768.99px) {
+  $button_width: 350px;
+  $button_height: 45px;
+
   form {
     display: flex;
-    align-self: center;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+
+    input {
+      width: $button_width;
+      height: $button_height;
+    }
+
+    button {
+      width: $button_width;
+      height: $button_height;
+    }
   }
 }

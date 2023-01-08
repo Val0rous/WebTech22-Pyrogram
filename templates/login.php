@@ -7,11 +7,15 @@
 <main>
     <form>
         <h1>Pyrogram</h1>
-        <label for="login">Username or email:</label><br>
-        <input type="text" id="login" name="login" placeholder="Username or email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <button type="submit" value="login">Log In</button><br>
+        <div class="input-box">
+            <label for="login">Username or email:</label><br>
+            <input type="text" id="login" name="login" placeholder=" "><br>
+        </div>
+        <div class="input-box">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+        </div>
+        <button type="submit" name="login" value="login">Log In</button><br>
         Have some trouble logging in?
         <a>Reset your password</a>
     </form>
