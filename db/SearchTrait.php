@@ -7,9 +7,9 @@ trait SearchTrait
     /**
      * Find a user in database.
      * @param string $id user id
-     * @return array query result
+     * @return array|null query result
      */
-    public function findUser(string $id): array
+    public function findUser(string $id): array|null
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
@@ -27,9 +27,9 @@ trait SearchTrait
      * ONLY USE in search box
      * DO NOT USE in any queries
      * @param string $search_string search string
-     * @return array associative array containing all matches
+     * @return array|null associative array containing all matches
      */
-    public function searchUser(string $search_string): array
+    public function searchUser(string $search_string): array|null
     {
         $search_string = strtolower($search_string);
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
@@ -70,7 +70,7 @@ trait SearchTrait
         $stmt->bind_param("s", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC)["user_password"];
+        return $result->fetch_assoc()["user_password"];
     }
 
     /**

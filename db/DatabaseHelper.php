@@ -47,7 +47,7 @@ class DatabaseHelper
      * @param string $id user id
      * @param bool $status true to activate, false to deactivate
      */
-    private function setUserActivityStatus($id, $status)
+    private function setUserActivityStatus(string $id, bool $status): void
     {
         if ($status === true) {
             // activate
@@ -69,7 +69,7 @@ class DatabaseHelper
      * @param string $id user id to check
      * @return bool true if user is active, false if it is inactive
      */
-    public function isUserActive($id)
+    public function isUserActive(string $id): bool
     {
         $query = "SELECT account_active_status 
                   FROM users 
@@ -90,7 +90,7 @@ class DatabaseHelper
      * @param string $id user ID to check
      * @return bool true if user ID is available, false if user ID is not available
      */
-    public function checkUserIDAvailability($id)
+    public function checkUserIDAvailability(string $id): bool
     {
         if ($this->isQueryResultEmpty($this->findUser($id))) {
             // available
@@ -106,7 +106,7 @@ class DatabaseHelper
      * @param mixed $query_result the query result to be checked
      * @return bool true if empty, false if not empty
      */
-    private function isQueryResultEmpty($query_result)
+    private function isQueryResultEmpty(mixed $query_result): bool
     {
         if ($query_result === null) {
             // empty
@@ -125,7 +125,7 @@ class DatabaseHelper
     {
         $query = "SELECT comment_id 
                   FROM comments 
-                  ORDER BY comment_id ASC";
+                  ORDER BY comment_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -136,11 +136,11 @@ class DatabaseHelper
      * Get first available message ID.
      * @return string first available message ID.
      */
-    private function getNextMessageID()
+    private function getNextMessageID(): string
     {
         $query = "SELECT message_id 
                   FROM messages 
-                  ORDER BY message_id ASC";
+                  ORDER BY message_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -151,11 +151,11 @@ class DatabaseHelper
      * Get first available notification ID.
      * @return string first available notification ID
      */
-    private function getNextNotificationID()
+    private function getNextNotificationID(): string
     {
         $query = "SELECT notification_id 
                   FROM notifications 
-                  ORDER BY notification_id ASC";
+                  ORDER BY notification_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -166,11 +166,11 @@ class DatabaseHelper
      * Get first available post ID.
      * @return string first available post ID
      */
-    private function getNextPostID()
+    private function getNextPostID(): string
     {
         $query = "SELECT post_id 
                   FROM posts 
-                  ORDER BY post_id ASC";
+                  ORDER BY post_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -181,11 +181,11 @@ class DatabaseHelper
      * Get first available reply ID.
      * @return string first available reply ID
      */
-    private function getNextReplyID()
+    private function getNextReplyID(): string
     {
         $query = "SELECT reply_id 
                   FROM replies 
-                  ORDER BY reply_id ASC";
+                  ORDER BY reply_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -196,11 +196,11 @@ class DatabaseHelper
      * Get first available story ID.
      * @return string first available story ID
      */
-    private function getNextStoryID()
+    private function getNextStoryID(): string
     {
         $query = "SELECT story_id 
                   FROM stories 
-                  ORDER BY story_id ASC";
+                  ORDER BY story_id";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -213,7 +213,7 @@ class DatabaseHelper
      * @param mixed $id name of the ID column
      * @return string first available ID
      */
-    private function getFirstAvailableID($list, $id)
+    private function getFirstAvailableID(mixed $list, mixed $id): string
     {
         if ($this->isQueryResultEmpty($list)) {
             // no comments
@@ -237,7 +237,7 @@ class DatabaseHelper
      * @param string $string string to pad
      * @return string padded string
      */
-    private function padString($string)
+    private function padString(string $string): string
     {
         return str_pad($string, 16, "0", STR_PAD_LEFT);
     }

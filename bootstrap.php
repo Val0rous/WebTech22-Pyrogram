@@ -1,7 +1,14 @@
 <?php
-//session_start();
+if (!session_id()) {
+    session_start();
+}
 require_once "db/DatabaseHelper.php";
 const UPLOAD_DIR = "db/media";
 //require_once("utils/functions.php");
-$dbh = new DatabaseHelper();
+/*
+if(!isset($_SESSION["db"])) {
+    $db = new DatabaseHelper();
+    $_SESSION["db"] = $db;
+}
+*/
 //echo $_SERVER['DOCUMENT_ROOT'];
