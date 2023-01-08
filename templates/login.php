@@ -5,11 +5,11 @@
     <title>Login&nbsp;&bull;&nbsp;Pyrogram</title>
 </head>
 <main>
-    <form>
+    <form action="../login_check.php" method="post">
         <h1>Pyrogram</h1>
         <div class="input-box">
-            <label for="login">Username or email:</label><br>
-            <input type="text" id="login" name="login" placeholder=" "><br>
+            <label for="username_email">Username or email:</label><br>
+            <input type="text" id="username_email" name="username_email"><br>
         </div>
         <div class="input-box">
             <label for="password">Password:</label><br>

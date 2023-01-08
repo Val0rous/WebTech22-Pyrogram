@@ -5,7 +5,7 @@
     <title>Sign&nbsp;up&nbsp;&bull;&nbsp;Pyrogram</title>
 </head>
 <main>
-    <form>
+    <form action="../signup_check.php" method="post">
         <h1>Pyrogram</h1>
         <div class="input-box">
             <label for="email">Email:</label><br>
