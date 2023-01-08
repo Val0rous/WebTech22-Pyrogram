@@ -24,6 +24,25 @@ final class DatabaseHelperTest extends TestCase
         $this->assertNotNull($this->db, "Connected to database");
     }
 
+    public function testQuicksort()
+    {
+        //$test = $this->db->qsort(array(2, 5, 1, 4, 3));
+        $this->assertEquals(
+            array(
+                array("time" => 5),
+                array("time" => 4),
+                array("time" => 3),
+                array("time" => 2),
+                array("time" => 1)),
+            $this->db->quick_sort(array(
+                array("time" => 2),
+                array("time" => 5),
+                array("time" => 1),
+                array("time" => 4),
+                array("time" => 3)),
+                "time", true
+            ));
+    }
 
 }
 
