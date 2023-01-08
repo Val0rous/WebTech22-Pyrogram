@@ -22,6 +22,23 @@ trait SearchTrait
     }
 
     /**
+     * Find a user in database by email.
+     * @param string $email user email
+     * @return array|null query result
+     */
+    public function findUserByEmail(string $email): array|null
+    {
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
+                  FROM users 
+                  WHERE user_email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    /**
      * Incrementally search for a user in database, including all partial matches.
      * A partial match is a string having the same id specified as argument plus any prefix or suffix.
      * ONLY USE in search box

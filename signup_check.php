@@ -1,7 +1,6 @@
 <?php
 require_once "db/DatabaseHelper.php";
 
-
 if (isset($_POST["email"]) and
     isset($_POST["full_name"]) and
     isset($_POST["username"]) and
