@@ -4,6 +4,7 @@ if (!session_id()) {
 }
 require_once "db/DatabaseHelper.php";
 const UPLOAD_DIR = "db/media";
+define("ROOT", getcwd());
 //require_once("utils/functions.php");
 /*
 if(!isset($_SESSION["db"])) {
