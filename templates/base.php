@@ -5,6 +5,7 @@
     <title>Pyrogram</title>
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="navigation">
