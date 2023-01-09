@@ -74,6 +74,27 @@ trait SearchTrait
     }
 
     /**
+     * Check whether a login with given user/email and password exists.
+     * @param string $user user id or user email
+     * @param string $password user password (login input)
+     * @return array|null query result
+     */
+    public function findLogin(string $user, string $password): array|null
+    {
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
+                  FROM users 
+                  WHERE user_id = ? 
+                  OR user_email = ? 
+                  AND user_password = ? 
+                  AND account_active_status = '1'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $user, $user, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    /**
      * Find password of a user in database.
      * @param string $id user id
      * @return string user password

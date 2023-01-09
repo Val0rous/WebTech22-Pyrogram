@@ -102,21 +102,6 @@ class DatabaseHelper
     }
 
     /**
-     * Check if login password is the same as user password.
-     * @param string $user user id
-     * @param string $password user password (login input)
-     * @return bool true if password is correct, false if it's not
-     */
-    public function checkPassword(string $user, string $password): bool
-    {
-        if ($this->findUserPassword($user) === $password) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Check if a query result is empty (contains no rows).
      * @param mixed $query_result the query result to be checked
      * @return bool true if empty, false if not empty
