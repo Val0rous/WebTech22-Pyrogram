@@ -33,13 +33,14 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("#login-form").submit(function(e) {
         e.preventDefault();
+
         $.ajax({
             type: "POST",
             url: "api_login.php",
             data: $(this).serialize()
         }).then(
             //resolve success callback
-            function(response) {
+            response => {
                 const jsonData = JSON.parse(response);
 
                 //user is logged in successfully in the back-end
@@ -55,26 +56,51 @@ $(document).ready(function() {
                 alert("There was some error!");
             }
         );
-        /*
-        const formData = {
 
-            //data: {
-            //    username_email: $("#username_email").val(),
-            //    password: $("#password").val()
-            //}
+        /*
+        $.post("api_login.php",
+            $(this).serialize()
+        ).then(
+            //resolve success callback
+            response => {
+                const jsonData = JSON.parse(response);
+
+                //user is logged in successfully in the back-end
+                //let's redirect
+                if (jsonData.success === 1) {
+                    location.href = "home.php";
+                } else {
+                    alert("Invalid Credentials!");
+                }
+            },
+            //reject/failure callback
+            function() {
+                alert("There was some error!");
+            }
+        );
+        */
+
+        //axios.post("api_login.php", formData).then(response => {
+        /*
+        axios({
+            method: "POST",
+            url: "api-login.php",
             data: $(this).serialize()
-        };
-        axios.post("api_login.php", formData).then(response => {
-            const jsonData = JSON.parse(response);
+        }).then(response => {
+            console.log(response);
+            //const jsonData = JSON.parse(response.data);
 
             //user is logged in successfully in the back-end
             //let's redirect
-            if (jsonData.success === 1) {
-                location.href = "home.php";
+            if (response.data.success === 1) {
+                location.href = "create.php";
             } else {
                 alert("Invalid Credentials!");
             }
+        }).catch(error => {
+            alert("There was some error!");
         })
         */
+
     });
 });
