@@ -17,7 +17,7 @@
         <div class="input-box">
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password">
-            <button type="button" class="show-password" onclick="">Show</button><br>
+            <button type="button" class="show-password">Show</button><br>
         </div>
         <button type="submit" name="login" value="login">Log In</button><br>
         Have some trouble logging in?

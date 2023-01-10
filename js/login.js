@@ -2,7 +2,8 @@
  * Toggle between show and hide password.
  */
 $(function() {
-    $("#login-form > div:nth-child(3) > button").click(function(e) {
+    //$("#login-form > div:nth-child(3) > button").click(function(e) {
+    $("button.show-password, button.hide-password").click(function(e) {
         const target = e.currentTarget;
         if ($(target).hasClass("show-password")) {
             showPassword($(target));
@@ -31,15 +32,6 @@ function hidePassword(e) {
     e.text("Show");
     $("#password").attr("type", "password");
 }
-/*
-$(document).ready(function() {
-    $("button.hide-password").click(function() {
-        $("#password").attr("type", "password");
-        $(this).classList.add("show-password");
-        $(this).classList.remove("hide-password");
-    })
-});
-*/
 
 /**
  * Set input box border color to red when a login fails.
@@ -52,8 +44,8 @@ function loginError(e) {
 /**
  * AJAX login check on submit button click.
  */
-$(function() {
-    $("#login-form").submit(function(e) {
+$(function () {
+    $("#login-form").submit(function (e) {
         e.preventDefault();
         //check if username is valid
         //check if email is valid
@@ -75,12 +67,13 @@ $(function() {
                 if (jsonData.success === 1) {
                     location.href = "home.php";
                 } else {
-                    alert("Invalid Credentials!");
+                    //alert("Invalid Credentials!");
+                    alert("Username/email or password not valid!");
                     loginError(e);
                 }
             },
             //reject/failure callback
-            function() {
+            function () {
                 alert("There was some error!");
             }
         );
