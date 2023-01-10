@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-require_once("DatabaseHelper.php");
+require_once("../db/DatabaseHelper.php");
 use PHPUnit\Framework\TestCase;
 
 final class DatabaseHelperTest extends TestCase
@@ -42,6 +42,12 @@ final class DatabaseHelperTest extends TestCase
                 array("time" => 3)),
                 "time", true
             ));
+    }
+
+    public function testFindLogin()
+    {
+        $this->assertNull($this->db->findLogin("hahaha", "hehehe"));
+        $this->assertNull($this->db->findLogin("", ""));
     }
 
 }

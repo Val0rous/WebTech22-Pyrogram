@@ -83,8 +83,8 @@ trait SearchTrait
     {
         $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
                   FROM users 
-                  WHERE user_id = ? 
-                  OR user_email = ? 
+                  WHERE (user_id = ? 
+                  OR user_email = ?) 
                   AND user_password = ? 
                   AND account_active_status = '1'";
         $stmt = $this->db->prepare($query);

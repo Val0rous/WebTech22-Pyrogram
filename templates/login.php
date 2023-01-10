@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/login_signup.css" />
+    <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/login.js" type="text/javascript"></script>
     <title>Login&nbsp;&bull;&nbsp;Pyrogram</title>
 </head>
 <main>
-    <form action="../login_check.php" method="post">
+    <form id="login-form" method="post"> <!--action="login_check.php"-->
         <h1>Pyrogram</h1>
         <div class="input-box">
             <label for="username_email">Username or email:</label><br>
@@ -14,7 +17,7 @@
         <div class="input-box">
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password">
-            <button type="button" onclick="">Show</button><br>
+            <button type="button" class="show-password" onclick="">Show</button><br>
         </div>
         <button type="submit" name="login" value="login">Log In</button><br>
         Have some trouble logging in?
