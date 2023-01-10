@@ -44,8 +44,8 @@ function loginError(e) {
 /**
  * AJAX login check on submit button click.
  */
-$(function () {
-    $("#login-form").submit(function (e) {
+$(function() {
+    $("#login-form").submit(function(e) {
         e.preventDefault();
         //check if username is valid
         //check if email is valid
@@ -73,54 +73,9 @@ $(function () {
                 }
             },
             //reject/failure callback
-            function () {
-                alert("There was some error!");
-            }
-        );
-
-        /*
-        $.post("api_login.php",
-            $(this).serialize()
-        ).then(
-            //resolve success callback
-            response => {
-                const jsonData = JSON.parse(response);
-
-                //user is logged in successfully in the back-end
-                //let's redirect
-                if (jsonData.success === 1) {
-                    location.href = "home.php";
-                } else {
-                    alert("Invalid Credentials!");
-                }
-            },
-            //reject/failure callback
             function() {
                 alert("There was some error!");
             }
         );
-        */
-
-        //axios.post("api_login.php", formData).then(response => {
-        /*
-        axios({
-            method: "POST",
-            url: "api-login.php",
-            data: $(this).serialize()
-        }).then(response => {
-            console.log(response);
-            //const jsonData = JSON.parse(response.data);
-
-            //user is logged in successfully in the back-end
-            //let's redirect
-            if (response.data.success === 1) {
-                location.href = "create.php";
-            } else {
-                alert("Invalid Credentials!");
-            }
-        }).catch(error => {
-            alert("There was some error!");
-        })
-        */
     });
 });
