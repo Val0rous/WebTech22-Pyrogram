@@ -1,4 +1,7 @@
-$(document).ready(function() {
+/**
+ * Toggle between show and hide password.
+ */
+$(function() {
     $("#login-form > div:nth-child(3) > button").click(function(e) {
         const target = e.currentTarget;
         if ($(target).hasClass("show-password")) {
@@ -9,12 +12,20 @@ $(document).ready(function() {
     })
 });
 
+/**
+ * Show password when button clicked.
+ * @param e target
+ */
 function showPassword(e) {
     e.removeClass("show-password").addClass("hide-password");
     e.text("Hide");
     $("#password").attr("type", "text");
 }
 
+/**
+ * Hide password when button clicked.
+ * @param e target
+ */
 function hidePassword(e) {
     e.removeClass("hide-password").addClass("show-password");
     e.text("Show");
@@ -30,9 +41,25 @@ $(document).ready(function() {
 });
 */
 
-$(document).ready(function() {
+/**
+ * Set input box border color to red when a login fails.
+ * @param e target
+ */
+function loginError(e) {
+    $(".input-box").addClass("error");
+}
+
+/**
+ * AJAX login check on submit button click.
+ */
+$(function() {
     $("#login-form").submit(function(e) {
         e.preventDefault();
+        //check if username is valid
+        //check if email is valid
+        //check if password is valid
+        //apply same checks to signup too, using a shared file.
+
 
         $.ajax({
             type: "POST",
@@ -49,6 +76,7 @@ $(document).ready(function() {
                     location.href = "home.php";
                 } else {
                     alert("Invalid Credentials!");
+                    loginError(e);
                 }
             },
             //reject/failure callback
@@ -101,6 +129,5 @@ $(document).ready(function() {
             alert("There was some error!");
         })
         */
-
     });
 });
