@@ -1,9 +1,9 @@
 /**
  * Toggle between show and hide password.
  */
-$(function() {
+$(function () {
     //$("#login-form > div:nth-child(3) > button").click(function(e) {
-    $("button.show-password, button.hide-password").click(function(e) {
+    $("button.show-password, button.hide-password").click(function (e) {
         const target = e.currentTarget;
         if ($(target).hasClass("show-password")) {
             showPassword($(target));
@@ -42,10 +42,59 @@ function loginError(e) {
 }
 
 /**
+ * Check if a username is formatted correctly.
+ * @param username
+ * @returns {boolean}
+ */
+function checkUsername(username) {
+    return /^[A-Za-z0-9._]*$/.test(username);
+}
+
+/**
+ * Check if an email address is formatted correctly.
+ * @param email
+ * @returns {boolean}
+ */
+function checkEmail(email) {
+    return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+/*
+$(function () {
+    $("#username_email").blur(function (e) {
+        if (!checkUsername(e.val()) ||
+            !checkEmail(e.val())) {
+            e.addClass("error");
+            alert("Invalid username")
+        } else {
+            e.removeClass("error");
+        }
+    })
+}
+*/
+
+/**
+ * Enable submit button when input fields are not empty anymore.
+ */
+$(function () {
+    $("#submitBtn").prop("disabled", true);
+    $("input").keyup(function () {
+        if ($("#username_email").val() &&
+            $("#password").val()/* &&
+            !$("#username_email").hasClass("error") &&
+            !$("#password").hasClass("error")*/) {
+            $("#submitBtn").prop("disabled", false);
+        } else {
+            $("#submitBtn").prop("disabled", true);
+        }
+    })
+})
+
+/**
  * AJAX login check on submit button click.
  */
-$(function() {
-    $("#login-form").submit(function(e) {
+$(function () {
+    $("#login-form").submit(function (e) {
         e.preventDefault();
         //check if username is valid
         //check if email is valid
@@ -68,12 +117,12 @@ $(function() {
                     location.href = "home.php";
                 } else {
                     //alert("Invalid Credentials!");
-                    alert("Username/email or password not valid!");
+                    alert("Username/Email or Password not valid!");
                     loginError(e);
                 }
             },
             //reject/failure callback
-            function() {
+            function () {
                 alert("There was some error!");
             }
         );

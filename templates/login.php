@@ -19,7 +19,7 @@
             <input type="password" id="password" name="password">
             <button type="button" class="show-password">Show</button><br>
         </div>
-        <button type="submit" name="login" value="login">Log In</button><br>
+        <button type="submit" id="submitBtn" name="login" value="login">Log In</button><br>
         Have some trouble logging in?
         <a>Reset your password</a>
     </form>
