@@ -2,10 +2,11 @@
   $button_width: 350px;
   $button_height: 45px;
 
+  /*
   form {
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    flex-flow: column wrap;
+    //align-items: center;
     width: 100%;
 
     input {
@@ -18,4 +19,5 @@
       height: $button_height;
     }
   }
+  */
 }

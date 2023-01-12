@@ -77,15 +77,15 @@ $(function () {
  * Enable submit button when input fields are not empty anymore.
  */
 $(function () {
-    $("#submitBtn").prop("disabled", true);
+    $("#submit-button").prop("disabled", true);
     $("input").keyup(function () {
         if ($("#username_email").val() &&
             $("#password").val()/* &&
             !$("#username_email").hasClass("error") &&
             !$("#password").hasClass("error")*/) {
-            $("#submitBtn").prop("disabled", false);
+            $("#submit-button").prop("disabled", false);
         } else {
-            $("#submitBtn").prop("disabled", true);
+            $("#submit-button").prop("disabled", true);
         }
     })
 })

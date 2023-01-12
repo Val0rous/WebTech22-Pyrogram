@@ -12,16 +12,17 @@
         <h1>Pyrogram</h1>
         <div class="input-box">
             <label for="username_email">Username or email:</label><br>
-            <input type="text" id="username_email" name="username_email"><br>
+            <input type="text" id="username_email" name="username_email" value=""><br>
         </div>
         <div class="input-box">
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" value="">
             <button type="button" class="show-password">Show</button><br>
         </div>
-        <button type="submit" id="submitBtn" name="login" value="login">Log In</button><br>
-        Have some trouble logging in?
-        <a>Reset your password</a>
+        <button type="submit" id="submit-button" name="login" value="login">Log In</button><br>
+        <div>
+            Have some trouble logging in?&nbsp;<a>Reset your password</a>
+        </div>
     </form>
     <div>
         Don't have an account?
