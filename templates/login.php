@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login&nbsp;&bull;&nbsp;Pyrogram</title>
     <link rel="stylesheet" type="text/css" href="css/login_signup.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
     <script src="js/login.js" type="text/javascript"></script>
-    <title>Login&nbsp;&bull;&nbsp;Pyrogram</title>
 </head>
 <main>
     <form id="login-form" method="post"> <!--action="login_check.php"-->
