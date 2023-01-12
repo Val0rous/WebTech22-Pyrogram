@@ -97,7 +97,8 @@ form {
     border: 2px solid #1a73e8;
   }
 
-  .input-box button.show-password {
+  .input-box button.show-password,
+  .input-box button.hide-password {
     background-color: transparent;
     color: #1a73e8;
     border: none;
