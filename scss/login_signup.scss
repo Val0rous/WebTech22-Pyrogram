@@ -13,26 +13,10 @@ body {
   background-color: #fafafa;
 }
 main {
-  //width: 100%;
-  display: flex;
-  flex-flow: column;
-  align-content: center;
   form {
-    border: 1px solid black;
-    padding: 0;
-
-    h1, div > input, button {
-      display: flex;
-      flex-flow: inherit;
-      align-self: center;
-      justify-content: center;
-    }
-
     h1 {
-      //width: $element_width;
       font-family: "billabong", sans-serif;
       text-align: center;
-      align-self: center;
       font-size: 3em;
     }
 
@@ -41,64 +25,19 @@ main {
     }
 
     .input-box input {
-      width: $element_width;
-      padding: 1.3rem 10px;
-      //padding: 10px;
+      height: 28px;
+      padding: 13px 15px;
 
-      font-size: 1rem;
-      letter-spacing: 0.062rem;
-      margin-bottom: 1.875rem;
       border: 1px solid #cccccc;
       background: transparent;
       border-radius: 4px;
     }
 
     .input-box label {
-      /*
-      padding: 10px;
-      pointer-events: none;
-      transition: 0.2s;
-      transition-timing-function: ease;
-      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-      opacity: 0.5;
-      background: white;
-      */
-      position: absolute;
-      top: 0.6em;
-      left: 10px;
-      padding: 0.625rem 0;
-      //padding: 10px;
-      //left: 0;
-      //top: 0;
-      //opacity: 0.5;
-
-      font-size: 1rem;
       color: gray;
       pointer-events: none;
       transition: 0.2s;
-      transition-timing-function: ease;
-      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
-
-    /*
-    //.input-box input:focus ~ label,
-    //.input-box input:valid ~ label,
-    //.input-box input:not([value=""]) ~ label {
-    .input-box input:focus,
-    .input-box input:valid,
-    .input-box input:not([value=""]) {
-      .input-box label {
-        top: -1.125rem;
-        left: 10px;
-        color: #1a73e8;
-        font-size: 0.75rem;
-        background-color: white;
-        height: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-    }
-    */
 
     .input-box input:focus {
       outline: none;
@@ -114,14 +53,8 @@ main {
       //right: 2.5%;
       right: 2rem;
       top: 31%;
+      cursor: pointer;
     }
-
-    /*
-    input:focus + label {
-      opacity: 1;
-      transform: scale(0.75) translateY(-70%) translateX(-14px);
-    }
-    */
 
     //button[type="submit"] {
     #submit-button {
@@ -137,6 +70,7 @@ main {
 
     #submit-button:disabled {
       background-color: #cccccc;
+      cursor: default;
     }
 
     //button[type="submit"]:hover {
@@ -144,13 +78,6 @@ main {
       background-color: #287ae6;
       box-shadow: 0 1px 1px 0 rgba(66, 133, 244, 0.45), 0 1px 3px 1px rgba(66, 133, 244, 0.3);
     }
-
-    /*
-    input:focus + label, input:not(placeholder-shown) + label {
-      opacity: 1;
-      transform: scale(0.75) translateY(-70%) translateX(-14px);
-    }
-    */
   }
 }
 

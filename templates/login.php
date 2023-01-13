@@ -12,12 +12,12 @@
     <form id="login-form" method="post"> <!--action="login_check.php"-->
         <h1>Pyrogram</h1>
         <div class="input-box">
+            <input type="text" id="username_email" name="username_email" required onkeyup="this.setAttribute('value', this.value);" value=""><br>
             <label for="username_email">Username or email:</label><br>
-            <input type="text" id="username_email" name="username_email" value=""><br>
         </div>
         <div class="input-box">
+            <input type="password" id="password" name="password" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" value="">
             <button type="button" class="show-password">Show</button><br>
         </div>
         <button type="submit" id="submit-button" name="login" value="login">Log In</button><br>

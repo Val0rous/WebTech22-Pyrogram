@@ -1,4 +1,4 @@
-@media screen and (max-width: 768.99px) {
+@media screen and (max-width: 600.99px) {
   $button_width: 350px;
   $button_height: 45px;
 
@@ -20,4 +20,16 @@
     }
   }
   */
+
+  form {
+    .input-box {
+      input {
+        width: 80%;
+      }
+    }
+
+    #submit-button {
+      width: 80%;
+    }
+  }
 }
