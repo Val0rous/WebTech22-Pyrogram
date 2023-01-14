@@ -1,82 +1,154 @@
 @use "login_signup_mobile";
 @use "login_signup_desktop";
 @import url("//fonts.cdnfonts.com/css/billabong");
-
-$padding: 20px;
-$button_color: #2b78e4;
-$button_height: 45px;
-$font_size: 1.15em;
-
-$element_width: 93%;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 body {
   background-color: #fafafa;
+  font-family: "Roboto", "Arial", sans-serif;
 }
-main {
-  form {
-    h1 {
-      font-family: "billabong", sans-serif;
-      text-align: center;
-      font-size: 3em;
-    }
+form {
+  h1 {
+    font-family: "billabong", sans-serif;
+    text-align: center;
+    font-size: 3em;
+  }
 
-    .input-box {
-      position: relative;
-    }
+  .input-box {
+    position: relative;
 
-    .input-box input {
-      height: 28px;
-      padding: 13px 15px;
-
-      border: 1px solid #cccccc;
-      background: transparent;
+    input {
+      /*padding:10px;*/
+      border: 2px solid #dadce0; /* was 1px solid #dadce0 */
+      text-align: left;
       border-radius: 4px;
-    }
-
-    .input-box label {
-      color: gray;
-      pointer-events: none;
-      transition: 0.2s;
-    }
-
-    .input-box input:focus {
-      outline: none;
-      border: 2px solid #1a73e8;
-    }
-
-    .input-box button.show-password,
-    .input-box button.hide-password {
+      color: #202124;
+      font: 1rem Arial sans-serif; /* 16px */
+      height: 28px;
+      margin: 1px 1px 0 1px;
+      padding: 11px 15px;
+      z-index: 1;
+      flex-grow: 1;
+      flex-shrink: 1;
       background-color: transparent;
-      color: #1a73e8;
-      border: none;
-      position: absolute;
-      //right: 2.5%;
-      right: 2rem;
-      top: 31%;
-      cursor: pointer;
-    }
-
-    //button[type="submit"] {
-    #submit-button {
-      width: 100%;
-      border: none;
+      display: block;
+      line-height: 24px;
+      min-width: 0%;
       outline: none;
-      color: white;
-      background-color: #1a73e8;
-      padding: 0.625rem 1.25rem;
-      cursor: pointer;
-      border-radius: 0.312rem;
+      writing-mode: horizontal-tb !important;
+      text-rendering: auto;
+      letter-spacing: normal;
+      word-spacing: normal;
+      text-transform: none;
+      text-indent: 0px;
+      text-shadow: none;
+      appearance: auto;
+      cursor: text;
+      white-space: normal;
+
+      &:focus, &:not(:placeholder-shown) {
+        border: 2px solid #1a73e8;
+      }
+
+      &:focus + label, &:not(:placeholder-shown) + label {
+        transform: scale(0.75) translateY(-39px);
+        color: #1a73e8;
+      }
     }
 
-    #submit-button:disabled {
-      background-color: #cccccc;
+    label {
+      background: #fff;
+      left: 8px;
+      bottom: 17px;
+      box-sizing: border-box;
+      color: #5f6368;
+      font: 400 1rem "Roboto", "Arial", sans-serif; /* 16px */
+      max-width: calc(100% - (2 * 8px));
+      overflow: hidden;
+      padding: 0 8px;
+      text-overflow: ellipsis;
+      transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      width: auto;
+      z-index: 1;
+      transform-origin: bottom left;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    button {
+      &.show-password,
+      &.hide-password {
+        background-color: transparent;
+        color: #1a73e8;
+        border: none;
+        position: absolute;
+        //right: 2.5%;
+        right: 2rem;
+        top: 31%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  //button[type="submit"] {
+  #submit-button {
+    height: 36px;
+    /*width: 79.172px;*/
+    /*width: 336px;*/
+    /*overflow: hidden;*/
+    border-radius: 4px;
+    --mdc-ripple-fg-size: 47px;
+    --mdc-ripple-fg-scale: 2.06324;
+    --mdc-ripple-fg-translate-start: 21.6719px, -10.4844px;
+    --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+    background-color: #1a73e8; /* hsl(214, 82%, 51%) */
+    color: white;
+    box-sizing: border-box;
+    letter-spacing: .0107142857em;
+    font: 500 0.875rem "Google Sans", "Roboto", "Arial", sans-serif;
+    text-transform: none;
+    transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+    --mdc-ripple-left: 0;
+    --mdc-ripple-top: 0;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    text-align: center;
+    min-width: 64px;
+    border: none;
+    outline: none;
+    -webkit-user-select: none;
+    -webkit-appearance: none;
+    overflow: visible;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+
+    &:disabled {
+      //background-color: #cccccc;
+      background-color: #dadce0;
       cursor: default;
     }
 
-    //button[type="submit"]:hover {
-    #submit-button:hover:enabled {
-      background-color: #287ae6;
-      box-shadow: 0 1px 1px 0 rgba(66, 133, 244, 0.45), 0 1px 3px 1px rgba(66, 133, 244, 0.3);
+    &:enabled {
+      &:hover {
+        background-color: #1b66ca;
+        transition: opacity 15ms linear, background-color 15ms linear;
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+      }
+
+      &:focus {
+        --mdc-ripple-fg-size: 47px;
+        --mdc-ripple-fg-scale: 2.06324;
+        --mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
+        --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        /*#202124*/
+        will-change: transform, opacity;
+        /*background-color: hsl(214, 82%, 40.8%);*/
+        background-color: #1c5fba;
+      }
     }
   }
 }

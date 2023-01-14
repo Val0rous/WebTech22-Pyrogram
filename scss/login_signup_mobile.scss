@@ -21,15 +21,66 @@
   }
   */
 
+
+}
+
+
+@media screen and (max-width: 600.99px) and (min-width: 450px) {
   form {
     .input-box {
       input {
-        width: 80%;
+        //width: 80%;
+        //width: 81.333%;
+        /*
+        width: 100%;
+        margin-left: 57px;
+        margin-right: 57px;
+        */
+        width: calc(100% - 112px);
       }
     }
 
     #submit-button {
-      width: 80%;
+      //width: 86.667%;
+      width: calc(100% - 76px);
+    }
+  }
+}
+
+@media screen and (max-width: 449.99px) and (min-width: 208px) {
+  form {
+    .input-box {
+      input {
+        /*
+        width: 100%;
+        margin-left: 41px;
+        margin-right: 41px;
+        */
+        width: calc(100% - 80px);
+      }
+    }
+
+    #submit-button {
+      width: calc(100% - 44px);
+    }
+  }
+}
+
+@media screen and (max-width: 207.99px) {
+  form {
+    .input-box {
+      input {
+        /*
+        width: 100%;
+        margin-left: 48.5px;
+        margin-right: 48.5px;
+        */
+        width: calc(100% - 95px);
+      }
+    }
+
+    #submit-button {
+      width: calc(100% - 59px);
     }
   }
 }
