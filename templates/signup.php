@@ -10,7 +10,7 @@
     <script src="js/signup.js" type="text/javascript"></script>
 </head>
 <main>
-    <form method="post">
+    <form id="signup-form" method="post">
         <h1>Pyrogram</h1>
         <div class="input-box">
             <input type="text" id="email" name="email" placeholder=" ">

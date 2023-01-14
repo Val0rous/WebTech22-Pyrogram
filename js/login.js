@@ -11,6 +11,7 @@ function loginError(e) {
 /**
  * Check if username/email is formatted correctly.
  */
+/*
 $(function () {
     $("#username_email").blur(function (e) {
         const target = e.currentTarget;
@@ -22,10 +23,12 @@ $(function () {
         }
     })
 })
+*/
 
 /**
  * Check if password is formatted correctly.
  */
+/*
 $(function () {
     $("#password").blur(function (e) {
         const target = e.currentTarget;
@@ -36,6 +39,7 @@ $(function () {
         }
     })
 })
+*/
 
 /**
  * Enable submit button when input fields are not empty anymore.

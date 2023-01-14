@@ -64,10 +64,23 @@ form {
         color: #1a73e8;
       }
 
-      &.invalid,
+      &.error, &.invalid {
+        border-color: #d93025;
+
+        &:focus + label, &:not(:placeholder-shown) + label {
+          color: #d93025;
+        }
+      }
+
+      /*
       &.error {
         border-color: #d93025;
+
+        &:focus + label, &:not(:placeholder-shown) + label {
+          color: #d93025;
+        }
       }
+      */
 
       /*
       &:not(:focus) + label {
