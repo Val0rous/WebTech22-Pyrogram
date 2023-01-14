@@ -7,6 +7,20 @@ body {
   background-color: #fafafa;
   font-family: "Roboto", "Arial", sans-serif;
 }
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  row-gap: 2rem;
+
+  a {
+    color: #1a73e8;
+    text-decoration: none;  //or unset?
+    font-weight: 500;
+  }
+}
+
 form {
   display: flex;
   flex-flow: column;
@@ -17,6 +31,10 @@ form {
     font-family: "billabong", sans-serif;
     text-align: center;
     font-size: 3em;
+    color: #010101;
+    //margin: 2rem 0;
+    //margin: 0 0 2rem 0;
+    margin: 0 0 calc(2rem - 0.875rem) 0;
   }
 
   .input-box {
@@ -57,7 +75,6 @@ form {
 
       &:focus + label, &:not(:placeholder-shown) + label {
         transform: scale(0.75) translateY(-39px);
-        //color: #1a73e8;
       }
 
       &:focus + label {
@@ -71,22 +88,6 @@ form {
           color: #d93025;
         }
       }
-
-      /*
-      &.error {
-        border-color: #d93025;
-
-        &:focus + label, &:not(:placeholder-shown) + label {
-          color: #d93025;
-        }
-      }
-      */
-
-      /*
-      &:not(:focus) + label {
-        color: #5f6368;
-      }
-      */
     }
 
     label {
@@ -112,16 +113,24 @@ form {
     button {
       &.show-password,
       &.hide-password {
-        font: 500  0.875rem "Roboto", "Arial", "sans-serif";
+        display: none;
+        //font: 500 0.875rem "Roboto", "Arial", "sans-serif";
+        font: 500 1rem "Roboto", "Arial", "sans-serif";
         background-color: transparent;
         color: #1a73e8;
         border: none;
         position: absolute;
         //right: 2.5%;
-        right: 2rem;
-        top: 31%;
+        //right: 2rem;
+        right: 8px;
+        //top: 31%;
+        bottom: 17px;
         cursor: pointer;
       }
+    }
+
+    .reset-password {
+      padding-bottom: 2rem;
     }
   }
 
@@ -136,7 +145,7 @@ form {
     --mdc-ripple-fg-scale: 2.06324;
     --mdc-ripple-fg-translate-start: 21.6719px, -10.4844px;
     --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
-    background-color: #1a73e8; /* hsl(214, 82%, 51%) */
+    background-color: #1a73e8;
     color: white;
     box-sizing: border-box;
     letter-spacing: .0107142857em;
@@ -160,7 +169,6 @@ form {
     position: relative;
 
     &:disabled {
-      //background-color: #cccccc;
       background-color: #dadce0;
       cursor: default;
     }
@@ -178,56 +186,19 @@ form {
         --mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
         --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        /*#202124*/
+        //#202124
         will-change: transform, opacity;
-        /*background-color: hsl(214, 82%, 40.8%);*/
         background-color: #1c5fba;
       }
     }
   }
 }
 
-/*
-main {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  row-gap: 20px;
+svg.invalid {
+  fill: #d93025;
 }
-*/
-
 
 /* Input and label become red when text inside input is not correctly formatted */
 .error {
   color: #d93025;
 }
-
-/*
-form {
-  background-color: white;
-  width: 20%;
-  padding: $padding;
-  display: flex;
-  flex-flow: column;
-  border: 1px solid black;
-
-
-  button {
-    height: $button_height;
-    background-color: $button_color;
-    color: white;
-    border: 1px solid $button_color;
-    border-radius: 5px;
-    font-size: $font_size;
-  }
-}
-
-div {
-  background-color: white;
-  width: 20%;
-  border: 1px solid black;
-  padding: $padding;
-}
-
-*/

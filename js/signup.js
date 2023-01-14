@@ -13,8 +13,8 @@ $(function () {
         } else {
             $(target).removeClass("invalid");
         }
-    })
-})
+    });
+});
 
 /**
  * Check if username is formatted correctly.
@@ -29,8 +29,8 @@ $(function () {
         } else {
             $(target).removeClass("invalid");
         }
-    })
-})
+    });
+});
 
 /**
  * Check if password is formatted correctly.
@@ -44,8 +44,8 @@ $(function () {
         } else {
             $(target).removeClass("invalid");
         }
-    })
-})
+    });
+});
 
 /**
  * Enable submit button when input fields are not empty anymore and are valid.
@@ -64,8 +64,8 @@ $(function () {
         } else {
             $("#submit-button").prop("disabled", true);
         }
-    })
-})
+    });
+});
 
 /**
  * AJAX signup check on submit button click.
@@ -94,6 +94,6 @@ $(function () {
             function () {
                 alert("There was some error!");
             }
-        )
-    })
-})
+        );
+    });
+});

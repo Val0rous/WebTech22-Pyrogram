@@ -10,7 +10,7 @@
     <script src="js/login.js" type="text/javascript"></script>
 </head>
 <main>
-    <form id="login-form" method="post"> <!--action="login_check.php"-->
+    <form id="login-form" class="container" method="post"> <!--action="login_check.php"-->
         <h1>Pyrogram</h1>
         <div class="input-box">
             <input type="text" id="username_email" name="username_email" placeholder=" ">
@@ -21,14 +21,13 @@
             <label for="password">Password</label>
             <button type="button" class="show-password">Show</button>
         </div>
-        <button type="submit" id="submit-button" name="login" value="login">Log In</button><br>
-        <div>
-            Have some trouble logging in?&nbsp;<a>Reset your password</a>
+        <button type="submit" id="submit-button" name="login" value="login" disabled>Log In</button>
+        <div class="reset-password">
+            Have some trouble logging in?&nbsp;<a href="#">Reset your password</a>
         </div>
     </form>
-    <div>
-        Don't have an account?
-        <a href="signup.php">Sign Up</a>
+    <div class="container">
+        Don't have an account?&nbsp;<a href="signup.php">Sign Up</a>
     </div>
 </main>
 </html>

@@ -55,8 +55,8 @@ $(function () {
         } else {
             $("#submit-button").prop("disabled", true);
         }
-    })
-})
+    });
+});
 
 /**
  * AJAX login check on submit button click.

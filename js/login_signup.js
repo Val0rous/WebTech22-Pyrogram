@@ -1,6 +1,22 @@
 "use strict";
 
 /**
+ * Show or hide password toggle visibility button.
+ */
+$(function () {
+    const button = $("button.show-password, button.hide-password");
+    button.hide();
+    $("#password").on("input", function (e) {
+        const target = e.currentTarget;
+        if ($(target).val()) {
+            button.show();
+        } else {
+            button.hide();
+        }
+    });
+});
+
+/**
  * Toggle between show and hide password.
  */
 $(function () {
@@ -12,7 +28,7 @@ $(function () {
         } else if ($(target).hasClass("hide-password")) {
             hidePassword($(target));
         }
-    })
+    });
 });
 
 /**
