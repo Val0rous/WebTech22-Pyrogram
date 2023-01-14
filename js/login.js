@@ -1,37 +1,4 @@
-/**
- * Toggle between show and hide password.
- */
-$(function () {
-    //$("#login-form > div:nth-child(3) > button").click(function(e) {
-    $("button.show-password, button.hide-password").click(function (e) {
-        const target = e.currentTarget;
-        if ($(target).hasClass("show-password")) {
-            showPassword($(target));
-        } else if ($(target).hasClass("hide-password")) {
-            hidePassword($(target));
-        }
-    })
-});
-
-/**
- * Show password when button clicked.
- * @param e target
- */
-function showPassword(e) {
-    e.removeClass("show-password").addClass("hide-password");
-    e.text("Hide");
-    $("#password").attr("type", "text");
-}
-
-/**
- * Hide password when button clicked.
- * @param e target
- */
-function hidePassword(e) {
-    e.removeClass("hide-password").addClass("show-password");
-    e.text("Show");
-    $("#password").attr("type", "password");
-}
+"use strict";
 
 /**
  * Set input box border color to red when a login fails.
@@ -42,36 +9,33 @@ function loginError(e) {
 }
 
 /**
- * Check if a username is formatted correctly.
- * @param username
- * @returns {boolean}
+ * Check if username/email is formatted correctly.
  */
-function checkUsername(username) {
-    return /^[A-Za-z0-9._]*$/.test(username);
-}
-
-/**
- * Check if an email address is formatted correctly.
- * @param email
- * @returns {boolean}
- */
-function checkEmail(email) {
-    return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-
-/*
 $(function () {
     $("#username_email").blur(function (e) {
-        if (!checkUsername(e.val()) ||
-            !checkEmail(e.val())) {
-            e.addClass("error");
-            alert("Invalid username")
+        const target = e.currentTarget;
+        if (!checkUsername($(target).val()) && !checkEmail($(target).val())) {
+            $(target).addClass("invalid");
+            //alert("Invalid username")
         } else {
-            e.removeClass("error");
+            $(target).removeClass("invalid");
         }
     })
-}
-*/
+})
+
+/**
+ * Check if password is formatted correctly.
+ */
+$(function () {
+    $("#password").blur(function (e) {
+        const target = e.currentTarget;
+        if (!checkPassword($(target).val())) {
+            $(target).addClass("invalid");
+        } else {
+            $(target).removeClass("invalid");
+        }
+    })
+})
 
 /**
  * Enable submit button when input fields are not empty anymore.
@@ -80,9 +44,9 @@ $(function () {
     $("#submit-button").prop("disabled", true);
     $("input").keyup(function () {
         if ($("#username_email").val() &&
-            $("#password").val()/* &&
-            !$("#username_email").hasClass("error") &&
-            !$("#password").hasClass("error")*/) {
+            $("#password").val() /*&&
+            !$("#username_email").hasClass("invalid") &&
+            !$("#password").hasClass("invalid")*/) {
             $("#submit-button").prop("disabled", false);
         } else {
             $("#submit-button").prop("disabled", true);

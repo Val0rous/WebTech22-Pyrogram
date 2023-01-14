@@ -8,6 +8,11 @@ body {
   font-family: "Roboto", "Arial", sans-serif;
 }
 form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  row-gap: 0.875rem;
+
   h1 {
     font-family: "billabong", sans-serif;
     text-align: center;
@@ -23,7 +28,7 @@ form {
       text-align: left;
       border-radius: 4px;
       color: #202124;
-      font: 1rem Arial sans-serif; /* 16px */
+      font: 1rem "Roboto", "Arial", sans-serif; /* 16px */
       height: 28px;
       margin: 1px 1px 0 1px;
       padding: 11px 15px;
@@ -59,6 +64,11 @@ form {
         color: #1a73e8;
       }
 
+      &.invalid,
+      &.error {
+        border-color: #d93025;
+      }
+
       /*
       &:not(:focus) + label {
         color: #5f6368;
@@ -89,6 +99,7 @@ form {
     button {
       &.show-password,
       &.hide-password {
+        font: 500  0.875rem "Roboto", "Arial", "sans-serif";
         background-color: transparent;
         color: #1a73e8;
         border: none;
