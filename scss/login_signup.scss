@@ -46,14 +46,24 @@ form {
       cursor: text;
       white-space: normal;
 
-      &:focus, &:not(:placeholder-shown) {
+      &:focus {
         border: 2px solid #1a73e8;
       }
 
       &:focus + label, &:not(:placeholder-shown) + label {
         transform: scale(0.75) translateY(-39px);
+        //color: #1a73e8;
+      }
+
+      &:focus + label {
         color: #1a73e8;
       }
+
+      /*
+      &:not(:focus) + label {
+        color: #5f6368;
+      }
+      */
     }
 
     label {
