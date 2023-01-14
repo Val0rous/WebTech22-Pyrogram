@@ -12,13 +12,13 @@
     <form id="login-form" method="post"> <!--action="login_check.php"-->
         <h1>Pyrogram</h1>
         <div class="input-box">
-            <label for="username_email">Username or email:</label><br>
-            <input type="text" id="username_email" name="username_email" value=""><br>
+            <input type="text" id="username_email" name="username_email" placeholder=" ">
+            <label for="username_email">Username or email:</label>
         </div>
         <div class="input-box">
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" value="">
-            <button type="button" class="show-password">Show</button><br>
+            <input type="password" id="password" name="password" placeholder=" ">
+            <label for="password">Password:</label>
+            <button type="button" class="show-password">Show</button>
         </div>
         <button type="submit" id="submit-button" name="login" value="login">Log In</button><br>
         <div>

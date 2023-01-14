@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /*@import url("https://fonts.googleapis.com/css?family=Roboto");*/
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+        div {
+            position:relative;
+        }
+
+        label {
+            background: #fff;
+            left: 8px;
+            bottom: 17px;
+            box-sizing: border-box;
+            color: #5f6368;
+            font: 400 1rem "Roboto", "Arial", sans-serif; /* 16px */
+            max-width: calc(100% - (2*8px));
+            overflow: hidden;
+            padding: 0 8px;
+            text-overflow: ellipsis;
+            transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            width: auto;
+            z-index: 1;
+            transform-origin: bottom left;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        input {
+            /*padding:10px;*/
+            border: 2px solid #dadce0; /* was 1px solid #dadce0 */
+            text-align: left;
+            border-radius: 4px;
+            color: #202124;
+            font: 1rem Arial sans-serif; /* 16px */
+            height: 28px;
+            width: 336px;
+            margin: 1px 1px 0 1px;
+            padding: 11px 15px;
+            z-index: 1;
+            flex-grow: 1;
+            flex-shrink: 1;
+            background-color: transparent;
+            display: block;
+            line-height: 24px;
+            min-width: 0%;
+            outline: none;
+            writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            appearance: auto;
+            cursor: text;
+            white-space: normal;
+        }
+
+        input:focus + label, input:not(:placeholder-shown) + label {
+            /*opacity:1;*/
+            /*transform: scale(0.75) translateY(-70%) translateX(-14px);*/
+            transform: scale(0.75) translateY(-39px);
+            color: #1a73e8;
+        }
+
+        input:focus {
+            border: 2px solid #1a73e8;
+        }
+
+        button {
+            height: 36px;
+            /*width: 79.172px;*/ /*width: 336px;*/
+            width: 372px;
+            /*overflow: hidden;*/
+            border-radius: 4px;
+            --mdc-ripple-fg-size: 47px;
+            --mdc-ripple-fg-scale: 2.06324;
+            --mdc-ripple-fg-translate-start: 21.6719px, -10.4844px;
+            --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+            background-color: #1a73e8; /* hsl(214, 82%, 51%) */
+            color: white;
+            box-sizing: border-box;
+            letter-spacing: .0107142857em;
+            font: 500 0.875rem "Google Sans", "Roboto", "Arial", sans-serif;
+            text-transform: none;
+            transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: none;
+            --mdc-ripple-left: 0;
+            --mdc-ripple-top: 0;
+            -webkit-font-smoothing: antialiased;
+            text-decoration: none;
+            text-align: center;
+            min-width: 64px;
+            border: none;
+            outline: none;
+            -webkit-user-select: none;
+            -webkit-appearance: none;
+            overflow: visible;
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+        }
+
+        button:hover {
+            /*background-color: #202124;*/
+            /*filter: brightness(80%);*/
+            /*background-color: hsl(214, 82%, 45.9%);*/
+            background-color: #1b66ca;
+            transition: opacity 15ms linear, background-color 15ms linear;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+        }
+
+        button:focus {
+            --mdc-ripple-fg-size: 47px;
+            --mdc-ripple-fg-scale: 2.06324;
+            --mdc-ripple-fg-translate-start: -13.3281px, 9.51563px;
+            --mdc-ripple-fg-translate-end: 16.0859px, -5.5px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            /*#202124*/
+            will-change: transform,opacity;
+            /*background-color: hsl(214, 82%, 40.8%);*/
+            background-color: #1c5fba;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>Pyrogram</div>
+        <div class="input-box">
+            <input placeholder=" ">
+            <label>Email or phone</label>
+        </div>
+        <button>Log In</button>
+    </form>
+</body>
+</html>
