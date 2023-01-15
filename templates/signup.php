@@ -40,7 +40,7 @@
                     </path>
                 </svg>
             </span>
-            Username can only contain letters, numbers, period and underscore
+            Username can contain letters, numbers, period and underscore
         </div>
         <div class="input-box">
             <input type="password" id="password" name="password" placeholder=" ">
@@ -54,7 +54,7 @@
                     </path>
                 </svg>
             </span>
-            Password must be at least 8 characters long and include both uppercase and lowercase letters, numbers, and symbols
+            Password must be at least 8 characters long
         </div>
         <button type="submit" id="submit-button" name="signup" value="signup" disabled>Sign Up</button>
     </form>
