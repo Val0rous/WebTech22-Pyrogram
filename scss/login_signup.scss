@@ -194,8 +194,25 @@ form {
   }
 }
 
-svg.invalid {
-  fill: #d93025;
+div.warning {
+  font-size: 12px;
+  line-height: normal;
+  display: flex;
+  align-self: flex-start;
+  color: #d93025;
+  margin: -10px 0 0 1px;
+  align-items: center;
+  span {
+    margin-right: 8px;
+    //margin-top: -2px;
+    svg.invalid {
+      display: block;
+      box-sizing: border-box;
+      fill: #d93025;
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 /* Input and label become red when text inside input is not correctly formatted */
