@@ -1,5 +1,5 @@
 <?php
-require_once "db/DatabaseHelper.php";
+require_once "../db/DatabaseHelper.php";
 
 if (isset($_POST["email"]) and
     isset($_POST["full_name"]) and
@@ -12,10 +12,12 @@ if (isset($_POST["email"]) and
         echo json_encode(array("success" => 0));
     }
     //var_dump($db);
+    /*
     echo "Created user ", $_POST["full_name"],
         "with username ", $_POST["username"],
         "and email ", $_POST["email"],
         ", and his password is ", $_POST["password"];
+    */
 } else {
     echo json_encode(array("success" => 0));
 }

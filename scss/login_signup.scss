@@ -53,7 +53,8 @@ form {
       z-index: 1;
       flex-grow: 1;
       flex-shrink: 1;
-      background-color: transparent;
+      //background-color: transparent;
+      background-color: white;
       display: block;
       line-height: 24px;
       min-width: 0%;
@@ -91,7 +92,8 @@ form {
     }
 
     label {
-      background: #fff;
+      background: white;
+      border-radius: 4px;
       left: 8px;
       bottom: 17px;
       box-sizing: border-box;
@@ -195,17 +197,22 @@ form {
 }
 
 div.warning {
-  font-size: 12px;
-  line-height: normal;
+  display: none;
+}
+
+div.invalid {
   display: flex;
   align-self: flex-start;
+  align-items: center;
   color: #d93025;
   margin: -10px 0 0 1px;
-  align-items: center;
-  //display: none; //it works yeeeeeeeah
-  span {
+  font-size: 12px;
+  line-height: normal;
+
+  span.invalid {
     margin-right: 8px;
     //margin-top: -2px;
+
     svg.invalid {
       display: block;
       box-sizing: border-box;

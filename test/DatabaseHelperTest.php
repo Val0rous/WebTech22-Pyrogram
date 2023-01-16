@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-require_once("../db/DatabaseHelper.php");
+require_once "../db/DatabaseHelper.php";
 use PHPUnit\Framework\TestCase;
 
 final class DatabaseHelperTest extends TestCase

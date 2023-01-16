@@ -72,7 +72,7 @@ $(function () {
 
         $.ajax({
             type: "POST",
-            url: "api_login.php",
+            url: "php/api_login.php",
             data: $(this).serialize()
         }).then(
             //resolve success callback

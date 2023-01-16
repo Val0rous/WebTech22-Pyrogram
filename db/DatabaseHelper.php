@@ -86,13 +86,30 @@ class DatabaseHelper
         }
     }
 
-    /** Check if a given user ID is available.
+    /**
+     * Check if a given user ID is available.
      * @param string $id user ID to check
      * @return bool true if user ID is available, false if user ID is not available
      */
     public function checkUserIDAvailability(string $id): bool
     {
         if ($this->isQueryResultEmpty($this->findUser($id))) {
+            // available
+            return true;
+        } else {
+            // not available
+            return false;
+        }
+    }
+
+    /**
+     * Check if a given user email is available.
+     * @param string $email user email to check
+     * @return bool true if user email is available, false if user email is not available
+     */
+    public function checkUserEmailAvailability(string $email): bool
+    {
+        if ($this->isQueryResultEmpty($this->findUserByEmail($email))) {
             // available
             return true;
         } else {

@@ -75,5 +75,5 @@ function checkEmail(email) {
  * @returns {boolean}
  */
 function checkPassword(password) {
-    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,128}$/.test(password);
+    return /^[A-Za-z0-9!#$%&()*+\-.:;=?@\[\]^_`~]*$/.test(password);
 }
