@@ -2,89 +2,63 @@
   $button_width: 350px;
   $button_height: 45px;
 
+  body {
+    background-color: white;
+    margin: 0;
+  }
+
+  main {
+  }
+
   form {
+    align-self: center;
     width: 100%;  //???
+
+    .input-box {
+      //width: calc(100% - 112px);
+      width: 100%;
+      display: flex;
+
+      input {
+        flex-grow: 1;
+      }
+    }
+
+    #submit-button {
+      width: 100%;
+      flex-grow: 1;
+    }
   }
 
-  /*
-  form {
+  div.container {
+    //position: fixed;
+    //bottom: 0;
     display: flex;
-    flex-flow: column wrap;
-    //align-items: center;
-    width: 100%;
-
-    input {
-      width: $button_width;
-      height: $button_height;
-    }
-
-    button {
-      width: $button_width;
-      height: $button_height;
-    }
+    align-items: center;
+    flex-flow: row;
+    white-space: nowrap;
   }
-  */
-
-
 }
 
 
 @media screen and (max-width: 600.99px) and (min-width: 450px) {
-  form {
-    .input-box {
-      input {
-        //width: 80%;
-        //width: 81.333%;
-        /*
-        width: 100%;
-        margin-left: 57px;
-        margin-right: 57px;
-        */
-        width: calc(100% - 112px);
-      }
-    }
+  main {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
-    #submit-button {
-      //width: 86.667%;
-      width: calc(100% - 76px);
-    }
+  form {
+    padding-top: 48px;
   }
 }
 
-@media screen and (max-width: 449.99px) and (min-width: 208px) {
-  form {
-    .input-box {
-      input {
-        /*
-        width: 100%;
-        margin-left: 41px;
-        margin-right: 41px;
-        */
-        width: calc(100% - 80px);
-      }
-    }
-
-    #submit-button {
-      width: calc(100% - 44px);
-    }
+@media screen and (max-width: 449.99px) {
+  main {
+    padding-left: 24px;
+    padding-right: 24px;
   }
-}
 
-@media screen and (max-width: 207.99px) {
   form {
-    .input-box {
-      input {
-        /*
-        width: 100%;
-        margin-left: 48.5px;
-        margin-right: 48.5px;
-        */
-        width: calc(100% - 95px);
-      }
-    }
-
-    #submit-button {
-      width: calc(100% - 59px);
-    }
+    padding-top: 24px;
   }
 }

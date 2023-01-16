@@ -46,9 +46,9 @@ $(function () {
  */
 $(function () {
     $("#submit-button").prop("disabled", true);
-    $("input").keyup(function () {
+    $("input").on("input", function () {
         if ($("#username_email").val() &&
-            $("#password").val() /*&&
+            $("#password").val().length >= 8 /*&&
             !$("#username_email").hasClass("invalid") &&
             !$("#password").hasClass("invalid")*/) {
             $("#submit-button").prop("disabled", false);

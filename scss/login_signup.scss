@@ -4,15 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 body {
-  background-color: #fafafa;
   font-family: "Roboto", "Arial", sans-serif;
 }
 
 main {
   display: flex;
   flex-flow: column;
-  align-items: center;
-  row-gap: 2rem;
 
   a {
     color: #1a73e8;
@@ -128,11 +125,12 @@ form {
         //top: 31%;
         bottom: 17px;
         cursor: pointer;
+        z-index: 1;
       }
     }
 
     .reset-password {
-      padding-bottom: 2rem;
+      //padding-bottom: 2rem;
     }
   }
 

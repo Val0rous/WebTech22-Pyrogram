@@ -78,7 +78,8 @@ $(function () {
         }
     }).blur(function (e) {
         const target = e.currentTarget;
-        if ($(target).val().length > 0) {
+        if ($(target).val().length > 0 &&
+            !$("#signup-form > div:nth-child(6)").hasClass("invalid")) {
             $.ajax ({
                 type: "POST",
                 url: "php/api_username.php",
@@ -135,22 +136,24 @@ $(function () {
         }
     }).blur(function (e) {
         const target = e.currentTarget;
-        if ($(target).val().length < 8 &&
-            $(target).val().length > 0) {
-            //$(target).addClass("invalid");
-            $("#signup-form > div:nth-child(8) > span.message").text("Password is too short");
-            $("#signup-form > div:nth-child(8)").addClass("invalid").show();
-            $(target).removeClass("valid");
-        } else if ($(target).val().length > 128) {
-            //$(target).addClass("invalid");
-            $("#signup-form > div:nth-child(8) > span.message").text("Password is too long");
-            $("#signup-form > div:nth-child(8)").addClass("invalid").show();
-            $(target).removeClass("valid");
-        } else {
-            //$(target).removeClass("invalid");
-            $("#signup-form > div:nth-child(8) > span.message").text("");
-            $("#signup-form > div:nth-child(8)").removeClass("invalid").hide();
-            $(target).addClass("valid");
+        if (!$("#signup-form > div:nth-child(8)").hasClass("invalid")) {
+            if ($(target).val().length < 8 &&
+                $(target).val().length > 0) {
+                //$(target).addClass("invalid");
+                $("#signup-form > div:nth-child(8) > span.message").text("Password is too short");
+                $("#signup-form > div:nth-child(8)").addClass("invalid").show();
+                $(target).removeClass("valid");
+            } else if ($(target).val().length > 128) {
+                //$(target).addClass("invalid");
+                $("#signup-form > div:nth-child(8) > span.message").text("Password is too long");
+                $("#signup-form > div:nth-child(8)").addClass("invalid").show();
+                $(target).removeClass("valid");
+            } else {
+                //$(target).removeClass("invalid");
+                $("#signup-form > div:nth-child(8) > span.message").text("");
+                $("#signup-form > div:nth-child(8)").removeClass("invalid").hide();
+                $(target).addClass("valid");
+            }
         }
     });
 });
