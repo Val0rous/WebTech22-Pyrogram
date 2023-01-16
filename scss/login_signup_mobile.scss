@@ -7,15 +7,11 @@
     margin: 0;
   }
 
-  main {
-  }
-
   form {
     align-self: center;
-    width: 100%;  //???
+    width: 100%;
 
     .input-box {
-      //width: calc(100% - 112px);
       width: 100%;
       display: flex;
 
@@ -31,14 +27,11 @@
   }
 
   div.container {
-    //position: fixed;
-    //bottom: 0;
     display: flex;
     align-self: center;
     flex-flow: row;
     white-space: nowrap;
     position: fixed;
-    //left: 25%;
     bottom: 24px;
   }
 }
