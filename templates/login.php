@@ -23,7 +23,7 @@
         </div>
         <button type="submit" id="submit-button" name="login" value="login" disabled>Log In</button>
         <div class="reset-password">
-            Have some trouble logging in?&nbsp;<a href="#">Reset your password</a>
+            <a href="#">Forgotten your password?</a>
         </div>
     </form>
     <div class="container">

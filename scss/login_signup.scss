@@ -32,6 +32,7 @@ form {
     //margin: 2rem 0;
     //margin: 0 0 2rem 0;
     margin: 0 0 calc(2rem - 0.875rem) 0;
+    pointer-events: none;
   }
 
   .input-box {
@@ -127,10 +128,6 @@ form {
         cursor: pointer;
         z-index: 1;
       }
-    }
-
-    .reset-password {
-      //padding-bottom: 2rem;
     }
   }
 
