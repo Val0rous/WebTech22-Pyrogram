@@ -12,7 +12,9 @@
     <!-- Post main: post content + media -->
     <main>
         <p><?=$post["content"]?></p>
-        <!-- media -->
+        <?php foreach($post["media"] as $media): ?>
+        <img src="<?=$media?>" alt="Post media"/>
+        <?php endforeach; ?>
     </main>
     <!-- Post section 1: num likes + like button -->
     <section>

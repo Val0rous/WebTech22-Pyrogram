@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyrogram</title>
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <?php if (isset($templateParams["css"])): ?>
+        <link rel="stylesheet" type="text/css" href="css/<?=$templateParams["css"]?>">
+    <?php endif; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -100,10 +103,9 @@
     <?php
     if (isset($templateParams["name"])) {
         require("templates/".$templateParams["name"]);
-    } /*else {
-        //TODO: fix this shit
-        //require("templates/index.php");
-    }*/
+    } else {
+        require("templates/home.php");
+    }
     ?>
         <!-- scroll down test -->
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
