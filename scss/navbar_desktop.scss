@@ -4,7 +4,12 @@
   $nav_width: 240px;
 
   .navbar-icon {
-    width: $icon_size;
+    width: 24px;
+    height: 24px;
+  }
+
+  .navbar-icon.selected {
+    display: none;
   }
 
   header, nav {
@@ -22,7 +27,6 @@
     background-color: white;
     width: $nav_width;
     position: fixed;
-    height: 100%;
     top: 0;
     left: 0;
     bottom: 0;
@@ -30,7 +34,8 @@
     display: flex;
     align-items: flex-start;
     flex-flow: column;
-    padding-left: 20px;
+    //padding-left: 20px;
+    padding: 8px 12px 20px 12px;
     row-gap: 10px;
 
     a {
@@ -41,7 +46,9 @@
       }
       span {
         display: inline-block;
-        margin-left: 10px;
+        //margin-left: 10px;
+        padding-left: 16px;
+        font-size: 16px;  //1rem
       }
     }
 
@@ -49,7 +56,9 @@
       order: 1;
       font-size: $logo-size;
       line-height: $logo-size;
-      margin: 30px 0;
+      //margin: 30px 0;
+      margin-bottom: 19px;
+      padding: 25px 12px 16px 12px;
     }
 
     .home {
@@ -74,6 +83,11 @@
 
     .profile {
       order: 7;
+      img.selected {
+        border: 2px solid rgb(38, 38, 38);
+        border-radius: 50%;
+        padding: 0;
+      }
     }
   }
 }
