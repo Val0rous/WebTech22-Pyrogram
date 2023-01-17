@@ -1,7 +1,34 @@
 article {
-    color: black;   // test
+    font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    color: blue;    // test
+article > header {
+    
+}
+
+article > header > img {
+    height: 30px;
+    border-radius: 100%;
+}
+
+article > header > div {
+    display: inline-block;
+    //font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+article > header > div > h2 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0 1px 0 0;
+}
+
+article > header > div > p {
+    font-size: 12px;
+    margin: 1px 0 0 0;
+}
+
+article > main > p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
 }

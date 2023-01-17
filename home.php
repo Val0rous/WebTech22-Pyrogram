@@ -12,7 +12,8 @@ $templateParams["profileImage"] = "";
 $templateParams["profileName"] = "ProfileName";
 
 //$templateParams["posts"] = $dbh->getRandomPosts(5, $templateParams["userID"]);        // test example
-$templateParams["posts"] = array(array("profileImage"=>"", "profileName"=>"Name",       // example
-        "date"=>"07/01/2023", "content"=>"Some text", "media"=>array(""), "numLikes"=>10, "numComments"=>5));
+$templateParams["posts"] = array(array("profileImage"=>"img/default_profile_pic.jpg",   // example
+        "profileName"=>"Name", "date"=>"07/01/2023", "content"=>"Some text", "media"=>array(""),
+        "numLikes"=>10, "numComments"=>5));
 
 require "templates/base.php";

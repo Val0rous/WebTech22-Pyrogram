@@ -12,7 +12,7 @@
     display: none;
   }
 
-  header {
+  body > header {
     background-color: white;
     height: $nav_height;
     position: fixed;
@@ -43,13 +43,13 @@
     }
   }
 
-  main {
+  body > main {
     display: flex;
     margin: $nav_height 0;
     justify-content: center;
   }
 
-  nav {
+  body > nav {
     background-color: white;
     height: $nav_height;
     position: fixed;

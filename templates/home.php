@@ -1,13 +1,16 @@
 <!-- In main -->
-<h2>Home<h2>
-<!-- TO COMPLETE -->
+<!-- <h2>Home<h2> -->
+<!-- to add stories -->
 <?php foreach($templateParams["posts"] as $post): ?>
 <article>
     <!-- Post header: user image + user name + post date -->
     <header>
-        <img src="<?=UPLOAD_DIR.$post["profileImage"]?>" alt="<?=$post["profileName"]?> profile image"/>
-        <p><?=$post["profileName"]?></p>
-        <p><?=$post["date"]?></p>
+                <!-- to add UPLOAD_DIR. -->
+        <img src="<?=$post["profileImage"]?>" alt="<?=$post["profileName"]?> profile image"/>
+        <div>
+            <h2><?=$post["profileName"]?></h2>
+            <p><?=$post["date"]?></p>
+        </div>
     </header>
     <!-- Post main: post content + media -->
     <main>

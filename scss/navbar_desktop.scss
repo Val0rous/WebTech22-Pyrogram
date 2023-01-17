@@ -12,11 +12,11 @@
     display: none;
   }
 
-  header, nav {
+  body > header, body > nav {
     display: contents;
   }
 
-  main {
+  body > main {
     display: flex;
     margin-left: $nav_width;
     align-items: flex-start;
