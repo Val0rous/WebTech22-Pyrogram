@@ -11,9 +11,12 @@ $templateParams["userID"] = 1;
 $templateParams["profileImage"] = "";
 $templateParams["profileName"] = "ProfileName";
 
+// to erase
+$text = "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore"; //et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
 //$templateParams["posts"] = $dbh->getRandomPosts(5, $templateParams["userID"]);        // test example
 $templateParams["posts"] = array(array("profileImage"=>"img/default_profile_pic.jpg",   // example
-        "profileName"=>"Name", "date"=>"07/01/2023", "content"=>"Some text", "media"=>array(""),
+        "profileName"=>"Name", "date"=>"07/01/2023", "content"=>$text, "media"=>array(""),
         "numLikes"=>10, "numComments"=>5));
 
 require "templates/base.php";
