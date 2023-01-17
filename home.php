@@ -3,7 +3,7 @@ require_once "bootstrap.php";
 
 // Params for the Base Template
 $templateParams["name"] = "home.php";
-$templateParams["css"] = "home_mobile.css";
+$templateParams["css"] = "home.css";
 
 // to be set in the sign in page
 $templateParams["logged"] = true;

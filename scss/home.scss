@@ -1,0 +1,11 @@
+@use "home_mobile";
+
+a.home {
+  .navbar-icon {
+    display: none;
+  }
+
+  .navbar-icon.selected {
+    display: block;
+  }
+}

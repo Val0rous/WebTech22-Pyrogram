@@ -1,0 +1,9 @@
+a.notifications {
+  .navbar-icon {
+    display: none;
+  }
+
+  .navbar-icon.selected {
+    display: block;
+  }
+}

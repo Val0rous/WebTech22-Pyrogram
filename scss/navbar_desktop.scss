@@ -1,24 +1,20 @@
 @media screen and (min-width: 768px) {
   $icon_size: 32px;
   $logo_size: 36px;
-  $nav_width: 240px;
+  $nav_width: 220px;
 
   .navbar-icon {
     width: 24px;
     height: 24px;
   }
 
-  .navbar-icon.selected {
-    display: none;
-  }
-
-  body > header, body > nav {
+  header, nav {
     display: contents;
   }
 
-  body > main {
+  main {
     display: flex;
-    margin-left: $nav_width;
+    margin-left: 245px;
     align-items: flex-start;
     justify-content: center;
   }

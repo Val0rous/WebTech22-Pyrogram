@@ -1,43 +1,45 @@
 article {
-    font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-article > header {
-    
-}
+  > header {
+    > img {
+      height: 30px;
+      border-radius: 100%;
+    }
 
-article > header > img {
-    height: 30px;
-    border-radius: 100%;
-}
+    > div {
+      display: inline-block;
+      //font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-article > header > div {
-    display: inline-block;
-    //font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+      > h2 {
+        font-size: 15px;
+        font-weight: normal;
+        margin: 0 1px 0 0;
+      }
 
-article > header > div > h2 {
-    font-size: 15px;
-    font-weight: normal;
-    margin: 0 1px 0 0;
-}
+      > p {
+        font-size: 12px;
+        margin: 1px 0 0 0;
+        color: gray;
+      }
+    }
 
-article > header > div > p {
-    font-size: 12px;
-    margin: 1px 0 0 0;
-    color: gray;
-}
 
-article > main > p {
+  }
+
+  > main > p {
     font-size: 14px;
-}
+  }
 
-article > section:first-of-type {
-    color: blue;
-    display: inline-block;
-}
+  > section {
+    &:first-of-type {
+      color: blue;
+      display: inline-block;
+    }
 
-article > section:nth-of-type(2) {
-    color: gray;
-    float: right;
+    &:nth-of-type(2) {
+      color: gray;
+      float: right;
+    }
+  }
 }
