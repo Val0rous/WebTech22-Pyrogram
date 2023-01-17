@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyrogram</title>
-    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -21,23 +21,23 @@
         <!-- Navigation bar -->
         <nav>
             <a class="home no-underline" href="home.php">
-                <img class="navbar-icon" src="img/home.png" alt="Home"/>
+                <img class="navbar-icon" src="img/home.png" alt="Home">
                 <span class="labels">Home</span>
             </a>
             <a class="search no-underline" href="search.php">
-                <img class="navbar-icon" src="img/search.png" alt="Search"/>
+                <img class="navbar-icon" src="img/search.png" alt="Search">
                 <span class="labels">Search</span>
             </a>
             <a class="create no-underline" href="create.php">
-                <img class="navbar-icon" src="img/create.png" alt="Create"/>
+                <img class="navbar-icon" src="img/create.png" alt="Create">
                 <span class="labels">Create</span>
             </a>
             <a class="notifications no-underline" href="notifications.php">
-                <img class="navbar-icon" src="img/notifications.png" alt="Notifications"/>
+                <img class="navbar-icon" src="img/notifications.png" alt="Notifications">
                 <span class="labels">Notifications</span>
             </a>
             <a class="profile no-underline" href="profile.php">
-                <img class="navbar-icon" src="img/profile.png" alt="Profile"/>
+                <img class="navbar-icon" src="img/profile.png" alt="Profile">
                 <span class="labels">Profile</span>
             </a>
         </nav>
@@ -54,12 +54,12 @@
         //require("templates/index.php");
     }*/
     ?>
-        <!-- scroll down test--->
+        <!-- scroll down test -->
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <!-- scroll down test--->
+        <!-- scroll down test -->
     </main>
 </body>
 </html>
