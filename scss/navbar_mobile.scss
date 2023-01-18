@@ -3,11 +3,6 @@
   $logo_size: 36px;
   $nav_height: 60px;
 
-  .navbar-icon {
-    width: $icon_size;
-    //display: inline-block; //has no effect
-  }
-
   .labels {
     display: none;
   }
@@ -26,7 +21,7 @@
     justify-content: space-between;
     padding: 0 5% 0 2.5%;
     box-sizing: border-box;
-    //z-index: 2;
+    z-index: 2;
 
     .logo {
       //display: flex;
@@ -45,13 +40,13 @@
 
   main {
     display: flex;
-    margin: $nav_height 0;
+    margin: 61px 0 49px 0;
     justify-content: center;
   }
 
   nav {
     background-color: white;
-    height: $nav_height;
+    height: 48px;
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -60,8 +55,9 @@
     border-top: 1px solid rgba(0, 0, 0, 0.0975);
     display: flex;
     align-items: center;
-    padding: 0 5%;
-    justify-content: space-between;
+    //padding: 0 5%;
+    justify-content: space-evenly;
     box-sizing: border-box;
+    z-index: 2;
   }
 }

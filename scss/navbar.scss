@@ -24,3 +24,23 @@ body {
 .navbar-icon.selected {
   display: none;
 }
+
+.navbar-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.navigation {
+  a {
+    height: 24px;
+    padding: 12px;
+  }
+
+  .profile {
+    img.selected {
+      border: 2px solid rgb(38, 38, 38);
+      border-radius: 50%;
+      margin: -2px;
+    }
+  }
+}

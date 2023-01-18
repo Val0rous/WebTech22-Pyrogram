@@ -3,11 +3,6 @@
   $logo_size: 36px;
   $nav_width: 220px;
 
-  .navbar-icon {
-    width: 24px;
-    height: 24px;
-  }
-
   header, nav {
     display: contents;
   }
@@ -32,11 +27,17 @@
     flex-flow: column;
     //padding-left: 20px;
     padding: 8px 12px 20px 12px;
-    row-gap: 10px;
+    //row-gap: 10px;
 
     a {
       display: flex;
       align-items: center;
+      width: 196px;
+
+      &:not(.logo) {
+        margin: 4px 0;
+      }
+
       img {
         display: inline-block;
       }
@@ -47,6 +48,7 @@
         font-size: 16px;  //1rem
       }
     }
+
 
     .logo {
       order: 1;
@@ -79,11 +81,6 @@
 
     .profile {
       order: 7;
-      img.selected {
-        border: 2px solid rgb(38, 38, 38);
-        border-radius: 50%;
-        padding: 0;
-      }
     }
   }
 }
