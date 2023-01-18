@@ -16,7 +16,7 @@
     <main>
         <p><?=$post["content"]?></p>
         <?php foreach ($post["media"] as $media): ?>
-        <img src="<?=$media?>" alt="Post media"/>
+        <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
         <?php endforeach; ?>
     </main>
     <!-- Post section 1: num likes + like button -->

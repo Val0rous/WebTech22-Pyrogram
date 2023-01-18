@@ -3,11 +3,11 @@
   $logo_size: 36px;
   $nav_width: 220px;
 
-  header, nav {
+  body > header, body > nav {
     display: contents;
   }
 
-  main {
+  body > main {
     display: flex;
     margin: 8px 8px 8px calc(245px + 8px);
     align-items: flex-start;

@@ -8,7 +8,7 @@
   }
 
   .navigation {
-    header {
+    body > header {
       background-color: white;
       height: $nav_height;
       position: fixed;
@@ -39,7 +39,7 @@
       }
     }
 
-    nav {
+    body > nav {
       background-color: white;
       height: 49px;
       position: fixed;
@@ -56,7 +56,7 @@
     }
   }
 
-  main {
+  body > main {
     display: flex;
     margin: 61px 8px 49px 8px;
     justify-content: center;
