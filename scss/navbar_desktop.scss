@@ -3,9 +3,6 @@
   $logo_size: 36px;
   $nav_width: 220px;
 
-  body > header, body > nav {
-    display: contents;
-  }
 
   body > main {
     display: flex;
@@ -28,6 +25,10 @@
     //padding-left: 20px;
     padding: 8px 12px 20px 12px;
     //row-gap: 10px;
+
+    header, nav {
+      display: contents;
+    }
 
     a {
       display: flex;
