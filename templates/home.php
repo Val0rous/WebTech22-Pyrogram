@@ -7,10 +7,7 @@
     <header>
                 <!-- to add UPLOAD_DIR. -->
         <img src="<?=$post["profileImage"]?>" alt="<?=$post["profileName"]?> profile image"/>
-        <div>
-            <h2><?=$post["profileName"]?></h2>
-            <p><?=$post["date"]?></p>
-        </div>
+        <div><h2><?=$post["profileName"]?></h2><p><?=$post["date"]?></p></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
