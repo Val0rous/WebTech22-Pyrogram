@@ -4,7 +4,7 @@ require_once "bootstrap.php";
 // Params for the Base Template
 $templateParams["name"] = "home.php";
 $templateParams["css"] = "home.css";
-$templateParams["js"] = "home.js";
+//$templateParams["js"] = "home.js";    //test purposes only
 
 // to be set in the sign in page
 $templateParams["logged"] = true;
