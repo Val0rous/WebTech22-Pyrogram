@@ -9,7 +9,7 @@
 
   main {
     display: flex;
-    margin-left: 245px;
+    margin: 8px 8px 8px calc(245px + 8px);
     align-items: flex-start;
     justify-content: center;
   }

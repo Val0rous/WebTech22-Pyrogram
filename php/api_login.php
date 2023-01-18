@@ -1,9 +1,6 @@
 <?php
 require_once "../db/DatabaseHelper.php";
 
-$_POST["username_email"] = "valent";
-$_POST["password"] = "password";
-
 if (isset($_POST["username_email"]) and isset($_POST["password"])) {
     $db = new DatabaseHelper();
     if (($user = $db->findLogin($_POST["username_email"], $_POST["password"])) !== null) {

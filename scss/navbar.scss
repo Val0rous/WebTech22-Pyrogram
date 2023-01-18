@@ -1,11 +1,14 @@
 @use "navbar_mobile";
 @use "navbar_desktop";
-@import url("https://fonts.googleapis.com/css?family=Sofia");
+//@import url("https://fonts.googleapis.com/css?family=Sofia");
 @import url("//fonts.cdnfonts.com/css/billabong");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 
 body {
   background-color: #fafafa;
   font-family: "Arial", sans-serif;
+  margin: 0;
 }
 
 .logo {
