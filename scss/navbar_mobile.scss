@@ -1,7 +1,7 @@
 @media screen and (max-width: 767.99px) {
   $icon_size: 24px;   //formerly 32px
   $logo_size: 36px;
-  $nav_height: 60px;
+  $nav_height: 61px;
 
   .labels {
     display: none;
@@ -20,14 +20,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5% 0 2.5%;
+      //padding: 0 5% 0 2.5%;
+      padding: 0 16px;
       box-sizing: border-box;
 
       .logo {
         //display: flex;
-        font-size: $logo_size;
+        //font-size: $logo_size;
         align-items: center;
-        line-height: $logo_size;
+        //line-height: $logo_size;
         //display: inline-block;
       }
 
@@ -40,7 +41,7 @@
 
     nav {
       background-color: white;
-      height: 48px;
+      height: 49px;
       position: fixed;
       width: 100%;
       bottom: 0;

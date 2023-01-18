@@ -12,6 +12,8 @@ body {
   //font-family: "Sofia", sans-serif; /* consider using Billabong instead */
   font-family: "billabong", sans-serif;
   font-weight: bold;
+  font-size: 31px;
+  line-height: 31px;
 }
 
 /* Remove underline from a link */
@@ -19,6 +21,7 @@ body {
   color: black;
   text-decoration: unset;
   /*text-decoration: none;*/
+  -webkit-tap-highlight-color: transparent;
 }
 
 .navbar-icon.selected {
@@ -31,7 +34,7 @@ body {
 }
 
 .navigation {
-  a {
+  a:not(.logo) {
     height: 24px;
     padding: 12px;
   }

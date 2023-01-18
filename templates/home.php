@@ -22,12 +22,12 @@
     <!-- Post section 1: num likes + like button -->
     <section>
         <p><?=$post["numLikes"]?></p>
-        <img src="<?=UPLOAD_DIR?>likeButton" alt="Like button"/>    <!-- to make it work using js -->
+        <img src="img/likes.png" alt="Like button"/>    <!-- to make it work using js -->
     </section>
     <!-- Post section 2: num comments + comment button -->
     <section>
         <p><?=$post["numComments"]?></p>
-        <img src="<?=UPLOAD_DIR?>commentButton" alt="Comment button"/>    <!-- to make it work using js -->
+        <img src="img/comments.png" alt="Comment button"/>    <!-- to make it work using js -->
     </section>
 </article>
 <?php endforeach; ?>
