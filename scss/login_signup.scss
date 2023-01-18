@@ -15,7 +15,7 @@ main {
     color: #1a73e8;
     text-decoration: none;  //or unset?
     font-weight: 500;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; //consider making it normal again to allow user to better see his taps
   }
 }
 
@@ -128,6 +128,7 @@ form {
         bottom: 17px;
         cursor: pointer;
         z-index: 1;
+        -webkit-tap-highlight-color: transparent;
       }
     }
   }
