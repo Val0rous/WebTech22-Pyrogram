@@ -3,12 +3,29 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyrogram</title>
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <?php if (isset($templateParams["css"])): ?>
-        <link rel="stylesheet" type="text/css" href="css/<?=$templateParams["css"]?>">
+        <?php if (!is_array($templateParams["css"])): ?>
+            <link rel="stylesheet" type="text/css" href="css/<?=$templateParams["css"]?>">
+        <?php else: ?>
+            <?php foreach ($templateParams["css"] as $css): ?>
+                <link rel="stylesheet" type="text/css" href="css/<?=$css?>">
+            <?php endforeach; ?>
+        <?php endif; ?>
     <?php endif; ?>
+    <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+    <?php if (isset($templateParams["js"])): ?>
+    <?php if (!is_array($templateParams["js"])): ?>
+            <script src="js/<?=$templateParams["js"]?>"></script>
+        <?php else: ?>
+            <?php foreach ($templateParams["js"] as $js): ?>
+                <script src="js/<?=$js?>"></script>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endif; ?>
 </head>
 <body>
     <div class="navigation">

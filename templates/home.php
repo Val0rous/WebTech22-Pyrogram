@@ -1,7 +1,7 @@
 <!-- In main -->
 <!-- <h2>Home<h2> -->
 <!-- to add stories -->
-<?php foreach($templateParams["posts"] as $post): ?>
+<?php foreach ($templateParams["posts"] as $post): ?>
 <article>
     <!-- Post header: user image + user name + post date -->
     <header>
@@ -15,7 +15,7 @@
     <!-- Post main: post content + media -->
     <main>
         <p><?=$post["content"]?></p>
-        <?php foreach($post["media"] as $media): ?>
+        <?php foreach ($post["media"] as $media): ?>
         <img src="<?=$media?>" alt="Post media"/>
         <?php endforeach; ?>
     </main>
