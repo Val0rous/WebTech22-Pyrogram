@@ -18,6 +18,10 @@ $text = "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod t
 //$templateParams["posts"] = $dbh->getRandomPosts(5, $templateParams["userID"]);        // test example
 $templateParams["posts"] = array(array("profileImage"=>"img/default_profile_pic.jpg",   // example
         "profileName"=>"Name", "date"=>"07/01/2023", "content"=>$text, "media"=>array("img/08.png"),
-        "numLikes"=>10, "numComments"=>5));
+        "numLikes"=>10, "numComments"=>5),
+        array("profileImage"=>"img/default_profile_pic.jpg",
+        "profileName"=>"Name2", "date"=>"08/01/2023", "content"=>$text, "media"=>array("img/10.png"),
+        "numLikes"=>123, "numComments"=>45)
+);
 
 require "templates/base.php";
