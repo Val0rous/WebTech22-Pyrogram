@@ -1,5 +1,4 @@
-@use "home_mobile";
-
+// navbar update
 a.home {
   .navbar-icon {
     display: none;
@@ -9,3 +8,104 @@ a.home {
     display: block;
   }
 }
+
+$storiesHeight: 0; //15%;
+$buttonDim: 24px;
+
+// base css
+main > article {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 5% 0%;
+  border: 2px solid black;
+  padding: 1%;
+
+  &:first-of-type {
+    margin-top: $storiesHeight;
+  }
+
+  > header {
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+    > img {
+      width: 32px;
+      border-radius: 100%;
+      margin-right: 0.5%;
+    }
+
+    > div {
+      display: inline-block;
+
+      > h2 {
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 1px;
+      }
+
+      > p {
+        font-size: 12px;
+        color: gray;
+        margin-top: 1px;
+      }
+    }
+  }
+
+  > main {
+    margin-bottom: 1%;
+
+    > p {
+      font-size: 14px;
+      text-align: justify;
+      margin-bottom: 1%;
+    }
+
+    > img {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  > section {
+    &:first-of-type {
+      > p {
+        display: inline;
+        font-size: 14px;
+
+        &:first-of-type {
+          color: blue;
+        }
+        &:nth-of-type(2) {
+          color: gray;
+          float: right;
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      > img {
+        max-width: 50%;
+        max-height: $buttonDim;
+        border-radius: 5%;
+        padding: 2% calc(25% - $buttonDim/2 - 1px);
+
+        &:first-of-type {
+          background-color: #1a73e8;
+        }
+
+        &:nth-of-type(2) {
+          background-color: #ECEAEA;
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+article h2, article p {
+  padding: 0;
+  margin: 0;
+}
+
+// desktop media query
+@import "home_desktop_mq";
