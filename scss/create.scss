@@ -1,3 +1,5 @@
+@use "create_mobile";
+
 a.create {
   .navbar-icon {
     display: none;
@@ -6,4 +8,13 @@ a.create {
   .navbar-icon.selected {
     display: block;
   }
+}
+
+svg.close {
+  width: 24px;  //18px
+  height: 24px; //18px
+}
+
+h1 {
+  font-size: 24px;
 }

@@ -1,0 +1,49 @@
+@media screen and (max-width: 767.99px) {
+  .navigation header {
+    display: none;
+  }
+
+  .overlay {
+    header {
+      background-color: white;
+      height: 61px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      //padding: 0 16px;
+      box-sizing: border-box;
+
+      svg.close {
+        //padding: 12px;
+        padding: 18px;
+      }
+
+      h1 {
+        padding: 0 6px;
+      }
+    }
+  }
+
+  article {
+    width: 100%;
+    > header {
+      > img {
+        width: 32px;
+        height: 32px;
+        padding: 5px;
+      }
+    }
+  }
+
+  > main {
+    > input {
+      width: 100%;
+    }
+  }
+}

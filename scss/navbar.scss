@@ -22,7 +22,7 @@ body {
 /* Remove underline from a link */
 .no-underline {
   color: black;
-  text-decoration: unset;
+  text-decoration: none;  //or unset?
   /*text-decoration: none;*/
   -webkit-tap-highlight-color: transparent;
 }

@@ -32,7 +32,7 @@ trait CreateTrait
      * @param array|null $media_path_array list of media paths (if any)
      * @return void
      */
-    public function createPost(string $content, string $user, array $media_path_array = null): void
+    public function createPost(string $content, string $user, array $media_path_array = null, string $location = null): void
     {
         $size = count($media_path_array);
         if ($size <= 10) {
@@ -42,15 +42,15 @@ trait CreateTrait
                     $media_path_array[$i] = null;
                 }
             }
-            $query = "INSERT INTO posts (post_id, content, media_path0, media_path1, media_path2, media_path3, media_path4, media_path5, media_path6, media_path7, media_path8, media_path9, post_time, num_likes, num_comments, num_tags, user_id) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, 0, ?)";
+            $query = "INSERT INTO posts (post_id, content, media_path0, media_path1, media_path2, media_path3, media_path4, media_path5, media_path6, media_path7, media_path8, media_path9, location, post_time, num_likes, num_comments, num_tags, user_id) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, 0, ?)";
             $stmt = $this->db->prepare($query);
             $next_post_id = $this->getNextPostID();
-            $stmt->bind_param("sssssssssssss", $next_post_id, $content,
+            $stmt->bind_param("ssssssssssssss", $next_post_id, $content,
                     $media_path_array[0], $media_path_array[1], $media_path_array[2],
                     $media_path_array[3], $media_path_array[4], $media_path_array[5],
                     $media_path_array[6], $media_path_array[7], $media_path_array[8],
-                    $media_path_array[9], $user);
+                    $media_path_array[9], $location, $user);
             $stmt->execute();
             $this->incNumPosts($user);
         }
