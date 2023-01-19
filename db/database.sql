@@ -60,6 +60,7 @@ CREATE TABLE posts (
      media_path7 text,
      media_path8 text,
      media_path9 text,
+     location varchar(64),
      post_time datetime NOT NULL,
      num_likes int NOT NULL,
      num_comments int NOT NULL,
