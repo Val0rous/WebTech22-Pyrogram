@@ -1,2 +1,2 @@
 <!-- In main -->
-<h2>Messages<h2>
+<h1>Messages</h1>

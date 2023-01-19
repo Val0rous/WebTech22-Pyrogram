@@ -1,2 +1,2 @@
 <!-- In main -->
-<h2>Notifications<h2>
+<h1>Notifications</h1>
