@@ -3,7 +3,7 @@ require_once "../bootstrap.php";
 
 if(isset($_POST["post"])) {
     $db = new DatabaseHelper();
-    $result = $db->createPost($_POST["post_content"]);
+    $result = $db->createPost($_POST["post_content"], $_SESSION["user"]["user_id"]);
     if ($result) {
         //post created successfully
         echo json_encode(array("success" => 1));
