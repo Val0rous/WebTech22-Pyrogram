@@ -6,8 +6,8 @@
     <!-- Post header: user image + user name + post date -->
     <header>
                 <!-- to add UPLOAD_DIR. -->
-        <img src="<?=$post["profileImage"]?>" alt="<?=$post["profileName"]?>'s profile image"/>
-        <div><h2><?=$post["profileName"]?></h2><p><?=$post["date"]?></p></div>
+        <img src="<?=$post["user_image"]?>" alt="<?=$post["user_name"]?>'s user image"/>
+        <div><h2><?=$post["user_name"]?></h2><p><?=$post["date"]?></p></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
@@ -18,8 +18,8 @@
     </main>
     <!-- Post section 1: num likes + num comments -->
     <section>
-        <p><?=$post["numLikes"]?> likes</p>
-        <p><?=$post["numComments"]?> comments</p>
+        <p><?=$post["num_likes"]?> likes</p>
+        <p><?=$post["num_comments"]?> comments</p>
     </section>
     <!-- Post section 2: like button + comment button -->
     <section>
@@ -28,10 +28,3 @@
     </section>
 </article>
 <?php endforeach; ?>
-
-<!-- scroll down test -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!-- scroll down test -->
