@@ -36,14 +36,14 @@ main > article {
     > div {
       display: inline-block;
 
-      > h2 {
-        font-size: 16px;
+      > h1 {
+        font-size: 100%;
         font-weight: normal;
         margin-bottom: 1px;
       }
 
       > p {
-        font-size: 12px;
+        font-size: 75%;
         color: gray;
         margin-top: 1px;
       }
@@ -54,7 +54,7 @@ main > article {
     margin-bottom: 1%;
 
     > p {
-      font-size: 14px;
+      font-size: 85%;
       text-align: justify;
       margin-bottom: 1%;
     }
@@ -70,7 +70,7 @@ main > article {
     &:first-of-type {
       > p {
         display: inline;
-        font-size: 14px;
+        font-size: 85%;
 
         &:first-of-type {
           color: blue;
@@ -102,7 +102,7 @@ main > article {
   }
 }
 
-article h2, article p {
+article h1, article p {
   padding: 0;
   margin: 0;
 }

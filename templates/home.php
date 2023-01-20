@@ -1,5 +1,4 @@
 <!-- In main -->
-<!-- <h1>Home</h1> -->
 <!-- to add stories -->
 <?php foreach ($templateParams["posts"] as $post): ?>
 <article>
@@ -7,7 +6,7 @@
     <header>
                 <!-- to add UPLOAD_DIR. -->
         <img src="<?=$post["user_image"]?>" alt="<?=$post["user_name"]?>'s user image"/>
-        <div><h2><?=$post["user_name"]?></h2><p><?=$post["date"]?></p></div>
+        <div><h1><?=$post["user_name"]?></h1><p><?=$post["date"]?></p></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
