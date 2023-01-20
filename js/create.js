@@ -1,7 +1,7 @@
 $(function () {
     $("#submit-button").prop("disabled", true);
-    $("article > main > input").on("input", function () {
-        if ($("article > main > input").val()) {
+    $("#post_content").on("input", function () {
+        if ($("#post_content").val()) {
             $("#submit-button").prop("disabled", false);
         } else {
             $("#submit-button").prop("disabled", true);
@@ -16,7 +16,7 @@ $(function() {
         $.ajax({
             type: "POST",
             url: "php/api_create.php",
-            data: $("article > main > input").serialize()
+            data: $("#post_content").serialize()
         }).then(
             //resolve success callback
             response => {

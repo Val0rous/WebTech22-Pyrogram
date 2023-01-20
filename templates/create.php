@@ -10,15 +10,13 @@
     </header>
 </div>
 
-<article>
+<form>
     <header>
         <img src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
         <span>User name</span>
     </header>
-    <main>
-        <input type="text" id="post_content" name="post_content" placeholder="What's on your mind?">
-        <label for="post_content"></label>
-    </main>
+    <input type="text" id="post_content" name="post_content" placeholder="What's on your mind?">
+    <label for="post_content"></label>
     <section></section>
     <button type="submit" id="submit-button" name="create_post" value="create_post" disabled>Post</button>
-</article>
+</form>
