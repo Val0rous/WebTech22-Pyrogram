@@ -7,3 +7,54 @@ a.notifications {
     display: block;
   }
 }
+
+main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  > h1 {
+    font-size: 150%;
+    text-align: center;
+    padding: 0;
+    margin: 2% 0;
+  }
+
+  > section {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    > section {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      margin: 0 1%;
+
+      > img {
+        max-width: 75%;
+        max-height: 75%;
+
+        &:first-of-type {
+          border-radius: 100%;
+          margin-right: 1%;
+        }
+
+        &:nth-of-type(2) {
+          margin-left: auto;
+        }
+      }
+
+      > p {
+        font-size: 100%;
+        vertical-align: middle;
+
+        > strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// desktop media query
+@import "notifications_desktop_mq";
