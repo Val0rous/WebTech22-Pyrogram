@@ -1,5 +1,11 @@
 <?php
+/*
 require_once "../db/DatabaseHelper.php";
+if (!session_id()) {
+    session_start();
+}
+*/
+require_once "../bootstrap.php";
 
 if (isset($_POST["username_email"]) and isset($_POST["password"])) {
     $db = new DatabaseHelper();

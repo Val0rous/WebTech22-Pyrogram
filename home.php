@@ -24,4 +24,8 @@ $templateParams["posts"] = array(array("profileImage"=>"img/default_profile_pic.
         "numLikes"=>123, "numComments"=>45)
 );
 
+//test purposes, TODO: implement it better later on
+$db = new DatabaseHelper();
+array_push($templateParams, $db->fetchPosts($_SESSION["user"]["user_id"]));
+
 require "templates/base.php";

@@ -30,9 +30,9 @@ trait CreateTrait
      * @param string $content text of post
      * @param string $user user id
      * @param array|null $media_path_array list of media paths (if any)
-     * @return void
+     * @return bool
      */
-    public function createPost(string $content, string $user, array $media_path_array = null, string $location = null): void
+    public function createPost(string $content, string $user, array $media_path_array = null, string $location = null): bool
     {
         $size = count($media_path_array);
         if ($size <= 10) {
@@ -51,9 +51,13 @@ trait CreateTrait
                     $media_path_array[3], $media_path_array[4], $media_path_array[5],
                     $media_path_array[6], $media_path_array[7], $media_path_array[8],
                     $media_path_array[9], $location, $user);
-            $stmt->execute();
-            $this->incNumPosts($user);
+            $result = $stmt->execute();
+            if ($result) {
+                $this->incNumPosts($user);
+            }
+            return $result;
         }
+        return false;
     }
 
     /**
