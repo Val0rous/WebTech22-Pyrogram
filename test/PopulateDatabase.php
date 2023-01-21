@@ -127,11 +127,11 @@ final class PopulateDatabase extends TestCase
 
     public function testPosts()
     {
-        $this->assertTrue($this->db->createPost($this->content, "valent", $this->images, "Forlì"));
-        $this->assertTrue($this->db->createPost($this->content, "fede", $this->images, "Ravenna"));
-        $this->assertTrue($this->db->createPost($this->content, "val_orosa", $this->images, "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "chuffo", $this->images, "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "euro", $this->images, "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "valent", array("db/media/posts/grand_canyon.jpg"), "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "fede", array("db/media/posts/mars.jpg"), "Ravenna"));
+        $this->assertTrue($this->db->createPost($this->content, "val_orosa", array("db/media/posts/jupiter.webp"), "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "chuffo", array("db/media/posts/fireworks.jpeg"), "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "euro", array("db/media/posts/shrek.png"), "Forlì"));
         $this->assertTrue($this->db->createPost($this->content, "valent", $this->images, "Forlì"));
         $this->assertTrue($this->db->createPost($this->content, "fede", $this->images, "Ravenna"));
         $this->assertTrue($this->db->createPost($this->content, "val_orosa", $this->images, "Milano"));
