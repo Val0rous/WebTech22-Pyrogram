@@ -237,9 +237,9 @@ class DatabaseHelper
             return $this->padString(strval(0));
         } else {
             // run through list to find first available comment ID
-            $num_rows = $list->fetch_all(MYSQLI_ASSOC);
+            $num_rows = $list->num_rows;
             $index = 0;
-            while ($index < $list->num_rows) {
+            while ($index < $num_rows) {
                 if (intval($list->fetch_assoc()[$id]) > $index) {
                     return $this->padString(strval($index));
                 }

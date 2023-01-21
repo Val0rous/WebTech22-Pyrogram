@@ -12,6 +12,9 @@ $(function () {
     });
 });
 
+/**
+ * AJAX create post on submit button click.
+ */
 $(function() {
     $("#create-form").submit(function (e) {
         e.preventDefault();
@@ -19,9 +22,7 @@ $(function() {
         $.ajax({
             type: "POST",
             url: "php/api_create.php",
-            data: {
-                post_content: $("#post_content").val()
-            }
+            data: $(this).serialize()
         }).then(
             //resolve success callback
             response => {

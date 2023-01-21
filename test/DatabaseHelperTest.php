@@ -50,6 +50,11 @@ final class DatabaseHelperTest extends TestCase
         $this->assertNull($this->db->findLogin("", ""));
     }
 
+    public function testCreatePost()
+    {
+        $this->assertTrue($this->db->createPost("iewuohrogunveufg", "valent"));
+    }
+
 }
 
 //$test = new DatabaseHelper();
