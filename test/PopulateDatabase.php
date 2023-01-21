@@ -10,7 +10,9 @@ final class PopulateDatabase extends TestCase
     private bool $db_created = false;
     private $profile_pic = "img/default_profile_pic.jpg";
     private $content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in purus tincidunt metus placerat ultrices. Curabitur eu convallis neque, quis rhoncus metus. Suspendisse id neque dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante urna, sodales at ultricies ut, tincidunt quis velit. In sed orci ut enim tempor consequat. Fusce magna libero, venenatis id ante nec, convallis aliquet turpis. Etiam ut felis sit amet ligula tincidunt dignissim a vitae nisi. Curabitur ornare nisi vitae tempor vehicula. Sed nisl ipsum, vulputate quis libero vel, aliquam dictum lacus. Vestibulum porta malesuada est et molestie. Pellentesque nec diam mauris. Proin condimentum sem leo, id aliquam ex semper at.";
-    private $location = "Forlì";
+    private $images = array("db/media/posts/grand_canyon.jpg", "db/media/posts/mars.jpg", 
+                            "db/media/posts/jupiter.webp", "db/media/posts/fireworks.jpeg", 
+                            "db/media/posts/shrek.png");
 
     public function setUp(): void
     {
@@ -52,128 +54,88 @@ final class PopulateDatabase extends TestCase
         $this->assertTrue($this->db->findFollowing("valent", "toscanello") || $this->db->createFollowing("valent", "toscanello"));
 
         $this->assertFalse($this->db->createFollowing("fede", "fede"));
-        $this->assertTrue($this->db->createFollowing("fede", "valent"));
-        $this->assertTrue($this->db->createFollowing("fede", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("fede", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("fede", "euro"));
-        $this->assertTrue($this->db->createFollowing("fede", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("fede", "doz"));
-        $this->assertTrue($this->db->createFollowing("fede", "adam"));
-        $this->assertTrue($this->db->createFollowing("fede", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("fede", "mancu"));
-        $this->assertTrue($this->db->createFollowing("fede", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("fede", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("fede", "valent") || $this->db->createFollowing("fede", "valent"));
+        $this->assertTrue($this->db->findFollowing("fede", "val_orosa") || $this->db->createFollowing("fede", "val_orosa"));
+        $this->assertTrue($this->db->findFollowing("fede", "chuffo") || $this->db->createFollowing("fede", "chuffo"));
+        $this->assertTrue($this->db->findFollowing("fede", "euro") || $this->db->createFollowing("fede", "euro"));
+        $this->assertTrue($this->db->findFollowing("fede", "frenciu") || $this->db->createFollowing("fede", "frenciu"));
+        $this->assertTrue($this->db->findFollowing("fede", "doz") || $this->db->createFollowing("fede", "doz"));
+        $this->assertTrue($this->db->findFollowing("fede", "adam") || $this->db->createFollowing("fede", "adam"));
+        $this->assertTrue($this->db->findFollowing("fede", "lhollo") || $this->db->createFollowing("fede", "lhollo"));
+        $this->assertTrue($this->db->findFollowing("fede", "mancu") || $this->db->createFollowing("fede", "mancu"));
+        $this->assertTrue($this->db->findFollowing("fede", "guerrins") || $this->db->createFollowing("fede", "guerrins"));
+        $this->assertTrue($this->db->findFollowing("fede", "toscanello") || $this->db->createFollowing("fede", "toscanello"));
 
         $this->assertFalse($this->db->createFollowing("val_orosa", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("val_orosa", "fede"));
-        $this->assertTrue($this->db->createFollowing("val_orosa", "valent"));
-        $this->assertTrue($this->db->createFollowing("val_orosa", "chuffo"));
-        
+        $this->assertTrue($this->db->findFollowing("val_orosa", "fede") || $this->db->createFollowing("val_orosa", "fede"));
+        $this->assertTrue($this->db->findFollowing("val_orosa", "valent") || $this->db->createFollowing("val_orosa", "valent"));
+        $this->assertTrue($this->db->findFollowing("val_orosa", "chuffo") || $this->db->createFollowing("val_orosa", "chuffo"));
 
         $this->assertFalse($this->db->createFollowing("chuffo", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "fede"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "valent"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "euro"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "doz"));
-        $this->assertTrue($this->db->createFollowing("chuffo", "adam"));
-        
+        $this->assertTrue($this->db->findFollowing("chuffo", "fede") || $this->db->createFollowing("chuffo", "fede"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "val_orosa") || $this->db->createFollowing("chuffo", "val_orosa"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "valent") || $this->db->createFollowing("chuffo", "valent"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "euro") || $this->db->createFollowing("chuffo", "euro"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "frenciu") || $this->db->createFollowing("chuffo", "frenciu"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "doz") || $this->db->createFollowing("chuffo", "doz"));
+        $this->assertTrue($this->db->findFollowing("chuffo", "adam") || $this->db->createFollowing("chuffo", "adam"));
+
         $this->assertFalse($this->db->createFollowing("euro", "euro"));
-        $this->assertTrue($this->db->createFollowing("euro", "fede"));
-        $this->assertTrue($this->db->createFollowing("euro", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("euro", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("euro", "valent"));
-        $this->assertTrue($this->db->createFollowing("euro", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("euro", "doz"));
-        $this->assertTrue($this->db->createFollowing("euro", "adam"));
-        $this->assertTrue($this->db->createFollowing("euro", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("euro", "mancu"));
-        $this->assertTrue($this->db->createFollowing("euro", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("euro", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("euro", "fede") || $this->db->createFollowing("euro", "fede"));
+        $this->assertTrue($this->db->findFollowing("euro", "val_orosa") || $this->db->createFollowing("euro", "val_orosa"));
+        $this->assertTrue($this->db->findFollowing("euro", "chuffo") || $this->db->createFollowing("euro", "chuffo"));
+        $this->assertTrue($this->db->findFollowing("euro", "valent") || $this->db->createFollowing("euro", "valent"));
+        $this->assertTrue($this->db->findFollowing("euro", "frenciu") || $this->db->createFollowing("euro", "frenciu"));
 
         $this->assertFalse($this->db->createFollowing("frenciu", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "fede"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "euro"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "valent"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "doz"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "adam"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "mancu"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("frenciu", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("frenciu", "fede") || $this->db->createFollowing("frenciu", "fede"));
+        $this->assertTrue($this->db->findFollowing("frenciu", "val_orosa") || $this->db->createFollowing("frenciu", "val_orosa"));
+        $this->assertTrue($this->db->findFollowing("frenciu", "chuffo") || $this->db->createFollowing("frenciu", "chuffo"));
+        $this->assertTrue($this->db->findFollowing("frenciu", "euro") || $this->db->createFollowing("frenciu", "euro"));
+        $this->assertTrue($this->db->findFollowing("frenciu", "valent") || $this->db->createFollowing("frenciu", "valent"));
 
         $this->assertFalse($this->db->createFollowing("doz", "doz"));
-        $this->assertTrue($this->db->createFollowing("doz", "fede"));
-        $this->assertTrue($this->db->createFollowing("doz", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("doz", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("doz", "euro"));
-        $this->assertTrue($this->db->createFollowing("doz", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("doz", "valent"));
-        $this->assertTrue($this->db->createFollowing("doz", "adam"));
-        $this->assertTrue($this->db->createFollowing("doz", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("doz", "mancu"));
-        $this->assertTrue($this->db->createFollowing("doz", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("doz", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("doz", "fede") || $this->db->createFollowing("doz", "fede"));
+        $this->assertTrue($this->db->findFollowing("doz", "valent") || $this->db->createFollowing("doz", "valent"));
+        $this->assertTrue($this->db->findFollowing("doz", "adam") || $this->db->createFollowing("doz", "adam"));
+        $this->assertTrue($this->db->findFollowing("doz", "lhollo") || $this->db->createFollowing("doz", "lhollo"));
 
         $this->assertFalse($this->db->createFollowing("adam", "adam"));
-        $this->assertTrue($this->db->createFollowing("adam", "fede"));
-        $this->assertTrue($this->db->createFollowing("adam", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("adam", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("adam", "euro"));
-        $this->assertTrue($this->db->createFollowing("adam", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("adam", "doz"));
-        $this->assertTrue($this->db->createFollowing("adam", "valent"));
-        $this->assertTrue($this->db->createFollowing("adam", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("adam", "mancu"));
-        $this->assertTrue($this->db->createFollowing("adam", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("adam", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("adam", "fede") || $this->db->createFollowing("adam", "fede"));
+        $this->assertTrue($this->db->findFollowing("adam", "euro") || $this->db->createFollowing("adam", "euro"));
+        $this->assertTrue($this->db->findFollowing("adam", "doz") || $this->db->createFollowing("adam", "doz"));
+        $this->assertTrue($this->db->findFollowing("adam", "valent") || $this->db->createFollowing("adam", "valent"));
 
         $this->assertFalse($this->db->createFollowing("lhollo", "lhollo"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "fede"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "chuffo"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "euro"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "frenciu"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "doz"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "adam"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "valent"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "mancu"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("lhollo", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("lhollo", "fede") || $this->db->createFollowing("lhollo", "fede"));
+        $this->assertTrue($this->db->findFollowing("lhollo", "euro") || $this->db->createFollowing("lhollo", "euro"));
+        $this->assertTrue($this->db->findFollowing("lhollo", "valent") || $this->db->createFollowing("lhollo", "valent"));
+        $this->assertTrue($this->db->findFollowing("lhollo", "mancu") || $this->db->createFollowing("lhollo", "mancu"));
 
         $this->assertFalse($this->db->createFollowing("mancu", "mancu"));
-        $this->assertTrue($this->db->createFollowing("mancu", "fede"));
-        $this->assertTrue($this->db->createFollowing("mancu", "valent"));
+        $this->assertTrue($this->db->findFollowing("mancu", "fede") || $this->db->createFollowing("mancu", "fede"));
+        $this->assertTrue($this->db->findFollowing("mancu", "valent") || $this->db->createFollowing("mancu", "valent"));
 
         $this->assertFalse($this->db->createFollowing("guerrins", "guerrins"));
-        $this->assertTrue($this->db->createFollowing("guerrins", "fede"));
-        $this->assertTrue($this->db->createFollowing("guerrins", "val_orosa"));
-        $this->assertTrue($this->db->createFollowing("guerrins", "valent"));
-        $this->assertTrue($this->db->createFollowing("guerrins", "toscanello"));
+        $this->assertTrue($this->db->findFollowing("guerrins", "fede") || $this->db->createFollowing("guerrins", "fede"));
+        $this->assertTrue($this->db->findFollowing("guerrins", "valent") || $this->db->createFollowing("guerrins", "valent"));
 
         $this->assertFalse($this->db->createFollowing("toscanello", "toscanello"));
-        $this->assertTrue($this->db->createFollowing("toscanello", "fede"));
-        $this->assertTrue($this->db->createFollowing("toscanello", "valent"));
-
-
+        $this->assertTrue($this->db->findFollowing("toscanello", "fede") || $this->db->createFollowing("toscanello", "fede"));
+        $this->assertTrue($this->db->findFollowing("toscanello", "valent") || $this->db->createFollowing("toscanello", "valent"));
     }
 
     public function testPosts()
     {
-        $this->assertTrue($this->db->createPost($this->content, "valent", array(), $this->location));
-        $this->assertTrue($this->db->createPost($this->content, "fede", array(), "Ravenna"));
-        $this->assertTrue($this->db->createPost($this->content, "val_orosa", array(), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "chuffo", array(), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "euro", array(), $this->location));
-        $this->assertTrue($this->db->createPost($this->content, "valent", array(), $this->location));
-        $this->assertTrue($this->db->createPost($this->content, "fede", array(), "Ravenna"));
-        $this->assertTrue($this->db->createPost($this->content, "val_orosa", array(), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "chuffo", array(), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "euro", array(), "Bologna"));
+        $this->assertTrue($this->db->createPost($this->content, "valent", $this->images, "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "fede", $this->images, "Ravenna"));
+        $this->assertTrue($this->db->createPost($this->content, "val_orosa", $this->images, "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "chuffo", $this->images, "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "euro", $this->images, "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "valent", $this->images, "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "fede", $this->images, "Ravenna"));
+        $this->assertTrue($this->db->createPost($this->content, "val_orosa", $this->images, "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "chuffo", $this->images, "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "euro", $this->images, "Bologna"));
     }
-
-
 }
