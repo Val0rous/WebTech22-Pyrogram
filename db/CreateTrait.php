@@ -30,11 +30,17 @@ trait CreateTrait
      * @param string $content text of post
      * @param string $user user id
      * @param array|null $media_path_array list of media paths (if any)
-     * @return bool
+     * @param string|null $location user-specified location (city, coordinates, or any other arbitrary string)
+     * @return bool true if post created, false otherwise
      */
     public function createPost(string $content, string $user, array $media_path_array = null, string $location = null): bool
     {
-        $size = count($media_path_array);
+        if ($media_path_array !== null) {
+            $size = count($media_path_array);
+        } else {
+            $size = 0;
+            $media_path_array = array();
+        }
         if ($size <= 10) {
             // fill array with null values if there are less than 10 image paths
             for ($i = 0; $i < 10; $i++) {

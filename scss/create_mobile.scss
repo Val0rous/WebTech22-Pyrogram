@@ -15,13 +15,18 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-items: flex-start;
       //padding: 0 16px;
       box-sizing: border-box;
 
-      svg.close {
-        //padding: 12px;
+      > a {
+        height: 24px;
         padding: 18px;
+        > svg.close {
+          width: 24px;
+          height: 24px;
+          //padding: 12px;
+        }
       }
 
       h1 {
@@ -30,25 +35,46 @@
     }
   }
 
-  article {
+  form {
     width: 100%;
-    > header {
-      > img {
-        width: 32px;
-        height: 32px;
-        padding: 5px;
+
+    > article {
+      display: flex;
+      flex-flow: column;
+
+      > header {
+        display: flex;
+        align-items: center;
+
+        > img {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+        }
+      }
+
+
+      > main {
+        display: flex;
+        position: relative;
+
+        > textarea {
+          //height: 280px;
+          //flex-grow: 1;
+          width: 100%;
+          height: 280px;
+          position: relative;
+        }
+
+        > label {
+          position: absolute;
+        }
+      }
+
+      #submit-button {
+        width: 100%;
+        //flex-grow: 1;
       }
     }
-  }
-
-  > main {
-    > input {
-      width: 100%;
-    }
-  }
-
-  #submit-button {
-    width: 100%;
-    flex-grow: 1;
   }
 }

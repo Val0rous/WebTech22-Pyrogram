@@ -1,18 +1,25 @@
 <!-- In main -->
 <!-- to add stories -->
 <?php foreach ($templateParams["posts"] as $post): ?>
+<?php $db = new DatabaseHelper();?>
+<?php $user = $db->findUser($post["user_id"]);?>
 <article>
     <!-- Post header: user image + user name + post date -->
     <header>
                 <!-- to add UPLOAD_DIR. -->
-        <img src="<?=$post["user_image"]?>" alt="<?=$post["user_name"]?>'s user image"/>
-        <div><h1><?=$post["user_name"]?></h1><p><?=$post["date"]?></p></div>
+        <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+        <div><h1><?=$user["user_name"]?></h1><p><?=$post["post_time"]?></p></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
         <p><?=$post["content"]?></p>
-        <?php foreach ($post["media"] as $media): ?>
-        <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+        <?php foreach (array($post["media_path0"], $post["media_path1"], $post["media_path2"],
+                            $post["media_path3"], $post["media_path4"], $post["media_path5"],
+                            $post["media_path6"], $post["media_path7"], $post["media_path8"],
+                            $post["media_path9"]) as $media): ?>
+            <?php if ($media !== null): ?>
+                <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+            <?php endif; ?>
         <?php endforeach; ?>
     </main>
     <!-- Post section 1: num likes + num comments -->

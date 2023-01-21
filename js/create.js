@@ -1,3 +1,6 @@
+/**
+ * Enable submit button when input fields are not empty anymore.
+ */
 $(function () {
     $("#submit-button").prop("disabled", true);
     $("#post_content").on("input", function () {
@@ -10,13 +13,15 @@ $(function () {
 });
 
 $(function() {
-    $("#submit-button").submit(function (e) {
+    $("#create-form").submit(function (e) {
         e.preventDefault();
 
         $.ajax({
             type: "POST",
             url: "php/api_create.php",
-            data: $("#post_content").serialize()
+            data: {
+                post_content: $("#post_content").val()
+            }
         }).then(
             //resolve success callback
             response => {
