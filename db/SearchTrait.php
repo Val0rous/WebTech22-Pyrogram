@@ -180,6 +180,30 @@ trait SearchTrait
     }
 
     /**
+     * Find a follow link between two users (mono-directional).
+     * @param string $user_following user following another user
+     * @param string $user_followed user who is followed by another user
+     * @return bool true if follow link found, false otherwise
+     */
+    public function findFollowing(string $user_following, string $user_followed): bool
+    {
+        $query = "SELECT * 
+                  FROM followings 
+                  WHERE user_id_following = ? 
+                  AND  user_id_followed = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        $flag = $stmt->execute();
+        if ($flag) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Find all followers of a user.
      * @param string $user user id of followed account
      * @return array query result

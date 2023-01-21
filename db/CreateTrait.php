@@ -88,17 +88,23 @@ trait CreateTrait
      * Add a following to DB.
      * @param string $user_following user who follows another one
      * @param string $user_followed user who is followed by another one
-     * @return void
+     * @return bool true if follow created, false otherwise
      */
-    public function createFollowing(string $user_following, string $user_followed): void
+    public function createFollowing(string $user_following, string $user_followed): bool
     {
+        if ($user_following === $user_followed) {
+            return false;
+        }
         $query = "INSERT INTO followings (user_id_following, user_id_followed) 
                   VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $user_following, $user_followed);
-        $stmt->execute();
-        $this->incNumFollowing($user_following);
-        $this->incNumFollowers($user_followed);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->incNumFollowing($user_following);
+            $this->incNumFollowers($user_followed);
+        }
+        return $result;
     }
 
     public function createLike(string $user, string $post): void
