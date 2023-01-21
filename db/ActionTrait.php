@@ -31,11 +31,11 @@ trait ActionTrait
      */
     public function fetchPosts(string $user): array
     {
-        $followings = $this->findAllFollowings($user)["user_id"];
+        $followings = $this->findAllFollowings($user);
         $posts = array();
         foreach ($followings as $following) {
             //$posts = array_merge($posts, $this->findAllPosts($following));    //old way
-            array_push($posts, ...$this->findAllPosts($following));      //new way
+            array_push($posts, ...$this->findAllPosts($following["user_id"]));      //new way
         }
         if (count($posts) > 0) {
             //sorting by descending date

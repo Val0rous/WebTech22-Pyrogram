@@ -57,6 +57,8 @@ main > article {
       font-size: 85%;
       text-align: justify;
       margin-bottom: 1%;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     > img {
