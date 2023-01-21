@@ -192,7 +192,7 @@ trait SearchTrait
                   WHERE user_id_following = ? 
                   AND  user_id_followed = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $user);
+        $stmt->bind_param("ss", $user_following, $user_followed);
         $flag = $stmt->execute();
         if ($flag) {
             $result = $stmt->get_result();
