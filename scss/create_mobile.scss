@@ -1,4 +1,4 @@
-@media screen and (max-width: 767.99px) {
+@media screen and (max-width: 767.98px) {
   .navigation header {
     display: none;
   }
@@ -39,20 +39,6 @@
     width: 100%;
 
     > article {
-      display: flex;
-      flex-flow: column;
-
-      > header {
-        display: flex;
-        align-items: center;
-
-        > img {
-          width: 32px;
-          height: 32px;
-          padding: 5px;
-        }
-      }
-
 
       > main {
         display: flex;

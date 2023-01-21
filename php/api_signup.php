@@ -19,5 +19,5 @@ if (isset($_POST["email"]) and
         ", and his password is ", $_POST["password"];
     */
 } else {
-    echo json_encode(array("success" => 0));
+    echo json_encode(array("success" => -1));
 }

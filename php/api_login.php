@@ -23,7 +23,7 @@ if (isset($_POST["username_email"]) and isset($_POST["password"])) {
     }
 } else {
     //params unset
-    echo json_encode(array("success" => 0));
+    echo json_encode(array("success" => -1));
 }
 
 function generateRandomString($length = 16): string
