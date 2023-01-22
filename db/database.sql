@@ -38,7 +38,7 @@ CREATE TABLE messages (
 CREATE TABLE notifications (
      notification_id char(16) NOT NULL,
      content tinytext NOT NULL,
-     notification_type varchar(10) NOT NULL,      -- this one may be useless later on, keep an eye on it
+     notification_type char(1) NOT NULL,      -- this one may be useless later on, keep an eye on it
      notification_time datetime NOT NULL,
      read_status char(1) NOT NULL,
      user_id varchar(30) NOT NULL,                -- user who will receive a notification

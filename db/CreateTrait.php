@@ -71,17 +71,21 @@ trait CreateTrait
      * @param string $content text of comment
      * @param string $user user id
      * @param string $post post id
-     * @return void
+     * @return bool true if comment created, false otherwise
      */
-    public function createComment(string $content, string $user, string $post): void
+    public function createComment(string $content, string $user, string $post): bool
     {
         $query = "INSERT INTO comments (comment_id, content, comment_time, user_id, post_id) 
                   VALUES (?, ?, NOW(), ?, ?)";
         $stmt = $this->db->prepare($query);
         $next_comment_id = $this->getNextCommentID();
         $stmt->bind_param("ssss", $next_comment_id, $content, $user, $post);
-        $stmt->execute();
-        $this->incNumComments($post);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->incNumComments($post);
+            $this->createNotification("<span>" . $user . "</span> commented on a post you shared.", "c", $this->findPost($post)["user_id"]);
+        }
+        return $result;
     }
 
     /**
@@ -103,17 +107,56 @@ trait CreateTrait
         if ($result) {
             $this->incNumFollowing($user_following);
             $this->incNumFollowers($user_followed);
+            $this->createNotification("<span>" . $user_following . "</span> started following you.", "f", $user_followed, $user_following);
         }
         return $result;
     }
 
-    public function createLike(string $user, string $post): void
+    /**
+     * Add a like to DB.
+     * @param string $user
+     * @param string $post
+     * @return bool true if like created, false otherwise
+     */
+    public function createLike(string $user, string $post): bool
     {
         $query = "INSERT INTO likes (user_id, post_id) 
                   VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $user, $post);
-        $stmt->execute();
-        $this->incNumLikes($post);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->incNumLikes($post);
+            $this->createNotification("<span>" . $user . "</span> liked your post.", "l", $this->findPost($post)["user_id"]);
+        }
+        return $result;
+    }
+
+    /**
+     * Add a notification to DB.
+     * @param string $content notification content
+     * @param string $type notification type, single character: <br>
+     *                      "c": comment, <br>
+     *                      "f": follow, <br>
+     *                      "l": like, <br>
+     *                      "m": message, <br>
+     *                      "p": post, <br>
+     *                      "r": reply (to a story), <br>
+     *                      "s": story, <br>
+     *                      "t": tag
+     * @param string $user user id
+     * @param string|null $follower follower id
+     * @param string|null $post post id     //experimental, may be scrapped
+     * @param string|null $story story id   //experimental, may be scrapped
+     * @return bool true if notification created, false otherwise
+     */
+    public function createNotification(string $content, string $type, string $user, string $follower = null, string $post = null, string $story = null): bool
+    {
+        $query = "INSERT INTO notifications (notification_id, content, notification_type, notification_time, read_status, user_id, follower_id, post_id, story_id) 
+                  VALUES (?, ?, ?, NOW(), '0', ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $next_notification_id = $this->getNextNotificationID();
+        $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $follower, $post, $story);
+        return $stmt->execute();
     }
 }
