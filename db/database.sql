@@ -93,7 +93,7 @@ CREATE TABLE users (
      user_id varchar(30) NOT NULL,
      user_name varchar(128) NOT NULL,
      user_email varchar(320) NOT NULL,
-     user_password varchar(128) NOT NULL,
+     user_password varchar(128) BINARY NOT NULL,
      user_picture_path text NOT NULL,
      user_bio tinytext NOT NULL,                  -- '' if empty
      account_active_status char(1) NOT NULL,      -- true if account is enabled
