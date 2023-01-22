@@ -138,4 +138,13 @@ final class PopulateDatabase extends TestCase
         $this->assertTrue($this->db->createPost($this->content, "chuffo", $this->images, "Milano"));
         $this->assertTrue($this->db->createPost($this->content, "euro", $this->images, "Bologna"));
     }
+
+    public function testLikes()
+    {
+        //these post ids are valid for me because I have quite a lot of posts created for debug purposes
+        //we'll need to change them later on
+        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000034") || $this->db->createLike("val_orosa", "0000000000000034"));
+        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000035") || $this->db->createLike("val_orosa", "0000000000000035"));
+        //more to add...
+    }
 }

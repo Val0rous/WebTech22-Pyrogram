@@ -240,4 +240,28 @@ trait SearchTrait
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    /**
+     * Find a like made by a user on a post.
+     * @param string $user user who liked the post
+     * @param string $post post that was liked by the user
+     * @return bool true if like found, false otherwise
+     */
+    public function findLike(string $user, string $post): bool
+    {
+        $query = "SELECT * 
+                  FROM likes 
+                  WHERE post_id = ? 
+                  AND user_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $post, $user);
+        $flag = $stmt->execute();
+        if ($flag) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

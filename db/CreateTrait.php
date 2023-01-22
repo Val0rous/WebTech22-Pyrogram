@@ -83,7 +83,7 @@ trait CreateTrait
         $result = $stmt->execute();
         if ($result) {
             $this->incNumComments($post);
-            $this->createNotification(" commented on a post you shared.", "c", $this->findPost($post)["user_id"], $user);
+            $this->createNotification(" commented on a post you shared.", "c", $this->findPost($post)["user_id"], $user, $post);
         }
         return $result;
     }
@@ -127,7 +127,7 @@ trait CreateTrait
         $result = $stmt->execute();
         if ($result) {
             $this->incNumLikes($post);
-            $this->createNotification(" liked your post.", "l", $this->findPost($post)["user_id"], $user);
+            $this->createNotification(" liked your post.", "l", $this->findPost($post)["user_id"], $user, $post);
         }
         return $result;
     }
