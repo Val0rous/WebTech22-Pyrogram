@@ -48,6 +48,8 @@ final class DatabaseHelperTest extends TestCase
     {
         $this->assertNull($this->db->findLogin("hahaha", "hehehe"));
         $this->assertNull($this->db->findLogin("", ""));
+        $this->assertNotNull($this->db->findLogin("valent", "password"));
+        $this->assertNull($this->db->findLogin("valent", "PaSSwoRd"));
     }
 
     public function testCreatePost()
