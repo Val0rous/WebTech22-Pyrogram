@@ -1,10 +1,10 @@
 <!-- In main -->
-<!-- to add stories -->
 <?php foreach ($templateParams["posts"] as $post): ?>
 <?php $db = new DatabaseHelper(); ?>
 <?php $user = $db->findUser($post["user_id"]); ?>
+<!-- Post -->
 <article>
-    <!-- Post header: user image + user name + post date -->
+    <!-- Post header: user profile picture + user name + post date -->
     <header>
                 <!-- to add UPLOAD_DIR. -->
         <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>

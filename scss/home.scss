@@ -12,7 +12,7 @@ a.home {
 $storiesHeight: 0; //15%;
 $buttonDim: 24px;
 
-// base css
+// Post
 main > article {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 5% 0%;
@@ -23,10 +23,12 @@ main > article {
     margin-top: $storiesHeight;
   }
 
+  // User profile picture + user name + post date
   > header {
     margin-top: 1%;
     margin-bottom: 2%;
 
+    // user image
     > img {
       width: 32px;
       border-radius: 100%;
@@ -36,12 +38,14 @@ main > article {
     > div {
       display: inline-block;
 
+      // user name
       > h1 {
         font-size: 100%;
         font-weight: normal;
         margin-bottom: 1px;
       }
 
+      // date
       > p {
         font-size: 75%;
         color: gray;
@@ -50,33 +54,38 @@ main > article {
     }
   }
 
+  // Post content + media
   > main {
     margin-bottom: 1%;
 
+    // content
     > p {
       font-size: 85%;
       text-align: justify;
-      margin-bottom: 1%;
+      margin-bottom: 2%;
       overflow-wrap: break-word;
       word-break: break-word;
     }
 
+    // media
     > img {
       max-width: 100%;
-      display: block;
-      margin: auto;
     }
   }
 
   > section {
+    // Num likes + num comments
     &:first-of-type {
       > p {
         display: inline;
         font-size: 85%;
 
+        // num likes
         &:first-of-type {
           color: blue;
         }
+
+        // num comments
         &:nth-of-type(2) {
           color: gray;
           float: right;
@@ -84,6 +93,7 @@ main > article {
       }
     }
 
+    // Like button + comment button
     &:nth-of-type(2) {
       > img {
         max-width: 50%;
@@ -91,10 +101,12 @@ main > article {
         border-radius: 5%;
         padding: 2% calc(25% - $buttonDim/2 - 1px);
 
+        // like button
         &:first-of-type {
           background-color: #1a73e8;
         }
 
+        // comment button
         &:nth-of-type(2) {
           background-color: #ECEAEA;
           float: right;
