@@ -11,6 +11,7 @@ a.notifications {
 main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+  // Notifications title
   > h1 {
     font-size: 150%;
     text-align: center;
@@ -18,49 +19,62 @@ main {
     margin: 2% 0;
   }
 
+  // Notifications box
   > section {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
 
-    > section > a {
+    // Notification
+    > section {
       height: 50px;
       display: flex;
       align-items: center;
       margin: 0 1%;
 
-      p {
-        font-size: 100%;
-        vertical-align: middle;
+      // Sender username + notification content
+      > a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
 
-        strong {
-          font-weight: bold;
+        > p {
+          font-size: 100%;
+  
+          // sender username
+          > strong {
+            font-weight: bold;
+          }
         }
-      }
 
-      img {
-        max-width: 75%;
-        max-height: 75%;
-
-        &:first-of-type {
+        // Sender profile picture
+        > img:first-of-type {
+          max-width: 75%;
+          max-height: 75%;
           border-radius: 100%;
           margin-right: 1%;
         }
-
-        &:nth-of-type(2) {
-          margin-left: auto;
-        }
       }
 
-      input[value="Follow"] {
+      // Post
+      > img:nth-of-type(2) {
+        max-width: 75%;
+        max-height: 75%;
+        margin-left: auto;
+      }
+
+      // Follow button
+      > input[value="Follow"] {
         background-color: #1a73e8;
         color: white;
         border-radius: 10%;
         margin-left: auto;
       }
 
-      input[value="Following"] {
+      // Following
+      > input[value="Following"] {
         background-color: white;
         color: black;
         border-radius: 10%;
