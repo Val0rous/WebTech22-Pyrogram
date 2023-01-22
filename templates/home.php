@@ -1,8 +1,8 @@
 <!-- In main -->
 <!-- to add stories -->
 <?php foreach ($templateParams["posts"] as $post): ?>
-<?php $db = new DatabaseHelper();?>
-<?php $user = $db->findUser($post["user_id"]);?>
+<?php $db = new DatabaseHelper(); ?>
+<?php $user = $db->findUser($post["user_id"]); ?>
 <article>
     <!-- Post header: user image + user name + post date -->
     <header>

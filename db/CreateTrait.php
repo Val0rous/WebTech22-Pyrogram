@@ -83,7 +83,7 @@ trait CreateTrait
         $result = $stmt->execute();
         if ($result) {
             $this->incNumComments($post);
-            $this->createNotification("<span>" . $user . "</span> commented on a post you shared.", "c", $this->findPost($post)["user_id"]);
+            $this->createNotification(" commented on a post you shared.", "c", $this->findPost($post)["user_id"], $user);
         }
         return $result;
     }
@@ -107,7 +107,7 @@ trait CreateTrait
         if ($result) {
             $this->incNumFollowing($user_following);
             $this->incNumFollowers($user_followed);
-            $this->createNotification("<span>" . $user_following . "</span> started following you.", "f", $user_followed, $user_following);
+            $this->createNotification(" started following you.", "f", $user_followed, $user_following);
         }
         return $result;
     }
@@ -127,7 +127,7 @@ trait CreateTrait
         $result = $stmt->execute();
         if ($result) {
             $this->incNumLikes($post);
-            $this->createNotification("<span>" . $user . "</span> liked your post.", "l", $this->findPost($post)["user_id"]);
+            $this->createNotification(" liked your post.", "l", $this->findPost($post)["user_id"], $user);
         }
         return $result;
     }
@@ -144,19 +144,19 @@ trait CreateTrait
      *                      "r": reply (to a story), <br>
      *                      "s": story, <br>
      *                      "t": tag
-     * @param string $user user id
+     * @param string $user user id who sent this notification
      * @param string|null $follower follower id
      * @param string|null $post post id     //experimental, may be scrapped
      * @param string|null $story story id   //experimental, may be scrapped
      * @return bool true if notification created, false otherwise
      */
-    public function createNotification(string $content, string $type, string $user, string $follower = null, string $post = null, string $story = null): bool
+    public function createNotification(string $content, string $type, string $user, string $sender, string $post = null, string $story = null): bool
     {
-        $query = "INSERT INTO notifications (notification_id, content, notification_type, notification_time, read_status, user_id, follower_id, post_id, story_id) 
+        $query = "INSERT INTO notifications (notification_id, content, notification_type, notification_time, read_status, user_id, sender_id, post_id, story_id) 
                   VALUES (?, ?, ?, NOW(), '0', ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $next_notification_id = $this->getNextNotificationID();
-        $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $follower, $post, $story);
+        $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $sender, $post, $story);
         return $stmt->execute();
     }
 }

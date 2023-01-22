@@ -47,6 +47,25 @@ trait ActionTrait
     }
 
     /**
+     * Fetch all unread notifications of a user.
+     * @param string $user user id
+     * @return array list of notifications to be shown, or an empty/null array if there are no notifications to be shown
+     */
+    public function fetchAllNotifications(string $user): array
+    {
+        $query = "SELECT * 
+                  FROM notifications 
+                  WHERE user_id = ? 
+                  AND read_status = '0' 
+                  ORDER BY notification_time DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $notifications = $stmt->get_result();
+        return $notifications->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
      * Sort a numerical array of associative arrays (aka the array of posts returned by a query) based on the specified
      * key, either in ascending or descending order, depending on the value of the related parameter.
      * @param array $array array to sort

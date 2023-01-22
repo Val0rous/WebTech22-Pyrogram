@@ -42,7 +42,7 @@ CREATE TABLE notifications (
      notification_time datetime NOT NULL,
      read_status char(1) NOT NULL,
      user_id varchar(30) NOT NULL,                -- user who will receive a notification
-     follower_id varchar(30),
+     sender_id varchar(30) NOT NULL,              -- user who sent a notification
      post_id char(16),
      story_id char(16),
      CONSTRAINT pk_id_notifications PRIMARY KEY (notification_id));
@@ -143,8 +143,8 @@ ALTER TABLE notifications ADD CONSTRAINT fk_user_notifications
      FOREIGN KEY (user_id)
      REFERENCES users (user_id);
 
-ALTER TABLE notifications ADD CONSTRAINT fk_follower_notifications
-     FOREIGN KEY (follower_id)
+ALTER TABLE notifications ADD CONSTRAINT fk_sender_notifications
+     FOREIGN KEY (sender_id)
      REFERENCES users (user_id);
 
 ALTER TABLE notifications ADD CONSTRAINT fk_post_notifications

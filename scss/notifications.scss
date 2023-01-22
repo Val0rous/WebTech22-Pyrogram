@@ -24,22 +24,22 @@ main {
     flex-direction: column;
     box-sizing: border-box;
 
-    > section {
+    > section > a {
       height: 50px;
       display: flex;
       align-items: center;
       margin: 0 1%;
 
-      > p {
+      p {
         font-size: 100%;
         vertical-align: middle;
 
-        > strong {
+        strong {
           font-weight: bold;
         }
       }
 
-      > img {
+      img {
         max-width: 75%;
         max-height: 75%;
 
@@ -53,14 +53,14 @@ main {
         }
       }
 
-      > input[value="Follow"] {
+      input[value="Follow"] {
         background-color: #1a73e8;
         color: white;
         border-radius: 10%;
         margin-left: auto;
       }
 
-      > input[value="Following"] {
+      input[value="Following"] {
         background-color: white;
         color: black;
         border-radius: 10%;
