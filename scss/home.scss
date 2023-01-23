@@ -78,44 +78,67 @@ main > article {
   }
 
   > section {
-    // Num likes + num comments
+    // View likes + View tags
     &:first-of-type {
-      > p {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      > a {
         display: inline;
         font-size: 85%;
 
-        // num likes
+        // View likes
         &:first-of-type {
-          color: blue;
+          //color: blue;
         }
 
-        // num comments
+        // View tags
         &:nth-of-type(2) {
-          color: gray;
-          float: right;
+          //color: gray;
+          //float: right;
         }
       }
     }
 
     // Like button + comment button
     &:nth-of-type(2) {
-      > svg {
-        width: 24px;
-        height: 24px;
+      display: flex;
+      flex-flow: row;
+
+      > button {
         max-width: 50%;
-        max-height: $buttonDim;
-        border-radius: 5%;
-        padding: 2% calc(25% - $buttonDim/2 - 1px);
+        //max-height: $buttonDim;
+        border-radius: 8px;
+        //padding: 2% calc(25% - $buttonDim / 2 - 1px);
+        display: flex;
+        flex-flow: row;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+
+        > svg, div {
+          padding: 12px;
+          width: 24px;
+          height: 24px;
+        }
+
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1rem;
+        }
 
         // like button
-        &:first-of-type {
+        &.like {
+          border: 1px solid black;
           background-color: #1a73e8;
         }
 
         // comment button
-        &:nth-of-type(2) {
+        &.comment {
           background-color: #ECEAEA;
-          float: right;
+          border: 1px solid black;
         }
       }
     }
