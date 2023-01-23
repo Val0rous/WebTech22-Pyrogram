@@ -29,6 +29,7 @@
                 <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
             <?php endif; ?>
         <?php endforeach; ?>
+        <!-- Create image carousel if there's more than one image -->
     </main>
     <!-- Post section 1: num likes + num comments -->
     <section>
