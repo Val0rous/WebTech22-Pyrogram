@@ -9,7 +9,7 @@ require_once "bootstrap.php";
 // Params for the Base Template
 $templateParams["name"] = "home.php";
 $templateParams["css"] = "home.css";
-//$templateParams["js"] = "home.js";    //test purposes only
+$templateParams["js"] = "home.js";
 
 //New and hopefully final version
 $db = new DatabaseHelper();

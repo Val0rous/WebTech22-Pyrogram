@@ -52,6 +52,10 @@ main > article {
         margin-top: 1px;
       }
     }
+
+    > div.post-id {
+      display: none;
+    }
   }
 
   // Post content + media
@@ -115,6 +119,7 @@ main > article {
         flex-grow: 1;
         align-items: center;
         justify-content: center;
+        background-color: #ECEAEA;
 
         > svg, div {
           padding: 12px;
@@ -132,12 +137,14 @@ main > article {
         // like button
         &.like {
           border: 1px solid black;
+        }
+
+        &.like.liked {
           background-color: #1a73e8;
         }
 
         // comment button
         &.comment {
-          background-color: #ECEAEA;
           border: 1px solid black;
         }
       }

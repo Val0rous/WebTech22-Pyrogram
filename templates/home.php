@@ -16,6 +16,7 @@
             <?php endif; ?>
             </p>
         </div>
+        <div class="post-id"><?=$post["post_id"]?></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
