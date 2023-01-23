@@ -98,16 +98,19 @@ trait DeleteTrait
      * Delete a like from DB.
      * @param string $user user id
      * @param string $post post id
-     * @return void
+     * @return bool true if like deleted, false otherwise
      */
-    public function deleteLike(string $user, string $post): void
+    public function deleteLike(string $user, string $post): bool
     {
         $query = "DELETE FROM likes 
                   WHERE user_id = ? 
                   AND post_id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $user, $post);
-        $stmt->execute();
-        $this->decNumLikes($post);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->decNumLikes($post);
+        }
+        return $result;
     }
 }
