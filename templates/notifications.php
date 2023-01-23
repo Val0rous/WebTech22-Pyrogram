@@ -27,26 +27,26 @@
         <img src="<?=$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user image">
         <!-- Sender username + notification content -->
         <p><strong><?=$sender["user_id"]?></strong> <?=$notification["content"]?></p>
-        </a>
 
-        <?php switch ($notification["notification_type"]):
-            case "f":
-                if ($db->findFollowing($_SESSION["user"]["user_id"], $notification["sender_id"])): ?>
-                    <input type="button" value="Following" disabled>
-                <?php else: ?>
-                    <input type="button" value="Follow">
-                <?php endif;
+            <?php switch ($notification["notification_type"]):
+                case "f":
+                    if ($db->findFollowing($_SESSION["user"]["user_id"], $notification["sender_id"])): ?>
+                        <input type="button" value="Following">
+                    <?php else: ?>
+                        <input type="button" value="Follow">
+                    <?php endif;
                 break;
-            case "c":
-            case "l":
-            case "p":
-            case "t": ?>
-                <!-- Only takes the first image as thumbnail: this is not a bug -->
-                <img src="<?=$db->findPost($notification["post_id"])["media_path0"]?>"
-                     alt="<?=$sender["user_id"]?>'s post">
-            <?php break;
-            default: ?>
-        <?php endswitch; ?>
+                case "c":
+                case "l":
+                case "p":
+                case "t": ?>
+                    <!-- Only takes the first image as thumbnail: this is not a bug -->
+                    <img src="<?=$db->findPost($notification["post_id"])["media_path0"]?>"
+                         alt="<?=$sender["user_id"]?>'s post">
+                <?php break;
+                default: ?>
+            <?php endswitch; ?>
+        </a>
     </section>
     <?php endforeach; ?>
 </section>
