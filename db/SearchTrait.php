@@ -114,9 +114,9 @@ trait SearchTrait
     /**
      * Find comment by ID in database.
      * @param string $comment comment ID
-     * @return array query result 
+     * @return array|null query result
      */
-    public function findComment(string $comment): array
+    public function findComment(string $comment): array|null
     {
         $query = "SELECT * 
                   FROM comments 
