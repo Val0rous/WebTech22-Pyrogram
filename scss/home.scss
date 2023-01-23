@@ -137,10 +137,30 @@ main > article {
         // like button
         &.like {
           border: 1px solid black;
+
+          > svg.unlike {
+            display: none;
+          }
         }
 
         &.like.liked {
           background-color: #1a73e8;
+
+          > svg {
+
+            &.like {
+              display: none;
+            }
+
+            &.unlike {
+              fill: white;
+              display: block;
+            }
+          }
+
+          > div {
+            color: white;
+          }
         }
 
         // comment button
