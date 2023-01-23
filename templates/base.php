@@ -1,4 +1,5 @@
-<?php if (isset($_COOKIE["user"]) and isset($_COOKIE["token"])): ?>
+<?php if (isset($_COOKIE["user"])
+    and isset($_COOKIE["token"])): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,4 +115,6 @@
     </main>
 </body>
 </html>
-<?php else: header("Location: login.php", TRUE, 301); endif; ?>
+<?php else:
+    header("Location: login.php", TRUE, 301);
+endif; ?>
