@@ -1,2 +1,3 @@
-<!-- In main -->
-<h2>Search<h2>
+        <!-- In main -->
+        <label for="Search">Search</label>
+        <input type="search" id="Search"/>

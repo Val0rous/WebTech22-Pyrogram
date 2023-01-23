@@ -1,0 +1,13 @@
+@media screen and (min-width:768px) {
+    // Notifications page
+    main {
+        // Search label
+        > label {
+            display: block;
+            font-size: 150%;
+            font-weight: bold;
+            margin-top: 10%;
+            margin-bottom: 3%;
+        }
+    }
+}

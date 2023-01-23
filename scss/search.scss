@@ -1,3 +1,4 @@
+// Navbar update
 a.search {
   .navbar-icon {
     display: none;
@@ -7,3 +8,29 @@ a.search {
     display: block;
   }
 }
+
+// top-bar TO DO
+.navigation {
+  
+}
+
+// Notifications page
+main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+
+  // no label
+  > label {
+    display: none;
+  }
+
+  // Search field
+  > input {
+    font-size: 115%;
+    border-radius: 8px;
+    border: 1px solid black;
+  }
+}
+
+// Desktop media query
+@import "search_desktop_mq";

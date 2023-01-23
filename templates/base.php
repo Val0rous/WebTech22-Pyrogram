@@ -102,16 +102,15 @@
         </nav>
     </div>
 
-
-    <!-- Content to be added with PHP later -->
+    <!-- Page content -->
     <main>
-    <?php
-    if (isset($templateParams["name"])) {
-        require("templates/".$templateParams["name"]);
-    } else {
-        require("templates/home.php");
-    }
-    ?>
+        <?php
+        if (isset($templateParams["name"])) {
+            require("templates/".$templateParams["name"]);
+        } else {
+            require("templates/home.php");
+        }
+        ?>
     </main>
 </body>
 </html>
