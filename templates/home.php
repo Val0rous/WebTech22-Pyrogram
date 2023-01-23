@@ -8,7 +8,14 @@
     <header>
                 <!-- to add UPLOAD_DIR. -->
         <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
-        <div><h1><?=$user["user_name"]?></h1><p><?=$post["post_time"]?></p></div>
+        <div>
+            <strong><?=$user["user_name"]?></strong>
+            <p><?=$post["post_time"]?>
+            <?php if ($post["location"] !== null): ?>
+            &nbsp;&bull;&nbsp;&nbsp;<?=$post["location"]?>
+            <?php endif; ?>
+            </p>
+        </div>
     </header>
     <!-- Post main: post content + media -->
     <main>
