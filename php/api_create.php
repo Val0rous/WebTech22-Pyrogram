@@ -2,7 +2,7 @@
 //require_once "../db/DatabaseHelper.php";
 require_once "../bootstrap.php";
 
-if(isset($_POST["post_content"]) && isset($_SESSION["user"]["user_id"])) {
+if (isset($_POST["post_content"]) && isset($_SESSION["user"]["user_id"])) {
     $db = new DatabaseHelper();
     $result = $db->createPost($_POST["post_content"], $_SESSION["user"]["user_id"]);
     if ($result) {

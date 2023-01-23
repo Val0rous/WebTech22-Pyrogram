@@ -77,18 +77,21 @@ trait DeleteTrait
      * Delete a following from DB.
      * @param string $user_following user who follows another one
      * @param string $user_followed user who is followed by another one
-     * @return void
+     * @return bool true if follow deleted, false otherwise
      */
-    public function deleteFollowing(string $user_following, string $user_followed): void
+    public function deleteFollowing(string $user_following, string $user_followed): bool
     {
         $query = "DELETE FROM followings 
                   WHERE user_id_following = ? 
                   AND user_id_followed = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $user_following, $user_followed);
-        $stmt->execute();
-        $this->decNumFollowing($user_following);
-        $this->decNumFollowers($user_followed);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->decNumFollowing($user_following);
+            $this->decNumFollowers($user_followed);
+        }
+        return $result;
     }
 
     /**

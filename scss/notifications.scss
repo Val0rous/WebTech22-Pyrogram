@@ -66,6 +66,7 @@ main {
 
       > button {
         font-size: 14px;
+        font-weight: bold;  //500 for Roboto
         line-height: 18px;
         padding: 7px 16px;
         border-radius: 8px;
@@ -75,14 +76,16 @@ main {
         //width: 100px;
 
         // Follow button
-        &[value="follow"] {
+        &.follow {
           background-color: #1a73e8;
+          border: 1px solid #1a73e8;
           color: white;
         }
 
         // Following button
-        &[value="following"] {
+        &.following {
           background-color: white;
+          border: 1px solid black;
           color: black;
         }
       }

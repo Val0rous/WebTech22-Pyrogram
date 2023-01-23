@@ -22,17 +22,17 @@
             <a href="#" class="no-underline">
     <?php endswitch; ?>
 
-    <!-- Sender profile picture -->
-    <img src="<?=$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user image">
-    <!-- Sender username + notification content -->
-    <p><strong><?=$sender["user_id"]?></strong> <?=$notification["content"]?></p>
+        <!-- Sender profile picture -->
+        <img src="<?=$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user image">
+        <!-- Sender username + notification content -->
+        <p><strong><?=$sender["user_id"]?></strong> <?=$notification["content"]?></p>
 
         <?php switch ($notification["notification_type"]):
             case "f":
                 if ($db->findFollowing($_SESSION["user"]["user_id"], $notification["sender_id"])): ?>
-                    <button type="button" value="following">Following</button>
+                    <button type="button" class="following">Following</button>
                 <?php else: ?>
-                    <button type="button" value="follow">Follow</button>
+                    <button type="button" class="follow">Follow</button>
                 <?php endif;
             break;
             case "c":
