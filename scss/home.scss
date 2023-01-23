@@ -57,6 +57,10 @@ main > article {
   // Post content + media
   > main {
     margin-bottom: 1%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+    justify-content: center;
 
     // content
     > p {
