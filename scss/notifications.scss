@@ -27,58 +27,63 @@ main {
     box-sizing: border-box;
 
     // Notification
-    > section {
-      height: 50px;
+    > a {
+      //height: 50px;
+      height: 44px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
-      margin: 0 1%;
+      //margin: 0 1%;
 
       // Sender username + notification content
-      > a {
+      > p {
+        font-size: 14px;
+        line-height: 18px;
         width: 100%;
+
+        // sender username
+        > strong {
+          font-weight: bold;
+        }
+      }
+
+      > img {
         height: 100%;
-        display: flex;
-        align-items: center;
 
-        > p {
-          font-size: 100%;
-
-          // sender username
-          > strong {
-            font-weight: bold;
-          }
+        // Sender profile picture
+        &:first-of-type {
+          border-radius: 100%;
+          //margin-right: 1%;
+          margin-right: 14px;
         }
 
-        > img {
-          max-width: 75%;
-          max-height: 75%;
-
-          // Sender profile picture
-          &:first-of-type {
-            border-radius: 100%;
-            margin-right: 1%;
-          }
-
-          // Post
-          &:nth-of-type(2) {
-            margin-left: auto;
-          }
+        // Post
+        &:nth-of-type(2) {
+          margin-left: 12px;
+          height: 100%;
         }
+      }
+
+      > button {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 7px 16px;
+        border-radius: 8px;
+        margin-left: 12px;
+        margin-right: 0;
+        //height: 24px;
+        //width: 100px;
 
         // Follow button
-        > input[value="Follow"] {
+        &[value="follow"] {
           background-color: #1a73e8;
           color: white;
-          border-radius: 10%;
-          margin-left: auto;
         }
 
-        // Following
-        > input[value="Following"] {
+        // Following button
+        &[value="following"] {
           background-color: white;
           color: black;
-          border-radius: 10%;
-          margin-left: auto;
         }
       }
     }
