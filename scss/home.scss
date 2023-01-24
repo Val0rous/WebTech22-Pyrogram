@@ -122,9 +122,12 @@ main > article {
         background-color: #ECEAEA;
 
         > svg, div {
-          padding: 12px;
-          width: 24px;
           height: 24px;
+        }
+
+        > svg {
+          width: 24px;
+          padding: 12px;
         }
 
         > div {
@@ -132,6 +135,7 @@ main > article {
           align-items: center;
           justify-content: center;
           font-size: 1rem;
+          padding: 12px 6px;
         }
 
         // like button
@@ -160,6 +164,7 @@ main > article {
 
           > div {
             color: white;
+            font-weight: bold;
           }
         }
 
