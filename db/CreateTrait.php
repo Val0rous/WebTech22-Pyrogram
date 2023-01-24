@@ -114,8 +114,8 @@ trait CreateTrait
 
     /**
      * Add a like to DB.
-     * @param string $user
-     * @param string $post
+     * @param string $user user who liked a post
+     * @param string $post post that's been liked
      * @return bool true if like created, false otherwise
      */
     public function createLike(string $user, string $post): bool
@@ -158,5 +158,25 @@ trait CreateTrait
         $next_notification_id = $this->getNextNotificationID();
         $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $sender, $post, $story);
         return $stmt->execute();
+    }
+
+    /**
+     * Add a tag to DB.
+     * @param string $user user who's been tagged in a post
+     * @param string $post post where user's been tagged
+     * @return bool true if tag created, false otherwise
+     */
+    public function createTag(string $user, string $post): bool
+    {
+        $query = "INSERT INTO tags (user_id, post_id) 
+                  VALUES (?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $user, $post);
+        $result = $stmt->execute();
+        if ($result) {
+            $this->incNumTags($post);
+            $this->createNotification(" tagged you in a post.", "t", $this->findPost($post)["user_id"], $user, $post);
+        }
+        return $result;
     }
 }
