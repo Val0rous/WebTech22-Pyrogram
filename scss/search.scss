@@ -9,26 +9,43 @@ a.search {
   }
 }
 
-// top-bar TO DO
-.navigation {
-  
+// hide top bar with logo and messages
+.navigation header {
+  display: none;
 }
 
-// Notifications page
+// Search page
 main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 
-  // no label
-  > label {
-    display: none;
-  }
+  // Top bar
+  > header {
+    background-color: white;
+    height: 61px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 
-  // Search field
-  > input {
-    font-size: 115%;
-    border-radius: 8px;
-    border: 1px solid black;
+    // no label
+    > label {
+      display: none;
+    }
+
+    // Search field
+    > input {
+      width: 90%;
+      font-size: 115%;
+      border-radius: 12px;
+      border: 1.5px solid black;
+    }
   }
 }
 

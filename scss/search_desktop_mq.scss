@@ -1,13 +1,33 @@
 @media screen and (min-width:768px) {
+    // show logo and messages
+    .navigation header {
+        display: contents;
+    }
+
     // Notifications page
-    main {
+    main > header {
+        background-color: transparent;
+        height: unset;
+        position: revert;
+        width: 100%;
+        top: unset;
+        left: unset;
+        right: unset;
+        border-bottom: none;
+        display: block;
+
         // Search label
         > label {
             display: block;
             font-size: 150%;
             font-weight: bold;
-            margin-top: 10%;
+            margin-top: 2%; //10%;
             margin-bottom: 3%;
+        }
+
+        // Search field
+        > input {
+            width: 30%;
         }
     }
 }
