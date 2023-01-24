@@ -5,29 +5,27 @@
     <?php $db = new DatabaseHelper(); ?>
     <?php $sender = $db->findUser($notification["sender_id"]); ?>
     <!-- Notification -->
-    <section>
-        <?php switch ($notification["notification_type"]):
-            case "f": ?>
-                <a href="user_profile.php" class="no-underline">
-            <?php break;
-            case "c":
-            case "l":
-            case "p":
-            case "t": ?>
-                <a href="view_post.php" class="no-underline">
-            <?php break;
-            case "s": ?>
-                <a href="view_story.php" class="no-underline">
-            <?php break;
-            default: ?>
-                <a href="#" class="no-underline">
-        <?php endswitch; ?>
+    <?php switch ($notification["notification_type"]):
+        case "f": ?>
+            <a href="user_profile.php" class="no-underline">
+        <?php break;
+        case "c":
+        case "l":
+        case "p":
+        case "t": ?>
+            <a href="view_post.php" class="no-underline">
+        <?php break;
+        case "s": ?>
+            <a href="view_story.php" class="no-underline">
+        <?php break;
+        default: ?>
+            <a href="#" class="no-underline">
+    <?php endswitch; ?>
 
         <!-- Sender profile picture -->
         <img src="<?=$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user image">
         <!-- Sender username + notification content -->
         <p><strong><?=$sender["user_id"]?></strong> <?=$notification["content"]?></p>
-        </a>
 
         <?php switch ($notification["notification_type"]):
             case "f":
@@ -36,7 +34,7 @@
                 <?php else: ?>
                     <button type="button" class="follow">Follow</button>
                 <?php endif;
-                break;
+            break;
             case "c":
             case "l":
             case "p":
@@ -47,6 +45,6 @@
             <?php break;
             default: ?>
         <?php endswitch; ?>
-    </section>
+    </a>
     <?php endforeach; ?>
 </section>

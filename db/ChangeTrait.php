@@ -295,4 +295,42 @@ trait ChangeTrait
     {
         $this->changeNumComments($post, -1);
     }
+
+    /**
+     * Change number of tags of a post.
+     * @param string $post post id
+     * @param int $increment 1 to increment, -1 to decrement
+     * @return void
+     */
+    private function changeNumTags(string $post, int $increment): void
+    {
+        if ($increment === 1 or $increment === -1) {
+            $query = "UPDATE posts 
+                      SET num_tags = num_tags + ? 
+                      WHERE post_id = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $increment, $post);
+            $stmt->execute();
+        }
+    }
+
+    /**
+     * Increment number of tags of a post.
+     * @param string $post post id
+     * @return void
+     */
+    public function incNumTags(string $post): void
+    {
+        $this->changeNumTags($post, 1);
+    }
+
+    /**
+     * Decrement number of tags of a post.
+     * @param string $post post id
+     * @return void
+     */
+    public function decNumTags(string $post): void
+    {
+        $this->changeNumTags($post, -1);
+    }
 }
