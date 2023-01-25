@@ -7,16 +7,16 @@
     <!-- Notification -->
     <?php switch ($notification["notification_type"]):
         case "f": ?>
-            <a href="user_profile.php&user=<?=$sender["user_id"]?>" class="no-underline">
+            <a href="user_profile.php?user=<?=$sender["user_id"]?>" class="no-underline">
         <?php break;
         case "c":
         case "l":
         case "p":
         case "t": ?>
-            <a href="view_post.php&post=<?=$notification["post_id"]?>" class="no-underline">
+            <a href="view_post.php?post=<?=$notification["post_id"]?>" class="no-underline">
         <?php break;
         case "s": ?>
-            <a href="view_story.php&story=<?=$notification["story_id"]?>" class="no-underline">
+            <a href="view_story.php?story=<?=$notification["story_id"]?>" class="no-underline">
         <?php break;
         default: ?>
             <a href="#" class="no-underline">
