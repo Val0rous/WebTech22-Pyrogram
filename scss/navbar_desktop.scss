@@ -42,7 +42,7 @@
       img {
         display: inline-block;
       }
-      span {
+      > span {
         display: inline-block;
         //margin-left: 10px;
         padding-left: 16px;
@@ -82,6 +82,13 @@
 
     .profile {
       order: 7;
+    }
+
+    a.notifications {
+      div.notification-number {
+        top: 2px;
+        left: 27px;
+      }
     }
   }
 }

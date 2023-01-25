@@ -265,4 +265,16 @@ trait SearchTrait
         }
         return false;
     }
+
+    public function findNotification(string $sender, string $user, string $type, string $post, string $story): bool
+    {
+        switch ($type) {
+            case "l":
+                $query = "SELECT * 
+                  FROM notifications 
+                  WHERE ";
+                break;
+        }
+        return false;
+    }
 }
