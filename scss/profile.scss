@@ -8,6 +8,23 @@ a.profile {
   }
 }
 
+header.profile {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+
+  div.stats {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    img.profile-pic {
+      width: 77px;
+      height: 77px;
+    }
+  }
+}
+
 $storiesHeight: 0; //15%;
 $buttonDim: 24px;
 
