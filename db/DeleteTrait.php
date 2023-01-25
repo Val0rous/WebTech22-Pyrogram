@@ -279,7 +279,6 @@ trait DeleteTrait
         $result = $stmt->execute();
         if ($result) {
             $this->decNumLikes($post);
-            //$this->deleteNotification()
         }
         return $result;
     }
