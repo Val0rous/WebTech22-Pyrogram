@@ -152,12 +152,16 @@ trait CreateTrait
      */
     public function createNotification(string $content, string $type, string $user, string $sender, string $post = null, string $story = null): bool
     {
-        $query = "INSERT INTO notifications (notification_id, content, notification_type, notification_time, read_status, user_id, sender_id, post_id, story_id) 
+        if ($user !== $sender) {
+            $query = "INSERT INTO notifications (notification_id, content, notification_type, notification_time, read_status, user_id, sender_id, post_id, story_id) 
                   VALUES (?, ?, ?, NOW(), '0', ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
-        $next_notification_id = $this->getNextNotificationID();
-        $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $sender, $post, $story);
-        return $stmt->execute();
+            $stmt = $this->db->prepare($query);
+            $next_notification_id = $this->getNextNotificationID();
+            $stmt->bind_param("sssssss", $next_notification_id, $content, $type, $user, $sender, $post, $story);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
     }
 
     /**
