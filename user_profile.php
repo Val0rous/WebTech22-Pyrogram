@@ -3,7 +3,7 @@ require_once "bootstrap.php";
 
 // Params for the Base Template
 $templateParams["name"] = "user_profile.php";
-$templateParams["css"] = "profile.css";
+$templateParams["css"] = "user_profile.css";
 $templateParams["js"] = "profile.js";
 
 $db = new DatabaseHelper();
