@@ -4,30 +4,45 @@
         display: contents;
     }
 
-    // Notifications page
-    main > header {
-        background-color: transparent;
-        height: unset;
-        position: revert;
-        width: 100%;
-        top: unset;
-        left: unset;
-        right: unset;
-        border-bottom: none;
-        display: block;
+    // Search page
+    main {
 
-        // Search label
-        > label {
+        // Search label and field
+        > form {
+            background-color: transparent;
+            height: unset;
+            position: revert;
+            width: 100%;
+            top: unset;
+            left: unset;
+            right: unset;
+            border-bottom: none;
             display: block;
-            font-size: 150%;
-            font-weight: bold;
-            margin-top: 2%; //10%;
-            margin-bottom: 3%;
+
+            // Search label
+            > label {
+                display: block;
+                font-size: 150%;
+                font-weight: bold;
+                margin-top: 2%;
+                margin-bottom: 3%;
+            }
+
+            // Search field
+            > input[type=search] {
+                width: 30%;
+            }
         }
 
-        // Search field
-        > input {
-            width: 30%;
+        // User results box
+        > section {
+            border: 2px solid black;
+            margin: 4% 15% 0 15%;
+        }
+
+        // "No results found" message
+        > p {
+            margin-top: 2%;
         }
     }
 }
