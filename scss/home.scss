@@ -95,6 +95,7 @@ main > article {
     .slideshow-container {
       position: relative;
       display: flex;
+      justify-content: center;
 
       //Hide images by default
       .slideshow {
@@ -140,7 +141,6 @@ main > article {
         font-weight: bold;
         font-size: 18px;
         transition: 0.6s ease-out;
-        border-radius: 0 3px 3px 0;
         user-select: none;
         visibility: hidden;
 
@@ -148,6 +148,12 @@ main > article {
         &:hover {
           background-color: rgba(0, 0, 0, 0.8);
         }
+      }
+
+      //Position the prev button to the left
+      .prev {
+        left: 0;
+        border-radius: 0 3px 3px 0;
       }
 
       //Position the next button to the right
