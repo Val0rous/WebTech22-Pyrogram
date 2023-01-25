@@ -10,15 +10,17 @@
     <header>
         <div class="stats">
             <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s user image">
-            <div class="num-posts">
-                <?=$_SESSION["user"]["num_posts"]?> Posts
+            <div>
+                <div class="num-posts">
+                    <?=$_SESSION["user"]["num_posts"]?> Posts
+                </div>
+                <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_SESSION["user"]["user_id"]?>">
+                    <?=$_SESSION["user"]["num_followers"]?> Followers
+                </a>
+                <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_SESSION["user"]["user_id"]?>">
+                    <?=$_SESSION["user"]["num_following"]?> Following
+                </a>
             </div>
-            <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_SESSION["user"]["user_id"]?>">
-                <?=$_SESSION["user"]["num_followers"]?> Followers
-            </a>
-            <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_SESSION["user"]["user_id"]?>">
-                <?=$_SESSION["user"]["num_following"]?> Following
-            </a>
         </div>
 
         <div class=info>
