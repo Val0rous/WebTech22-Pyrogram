@@ -64,22 +64,22 @@ main {
       }
 
       > div.info {
+        margin-top: 2%;
 
         // Name
         > div > div.user-name {
-          margin-top: 2%;
           font-weight: bold;
         }
 
         // Bio
         > div > div.user-bio {
-          margin: 1% 0;
+          margin-top: 1%;
         }
 
         // "Edit profile" button
         > a > button {
           width: 100%;
-          margin-top: 2%;
+          margin-top: 3%;
           font-size: 100%;
           padding: 1%;
           border-radius: 8px;
@@ -98,7 +98,7 @@ main {
     padding: 6px 6px 20px 6px;
 
     &:first-of-type {
-      margin-top: 2%;
+      margin-top: 3%;
     }
 
     // User profile picture + user name + post date
