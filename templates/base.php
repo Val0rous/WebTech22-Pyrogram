@@ -16,9 +16,10 @@
             <?php endforeach; ?>
         <?php endif; ?>
     <?php endif; ?>
-    <!-- JavaScript -->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+    <!-- JavaScript -->
     <?php if (isset($templateParams["js"])): ?>
         <?php if (!is_array($templateParams["js"])): ?>
             <script src="js/<?=$templateParams["js"]?>"></script>
