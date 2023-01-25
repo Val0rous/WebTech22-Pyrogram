@@ -33,8 +33,8 @@ main {
 
       // Sender username + notification content
       > p {
-        font-size: 14px;
-        line-height: 18px;
+        font-size: 0.875rem;    //14px
+        line-height: 1.125rem;  //18px
         width: 100%;
 
         // sender username
@@ -49,7 +49,8 @@ main {
         // Sender profile picture
         &:first-of-type {
           border-radius: 100%;
-          margin-right: 2%;
+          //margin-right: 2%;
+          margin-right: 14px;
         }
 
         // Post
@@ -62,15 +63,16 @@ main {
       }
 
       > button {
-        font-size: 90%;
+        //font-size: 90%;
         //font-size: 14px;
-        font-weight: bold;  //500 for Roboto
-        line-height: 18px;
-        //padding: 7px 16px;
-        padding: 1% 2%;
+        font-size: 0.875rem;    //14px
+        font-weight: bold;      //500 for Roboto
+        line-height: 1.125rem;  //18px
+        padding: 7px 16px;
+        //padding: 1% 2%;
         border-radius: 8px;
-        //margin-left: 12px;
-        margin-left: 1%;
+        margin-left: 12px;
+        //margin-left: 1%;
 
         // Follow button
         &.follow {

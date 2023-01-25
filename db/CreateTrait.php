@@ -16,7 +16,7 @@ trait CreateTrait
     {
         if ($this->checkUserIDAvailability($id)) {
             $query = "INSERT INTO users (user_id, user_name, user_email, user_password, user_picture_path, user_bio, account_active_status, num_posts, num_followers, num_following) 
-                      VALUES (?, ?, ?, ?, ?, '', '1', 0, 0, 0)";
+                      VALUES (LOWER(?), ?, ?, ?, ?, '', '1', 0, 0, 0)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sssss", $id, $name, $email, $password, $picture_path);
             return $stmt->execute();

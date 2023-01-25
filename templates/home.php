@@ -7,11 +7,12 @@
     <!-- Post header: user profile picture + user name + post date -->
     <header>
                 <!-- to add UPLOAD_DIR. -->
-        <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
-        <div>
-            <strong><?=$user["user_name"]?></strong>
-            <p>
-            <?php
+        <a href="user_profile.php" class="no-underline">
+            <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+            <div>
+                <strong><?=$user["user_name"]?></strong>
+                <p>
+                <?php
                 try {
                     $time = new DateTime($post["post_time"]);
                     $ago = time() - $time->format("U");
@@ -59,32 +60,63 @@
                     }
                 } catch (Exception $e) {
                 }
-            ?>
-            <?php if ($post["location"] !== null): ?>
-            &nbsp;&bull;&nbsp;&nbsp;<?=$post["location"]?>
-            <?php endif; ?>
-            </p>
-        </div>
+                ?>
+                <?php if ($post["location"] !== null): ?>
+                &nbsp;&bull;&nbsp;&nbsp;<?=$post["location"]?>
+                <?php endif; ?>
+                </p>
+            </div>
+        </a>
         <div class="post-id"><?=$post["post_id"]?></div>
     </header>
     <!-- Post main: post content + media -->
     <main>
         <p><?=$post["content"]?></p>
-        <?php foreach (array($post["media_path0"], $post["media_path1"], $post["media_path2"],
-                            $post["media_path3"], $post["media_path4"], $post["media_path5"],
-                            $post["media_path6"], $post["media_path7"], $post["media_path8"],
-                            $post["media_path9"]) as $media): ?>
-            <?php if ($media !== null): ?>
-                <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+        <?php
+        $medias = array($post["media_path0"], $post["media_path1"], $post["media_path2"],
+                $post["media_path3"], $post["media_path4"], $post["media_path5"],
+                $post["media_path6"], $post["media_path7"], $post["media_path8"],
+                $post["media_path9"]);
+        $length = count(array_filter($medias));
+        ?>
+        <?php if ($length > 0): ?>
+            <?php if ($length > 1): ?>
+                <div class="slideshow-container">
             <?php endif; ?>
-        <?php endforeach; ?>
+                <?php foreach ($medias as $media): ?>
+                    <?php if ($media !== null): ?>
+                        <?php if ($length > 1): ?>
+                            <div class="slideshow fade">
+                                <div class="index"><?=array_search($media, $medias) + 1?> / <?=$length?></div>
+                                <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+                            </div>
+                        <?php else: ?>
+                            <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php if ($length > 1): ?>
+                    <!-- Next and Previous buttons -->
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
+                <!-- Dots to indicate which image we're on -->
+                <div class="dots">
+                    <?php foreach ($medias as $media): ?>
+                        <?php if ($media !== null): ?>
+                            <span class="dot" value="<?=array_search($media, $medias)?>"></span>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
         <!-- Create image carousel if there's more than one image -->
     </main>
     <!-- Post section 1: num likes + num comments -->
     <section>
         <!-- View likes and View tags -->
-        <a href="view_likes.php">View likes</a>
-        <a href="view_tags.php">View tags</a>
+        <a href="view_likes.php" class="no-underline">View likes</a>
+        <a href="view_tags.php" class="no-underline">View tags</a>
     </section>
     <!-- Post section 2: like button + comment button -->
     <section>

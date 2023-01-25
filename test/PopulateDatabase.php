@@ -36,6 +36,7 @@ final class PopulateDatabase extends TestCase
         $this->assertTrue($this->db->findUser("mancu") || $this->db->createUser("mancu", "Paolo Mancuso", "sonomafioso@gmail.com", "password", $this->profile_pic));
         $this->assertTrue($this->db->findUser("guerrins") || $this->db->createUser("guerrins", "Francesca Guerrini", "im.guerrins@gmail.com", "password", $this->profile_pic));
         $this->assertTrue($this->db->findUser("toscanello") || $this->db->createUser("toscanello", "Lorenzo Barni", "barney@gmail.com", "password", $this->profile_pic));
+        $this->assertTrue($this->db->findUser("SARAROSSI.SR") || $this->db->createUser("SARAROSSI.SR", "Sara Rossi", "sararossi@gmail.com", "password", $this->profile_pic));   //testing whether uppercase strings get converted to lowercase
     }
 
     public function testFollowings()

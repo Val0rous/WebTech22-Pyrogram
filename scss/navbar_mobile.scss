@@ -8,6 +8,8 @@
   }
 
   .navigation {
+    position: relative;
+    z-index: 1;
     header {
       background-color: white;
       height: $nav_height;
