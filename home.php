@@ -13,6 +13,11 @@ $templateParams["js"] = "home.js";
 
 //New and hopefully final version
 $db = new DatabaseHelper();
+/*
+if (!isset($_SESSION["user"]) and isset($_COOKIE["user"])) {
+    $_SESSION["user"] = $db->findUser($_COOKIE["user"]);
+}
+*/
 $templateParams["posts"] = $db->fetchPosts($_SESSION["user"]["user_id"]);
 
 require "templates/base.php";

@@ -15,9 +15,12 @@ $buttonDim: 24px;
 // Post
 main > article {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin: 5% 0%;
+  //margin: 5% 0%;
+  margin-bottom: 12px;
   border: 2px solid black;
-  padding: 1%;
+  border-radius: 8px;
+  //padding: 1%;
+  padding: 6px 6px 20px 6px;
 
   &:first-of-type {
     margin-top: $storiesHeight;
@@ -25,31 +28,39 @@ main > article {
 
   // User profile picture + user name + post date
   > header {
-    margin-top: 1%;
-    margin-bottom: 2%;
+    //margin-top: 1%;
+    //margin-bottom: 2%;
+    margin: 8px 5px;
 
-    // user image
-    > img {
-      width: 32px;
-      border-radius: 100%;
-      margin-right: 0.5%;
-    }
+    > a {
+      display: flex;
+      flex-flow: row;
 
-    > div {
-      display: inline-block;
-
-      // user name
-      > h1 {
-        font-size: 1rem;
-        font-weight: normal;
-        margin-bottom: 1px;
+      // user image
+      > img {
+        height: 32px;
+        width: 32px;
+        border-radius: 100%;
+        //margin-right: 0.5%;
       }
 
-      // date and location
-      > p {
-        font-size: 0.75rem;
-        color: gray;
-        margin-top: 1px;
+      > div {
+        display: inline-block;
+        margin-left: 12px;
+
+        // user name
+        > h1 {
+          font-size: 1rem;
+          font-weight: normal;
+          margin-bottom: 1px;
+        }
+
+        // date and location
+        > p {
+          font-size: 0.75rem;
+          color: gray;
+          margin-top: 1px;
+        }
       }
     }
 
@@ -60,7 +71,7 @@ main > article {
 
   // Post content + media
   > main {
-    margin-bottom: 1%;
+    //margin-bottom: 1%;
     display: flex;
     flex-flow: column nowrap;
     justify-items: center;
@@ -76,8 +87,95 @@ main > article {
     }
 
     // media
-    > img {
+    > img, > .slideshow-container > .slideshow > img {
       max-width: 100%;
+    }
+
+    //Slideshow container
+    .slideshow-container {
+      position: relative;
+      display: flex;
+
+      //Hide images by default
+      .slideshow {
+        display: none;
+
+        //Index (1/3 etc)
+        .index {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        //Fading animation
+        .fade {
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+          from {
+            opacity: 0.4;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+
+      //Next and previous buttons
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+
+        //On hover, add a black background color with a little bit see-through
+        :hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      //Position the next button to the right
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+    }
+
+    .dots {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+      padding-top: 8px;
+
+      //Dots, indicating which image we're on
+      span.dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+
+        &.active, &:hover {
+          background-color: #717171;
+        }
+      }
     }
   }
 
@@ -89,7 +187,10 @@ main > article {
       justify-content: space-between;
       > a {
         display: inline;
-        font-size: 85%;
+        //font-size: 85%;
+        color: #1a73e8;
+        font: 500 0.875rem "Roboto", "Arial", sans-serif;
+        padding: 8px 6px;
 
         // View likes
         &:first-of-type {
@@ -110,7 +211,7 @@ main > article {
       flex-flow: row;
 
       > button {
-        max-width: 50%;
+        //max-width: 50%;
         //max-height: $buttonDim;
         border-radius: 8px;
         //padding: 2% calc(25% - $buttonDim / 2 - 1px);
@@ -120,6 +221,7 @@ main > article {
         align-items: center;
         justify-content: center;
         background-color: #ECEAEA;
+        cursor: pointer;
 
         > svg, div {
           height: 24px;
@@ -141,6 +243,7 @@ main > article {
         // like button
         &.like {
           border: 1px solid black;
+          margin-right: 3px;
 
           > svg.unlike {
             display: none;
@@ -171,6 +274,7 @@ main > article {
         // comment button
         &.comment {
           border: 1px solid black;
+          margin-left: 3px;
         }
       }
     }
