@@ -171,7 +171,8 @@ trait SearchTrait
     {
         $query = "SELECT * 
                   FROM posts 
-                  WHERE user_id = ?";
+                  WHERE user_id = ? 
+                  ORDER BY post_time DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $user);
         $stmt->execute();

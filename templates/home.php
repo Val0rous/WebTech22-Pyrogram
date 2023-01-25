@@ -7,7 +7,7 @@
     <!-- Post header: user profile picture + user name + post date -->
     <header>
                 <!-- to add UPLOAD_DIR. -->
-        <a href="user_profile.php" class="no-underline">
+        <a href="user_profile.php&user=<?=$user["user_id"]?>" class="no-underline">
             <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
             <div>
                 <strong><?=$user["user_name"]?></strong>
@@ -115,8 +115,8 @@
     <!-- Post section 1: num likes + num comments -->
     <section>
         <!-- View likes and View tags -->
-        <a href="view_likes.php" class="no-underline">View likes</a>
-        <a href="view_tags.php" class="no-underline">View tags</a>
+        <a href="view_list.php&type=likes&post=<?=$post["post_id"]?>" class="no-underline">View likes</a>
+        <a href="view_list.php&type=tags&post=<?=$post["post_id"]?>" class="no-underline">View tags</a>
     </section>
     <!-- Post section 2: like button + comment button -->
     <section>
@@ -134,12 +134,14 @@
             <div><?=$post["num_likes"]?></div>
         </button>
         <!--<img src="img/comments.png" alt="Comment button"/>-->    <!-- to make it work using js -->
-        <button type="button" class="comment">
-            <svg aria-label="Comment" class="buttons" viewBox="0 0 24 24" role="img">
-                <path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-            <div><?=$post["num_comments"]?></div>
-        </button>
+        <a href="comments.php&post=<?=$post["post_id"]?>" class="no-underline">
+            <button type="button" class="comment">
+                <svg aria-label="Comment" class="buttons" viewBox="0 0 24 24" role="img">
+                    <path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+                <div><?=$post["num_comments"]?></div>
+            </button>
+        </a>
     </section>
 </article>
 <?php endforeach; ?>

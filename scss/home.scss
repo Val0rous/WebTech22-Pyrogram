@@ -225,7 +225,12 @@ main > article {
       display: flex;
       flex-flow: row;
 
-      > button {
+      > a {
+        display: flex;
+        flex-grow: 1;
+      }
+
+      > button, a > button {
         //max-width: 50%;
         //max-height: $buttonDim;
         border-radius: 8px;
