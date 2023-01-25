@@ -1,25 +1,37 @@
 <!-- In main -->
-<header class="profile">
-    <h1><?=$_SESSION["user"]["user_id"]?></h1>
-    <div class="stats">
-        <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s user image">
-        <div class="num-posts">
-            <?=$_SESSION["user"]["num_posts"]?> Posts
-        </div>
-        <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_SESSION["user"]["user_id"]?>">
-            <?=$_SESSION["user"]["num_followers"]?> Followers
-        </a>
-        <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_SESSION["user"]["user_id"]?>">
-            <?=$_SESSION["user"]["num_following"]?> Following
-        </a>
+
+<div>
+    <!-- Top bar -->
+    <div class="top-bar">
+        <h1><?=$_SESSION["user"]["user_id"]?></h1>
     </div>
 
-    <div class="user_name"><?=$_SESSION["user"]["user_name"]?></div>
-    <div class="user_bio"><?=$_SESSION["user"]["user_bio"]?></div>
-    <a href="edit-profile">
-        <button type="button" class="edit-profile">Edit profile</button>
-    </a>
-</header>
+    <!-- User info -->
+    <header>
+        <div class="stats">
+            <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s user image">
+            <div class="num-posts">
+                <?=$_SESSION["user"]["num_posts"]?> Posts
+            </div>
+            <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_SESSION["user"]["user_id"]?>">
+                <?=$_SESSION["user"]["num_followers"]?> Followers
+            </a>
+            <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_SESSION["user"]["user_id"]?>">
+                <?=$_SESSION["user"]["num_following"]?> Following
+            </a>
+        </div>
+
+        <div class=info>
+            <div>
+                <div class="user-name"><?=$_SESSION["user"]["user_name"]?></div>
+                <div class="user-bio"><?=$_SESSION["user"]["user_bio"]?></div>
+            </div>
+            <a href="edit-profile">
+                <button type="button" class="edit-profile">Edit profile</button>
+            </a>
+        </div>
+    </header>
+</div>
 
 <?php foreach ($templateParams["posts"] as $post): ?>
     <?php $db = new DatabaseHelper(); ?>

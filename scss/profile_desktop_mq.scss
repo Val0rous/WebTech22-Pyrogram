@@ -1,0 +1,62 @@
+@media screen and (min-width:768px) {
+  // show logo and messages
+  .navigation header {
+    display: contents;
+  }
+
+  // Profile page
+  main {
+
+    > div, > article {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+
+    > div {
+
+      > div.top-bar, > header {
+        display: contents;
+      }
+
+      // Username
+      > div.top-bar {
+        text-align: center;
+
+        > h1 {
+          margin-top: 2%;
+        }
+      }
+
+      // User info
+      > header {
+
+        > div.stats {
+          // Profile picture
+          > img.profile-pic {
+            width: 100px;
+            height: 100px;
+          }
+        }
+
+        > div.info {
+          display: flex;
+          flex-flow: row;
+          align-items: center;
+          justify-content: space-between;
+
+          // "Edit profile" button
+          > a {
+            width: fit-content;
+            margin-right: 1%;
+
+            > button {
+              width: fit-content;
+              white-space: nowrap;
+              padding: 5%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
