@@ -4,7 +4,7 @@ require_once "bootstrap.php";
 // Params for the Base Template
 $templateParams["name"] = "notifications.php";
 $templateParams["css"] = "notifications.css";
-$templateParams["js"] = "follow-following.js";
+$templateParams["js"] = "follow_following.js";
 
 $db = new DatabaseHelper();
 $templateParams["notifications"] = $db->fetchAllNotifications($_SESSION["user"]["user_id"]);

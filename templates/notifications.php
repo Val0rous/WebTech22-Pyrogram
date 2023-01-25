@@ -4,6 +4,7 @@
     <?php foreach ($templateParams["notifications"] as $notification): ?>
     <?php $db = new DatabaseHelper(); ?>
     <?php $sender = $db->findUser($notification["sender_id"]); ?>
+    <?php $db->readAllNotifications($_SESSION["user"]["user_id"]); ?>
     <!-- Notification -->
     <?php switch ($notification["notification_type"]):
         case "f": ?>

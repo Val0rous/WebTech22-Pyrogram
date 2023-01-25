@@ -56,13 +56,27 @@ trait ActionTrait
         $query = "SELECT * 
                   FROM notifications 
                   WHERE user_id = ? 
-                  AND read_status = '0' 
+                  -- AND read_status = '0' --not anymore, we'll fetch them all from now on
                   ORDER BY notification_time DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $user);
         $stmt->execute();
         $notifications = $stmt->get_result();
         return $notifications->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Set all notifications of a user as read.
+     * This function should set off when user opens notification panel.
+     */
+    public function readAllNotifications(string $user): bool
+    {
+        $query = "UPDATE notifications 
+                  SET read_status = '1' 
+                  WHERE user_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $user);
+        return $stmt->execute();
     }
 
     /**
