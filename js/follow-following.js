@@ -5,10 +5,17 @@ $(function () {
     $("button.follow, button.following").click(function (e) {
         e.preventDefault();
         const target = e.currentTarget;
-        if($(target).hasClass("follow")) {
-            follow($(target));
+        let user;
+        if ($(target).hasClass("notifications")) {
+            user = $(target).parent().find($("p > strong")).text();
+        } else if ($(target).hasClass("search")) {
+            user = $(target).parent().find($("section > p")).first().text();
+            console.log(user);
+        }
+        if ($(target).hasClass("follow")) {
+            follow($(target), user);
         } else if ($(target).hasClass("following")) {
-            unfollow($(target));
+            unfollow($(target), user);
         }
     });
 });
@@ -17,13 +24,13 @@ $(function () {
  * Follow user when button clicked.
  * @param e target
  */
-function follow(e) {
+function follow(e, user) {
     $.ajax({
         type: "POST",
         url: "php/api_follow.php",
         data: {
             action: "follow",
-            user: e.parent().find($("p > strong")).text()
+            user: user
         }
     }).then(
         //resolve success callback
@@ -49,13 +56,13 @@ function follow(e) {
  * Unfollow user when button clicked.
  * @param e target
  */
-function unfollow(e) {
+function unfollow(e, user) {
     $.ajax({
         type: "POST",
         url: "php/api_follow.php",
         data: {
             action: "unfollow",
-            user: e.parent().find($("p > strong")).text()
+            user: user
         }
     }).then(
         //resolve success callback

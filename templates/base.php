@@ -17,17 +17,7 @@
         <?php endif; ?>
     <?php endif; ?>
     <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
-    <?php if (isset($templateParams["js"])): ?>
-        <?php if (!is_array($templateParams["js"])): ?>
-            <script src="js/<?=$templateParams["js"]?>"></script>
-        <?php else: ?>
-            <?php foreach ($templateParams["js"] as $js): ?>
-                <script src="js/<?=$js?>"></script>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    <?php endif; ?>
+    <!-- moved at the end -->
 </head>
 <body>
     <div class="navigation">
@@ -112,6 +102,19 @@
         }
         ?>
     </main>
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+    <?php if (isset($templateParams["js"])): ?>
+        <?php if (!is_array($templateParams["js"])): ?>
+            <script src="js/<?=$templateParams["js"]?>"></script>
+        <?php else: ?>
+            <?php foreach ($templateParams["js"] as $js): ?>
+                <script src="js/<?=$js?>"></script>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endif; ?>
 </body>
 </html>
 <?php else:

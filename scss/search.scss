@@ -14,15 +14,17 @@ a.search {
   display: none;
 }
 
+$topBarHeight: 12%;
+
 // Search page
 main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 
   // Top bar
-  > header {
+  > form {
     background-color: white;
-    height: 61px;
+    height: $topBarHeight;
     position: fixed;
     width: 100%;
     top: 0;
@@ -40,12 +42,87 @@ main {
     }
 
     // Search field
-    > input {
+    > input[type=search] {
       width: 90%;
       font-size: 115%;
       border-radius: 12px;
       border: 1.5px solid black;
+      padding: 2px 0 2px 6px;
     }
+
+    // hide submit button
+    > input[type=submit] {
+      display: none;
+    }
+  }
+
+  // User results box
+  > section {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    // User result
+    > a {
+      height: 44px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+
+      // User username and name
+      > section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        > p {
+          font-size: 88%;
+          line-height: 18px;
+          margin: 0;
+
+          // username
+          &:first-of-type {
+            font-weight: bold;
+          }
+        }
+      }
+
+      // User profile picture
+      > img {
+        height: 100%;
+        border-radius: 100%;
+        margin-right: 2%;
+      }
+
+      > button {
+        font-size: 88%;
+        font-weight: bold;
+        line-height: 18px;
+        padding: 1% 2%;
+        border-radius: 8px;
+        margin-left: auto;
+
+        // Follow button
+        &.follow {
+          background-color: #1a73e8;
+          border: 1px solid #1a73e8;
+          color: white;
+        }
+
+        // Following button
+        &.following {
+          background-color: white;
+          border: 1px solid black;
+          color: black;
+        }
+      }
+    }
+  }
+
+  // "No results found" message
+  > p {
+    font-size: 100%;
+    margin-top: $topBarHeight + 1.5%;
   }
 }
 
