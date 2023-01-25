@@ -159,7 +159,7 @@ $(function () {
     $(".dot").click(function (e) {
         //e.preventDefault();
         const target = e.currentTarget;
-        switchSlide($(target).parent().parent(), $(target).attr("value"));
+        switchSlide($(target).parent().parent(), parseInt($(target).attr("value")));
     });
 });
 
@@ -170,6 +170,5 @@ $(function () {
  */
 function switchSlide(target, index) {
     let slides = slideshows.find(item => item.slideshow[0] === target[0]);
-    //no need to re-assign slideshows.current_slide again, as I did before
-    showSlide(target, slides.current_slide = index);
+    slides.current_slide = showSlide(target, slides.current_slide = index);
 }
