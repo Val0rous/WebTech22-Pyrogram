@@ -106,8 +106,10 @@ main > article {
           font-size: 12px;
           padding: 8px 12px;
           position: absolute;
-          top: 0;
-          right: 0;
+          top: 10px;
+          right: 10px;
+          //background-color: rgba(0, 0, 0, 0.7);
+          //border-radius: 24px;
         }
 
         //Fading animation
@@ -115,7 +117,7 @@ main > article {
           animation-name: fade;
           animation-duration: 1.5s;
         }
-        
+
         @keyframes fade {
           from {
             opacity: 0.4;
@@ -137,12 +139,13 @@ main > article {
         color: white;
         font-weight: bold;
         font-size: 18px;
-        transition: 0.6s ease;
+        transition: 0.6s ease-out;
         border-radius: 0 3px 3px 0;
         user-select: none;
+        visibility: hidden;
 
         //On hover, add a black background color with a little bit see-through
-        :hover {
+        &:hover {
           background-color: rgba(0, 0, 0, 0.8);
         }
       }
@@ -151,6 +154,12 @@ main > article {
       .next {
         right: 0;
         border-radius: 3px 0 0 3px;
+      }
+
+      &:hover {
+        .prev, .next {
+          visibility: visible;
+        }
       }
     }
 
@@ -164,8 +173,8 @@ main > article {
       //Dots, indicating which image we're on
       span.dot {
         cursor: pointer;
-        height: 15px;
-        width: 15px;
+        height: 10px;
+        width: 10px;
         margin: 0 2px;
         background-color: #bbbbbb;
         border-radius: 50%;
