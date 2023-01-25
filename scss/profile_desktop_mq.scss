@@ -31,6 +31,24 @@
       > header {
 
         > div.stats {
+          justify-content: space-between;
+
+          > div {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+  
+            > div.num-posts {
+              margin-right: 5%;
+            }
+  
+            > a.num-followers {
+              margin-right: 2%;
+            }
+          }
+
           // Profile picture
           > img.profile-pic {
             width: 100px;
