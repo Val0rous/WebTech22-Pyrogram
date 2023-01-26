@@ -12,12 +12,12 @@ a.profile {
 }
 
 // to center the button
-main div.info {
+body > main div.info {
   text-align: center;
 }
 
 // Follow/following button
-main button {
+body > main button {
   width: 100%;
   margin-top: 3%;
 

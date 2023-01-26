@@ -9,13 +9,35 @@ a.notifications {
   }
 }
 
+// hide top bar with logo and messages
+.navigation header {
+  display: none;
+}
+
 // Notifications page
-main {
+body > main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-  // no title
-  > h1 {
-    display: none;
+  // Top bar
+  > div.top-bar {
+    background-color: white;
+    height: 61px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 3%;
+
+    > h1 {
+      font-size: 150%;
+    }
   }
 
   // Notifications box

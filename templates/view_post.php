@@ -6,9 +6,8 @@
 <article>
     <!-- Post header: user profile picture + user name + post date -->
     <header>
-        <!-- to add UPLOAD_DIR. -->
         <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
-            <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+            <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
             <div>
                 <strong><?=$user["user_name"]?></strong>
                 <p>

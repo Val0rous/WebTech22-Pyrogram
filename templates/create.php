@@ -15,7 +15,7 @@
 <form id="create-form" method="post">
     <article>
         <header>
-            <img src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
+            <img src="<?=PROFILE_PICS_DIR.$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
             <span><?=$_SESSION["user"]["user_name"]?></span>
         </header>
         <main>

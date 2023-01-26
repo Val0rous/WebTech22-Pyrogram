@@ -1,5 +1,10 @@
 <!-- In main -->
-<h1>Notifications</h1>
+
+<!-- Top bar -->
+<div class="top-bar">
+    <h1>Notifications</h1>
+</div>
+
 <section>
     <?php foreach ($templateParams["notifications"] as $notification): ?>
     <?php $db = new DatabaseHelper(); ?>
@@ -24,7 +29,7 @@
     <?php endswitch; ?>
 
         <!-- Sender profile picture -->
-        <img src="<?=$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user profile picture">
+        <img src="<?=PROFILE_PICS_DIR.$sender["user_picture_path"]?>" alt="<?=$sender["user_id"]?>'s user profile picture">
         <!-- Sender username + notification content -->
         <p><strong><?=$sender["user_id"]?></strong> <?=$notification["content"]?></p>
 

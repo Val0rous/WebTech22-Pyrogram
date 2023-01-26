@@ -1,17 +1,34 @@
 @media screen and (min-width:768px) {
 
-    // Notifications title
-    main > h1 {
-        display: block;
-        font-size: 150%;
-        text-align: center;
-        padding: 0;
-        margin: 2% 0;
+    // show logo and messages
+    .navigation header {
+        display: contents;
     }
 
-    // Notifications box
-    main > section {
-        border: 2px solid black;
-        margin: 0 15%;
+    body > main {
+        > div.top-bar {
+            background-color: unset;
+            height: unset;
+            position: unset;
+            width: unset;
+            border-bottom: unset;
+            padding: 0;
+    
+            display: block;
+            text-align: center;
+    
+            // Notificationn title
+            > h1 {
+                text-align: center;
+                padding: 0;
+                margin: 2% 0;
+            }
+        }
+
+        // Notifications box
+        > section {
+            border: 2px solid black;
+            margin: 0 15%;
+        }
     }
 }

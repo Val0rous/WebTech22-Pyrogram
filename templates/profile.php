@@ -13,7 +13,7 @@
     <header>
         <div class="stats">
             <!-- Profile picture -->
-            <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture">
+            <img class="profile-pic" src="<?=PROFILE_PICS_DIR.$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture">
             <div>
                 <!-- Number of posts -->
                 <div class="num-posts">
@@ -54,7 +54,7 @@
         <header>
             <!-- to add UPLOAD_DIR. -->
             <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
-                <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+                <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
                 <div>
                     <strong><?=$user["user_name"]?></strong>
                     <p>

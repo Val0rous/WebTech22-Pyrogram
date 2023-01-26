@@ -6,7 +6,7 @@
   }
 
   // Profile page
-  main {
+  body > main {
 
     > div, > article {
       margin-left: 15%;
@@ -32,6 +32,7 @@
 
         > h1 {
           display: inline-block;
+          margin: 0;
           margin-left: 12%;
         }
 
@@ -49,8 +50,8 @@
 
           // Profile picture
           > img.profile-pic {
-            width: 100px;
-            height: 100px;
+            //width: 77px;
+            //height: 77px;
           }
 
           > div {

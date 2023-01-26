@@ -20,7 +20,7 @@ if (isset($_GET["search"]) && $_GET["search"] != ""):
                     <!-- User result -->
                     <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
                         <!-- User profile picture -->
-                        <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image">
+                        <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image">
                         <!-- User username and name -->
                         <section>
                             <p><?=$user["user_id"]?></p>
@@ -37,7 +37,7 @@ if (isset($_GET["search"]) && $_GET["search"] != ""):
                     <!-- Found yourself -->
                     <a href="profile.php" class="no-underline">
                         <!-- User profile picture -->
-                        <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image">
+                        <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image">
                         <!-- User username and name -->
                         <section>
                             <p><?=$user["user_id"]?></p>

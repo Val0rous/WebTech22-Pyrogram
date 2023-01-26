@@ -15,7 +15,7 @@ $user = $db->findUser($_GET["user"]); ?>
     <!-- User info -->
     <header>
         <div class="stats">
-            <img class="profile-pic" src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s profile picture">
+            <img class="profile-pic" src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s profile picture">
             <div>
                 <div class="num-posts">
                     <?=$user["num_posts"]?> Posts
@@ -52,7 +52,7 @@ $user = $db->findUser($_GET["user"]); ?>
         <header>
             <!-- to add UPLOAD_DIR. -->
             <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
-                <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+                <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
                 <div>
                     <strong><?=$user["user_name"]?></strong>
                     <p>

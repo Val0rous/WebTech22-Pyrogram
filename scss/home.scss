@@ -35,12 +35,12 @@ main > article {
     > a {
       display: flex;
       flex-flow: row;
-      //align-items: center;
+      align-items: center;
 
       // user image
       > img {
-        height: 32px; //42px;
-        width: 32px;  //42px;
+        height: 42px;
+        width: 42px;
         border-radius: 100%;
       }
 
