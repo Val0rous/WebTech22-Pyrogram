@@ -1,7 +1,15 @@
-// Do not select any navbar icon - it's a feature, not a bug
-
 // using profile page css
 @import "profile";
+
+a.profile {
+  .navbar-icon {
+    display: block;
+  }
+
+  .navbar-icon.selected {
+    display: none;
+  }
+}
 
 // to center the button
 main div.info {
