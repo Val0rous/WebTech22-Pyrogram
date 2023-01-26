@@ -11,6 +11,9 @@ $(function () {
         } else if ($(target).hasClass("search")) {
             user = $(target).parent().find($("section > p")).first().text();
             console.log(user);
+        } else if ($(target).hasClass("user_profile")) {
+            user = $(target).parent().parent().parent().find($("div.top-bar > h1")).text();
+            console.log(user);
         }
         if ($(target).hasClass("follow")) {
             follow($(target), user);
