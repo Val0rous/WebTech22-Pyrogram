@@ -17,7 +17,7 @@
             <label for="full_name">Full Name</label>
         </div>
         <div class="input-box">
-            <input type="text" id="email" name="email" placeholder=" ">
+            <input type="email" id="email" name="email" placeholder=" ">
             <label for="email">Email</label>
         </div>
         <div class="warning">
