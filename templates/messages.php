@@ -1,2 +1,2 @@
 <!-- In main -->
-<h1>Messages</h1>
+<p>Not available yet</p>

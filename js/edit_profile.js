@@ -9,7 +9,7 @@ $(function () {
 
 /**
  * Form submit
- */
+ *//*
 $(function () {
     $("main > div > form").submit(function (e) {
         e.preventDefault();
@@ -36,4 +36,4 @@ $(function () {
             }
         );
     });
-});
+});*/

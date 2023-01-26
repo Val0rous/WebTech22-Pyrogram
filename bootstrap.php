@@ -3,7 +3,9 @@ if (!session_id()) {
     session_start();
 }
 require_once "db/DatabaseHelper.php";
-const UPLOAD_DIR = "db/media";
+const UPLOAD_DIR = "db/media/";
+const PROFILE_PICS_DIR = "db/media/profile_pics/";
+
 //$dbh = new DatabaseHelper();
 
 //require_once("utils/functions.php");

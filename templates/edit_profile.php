@@ -18,7 +18,7 @@
     </div>
 
     <!-- User info to edit -->
-    <form method="post">
+    <form action="php/api_edit_profile.php" method="post" enctype="multipart/form-data">
         <!-- Profile picture -->
         <div class="profile-pic">
             <img src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture" />
@@ -30,7 +30,7 @@
         <!-- Username -->
         <div class="username">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="<?=$_SESSION["user"]["user_id"]?>"/>
+            <input type="text" id="username" name="username" value="<?=$_SESSION["user"]["user_id"]?>" readonly />
         </div>
         <!-- Name -->
         <div class="name">
