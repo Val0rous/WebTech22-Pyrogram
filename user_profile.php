@@ -7,6 +7,8 @@ $templateParams["css"] = "user_profile.css";
 $templateParams["js"] = array("post.js", "follow_following.js");
 
 $db = new DatabaseHelper();
-$templateParams["posts"] = $db->findAllPosts($_GET["user"]);
+if (isset($_GET["user"])) {
+    $templateParams["posts"] = $db->findAllPosts($_GET["user"]);
+}
 
 require "templates/base.php";

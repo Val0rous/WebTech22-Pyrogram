@@ -1,6 +1,9 @@
 <!-- In main -->
 <?php
 $db = new DatabaseHelper();
+if (!isset($_GET["user"])) {
+    exit("An error occured");
+}
 $user = $db->findUser($_GET["user"]); ?>
 
 <div>
@@ -39,25 +42,6 @@ $user = $db->findUser($_GET["user"]); ?>
         </div>
     </header>
 </div>
-
-<!--<header class="profile">
-    <h1><?//=$user["user_id"]?></h1>
-    <div class="stats">
-        <img class="profile-pic" src="<?//=$user["user_picture_path"]?>" alt="<?//=$user["user_id"]?>'s user image">
-        <div class="num-posts">
-            <?//=$user["num_posts"]?> Posts
-        </div>
-        <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?//=$_SESSION["user"]["user_id"]?>">
-            <?//=$user["num_followers"]?> Followers
-        </a>
-        <a class="num-following no-underline" href="view_list.php?type=following&user=<?//=$_SESSION["user"]["user_id"]?>">
-            <?//=$user["num_following"]?> Following
-        </a>
-    </div>
-
-    <div class="user_name"><?//=$user["user_name"]?></div>
-    <div class="user_bio"><?//=$user["user_bio"]?></div>
-</header>-->
 
 <?php foreach ($templateParams["posts"] as $post): ?>
     <?php $db = new DatabaseHelper(); ?>

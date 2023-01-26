@@ -1,23 +1,23 @@
 <!-- In main -->
 
 <!-- Form with search label and field -->
-<form action="#" method="post">
+<form action="#">
     <label for="Search">Search</label>
-    <input type="search" id="Search" name="search" placeholder="Search" value="<?php if (isset($_POST["search"])) echo $_POST["search"]; ?>"/>
+    <input type="search" id="Search" name="search" placeholder="Search" value="<?php if (isset($_GET["search"])) echo $_GET["search"]; ?>"/>
     <input type="submit">
 </form>
 
 <!-- Search results -->
 <?php
-if (isset($_POST["search"]) && $_POST["search"] != ""):
+if (isset($_GET["search"]) && $_GET["search"] != ""):
     $db = new DatabaseHelper();
-    $users = $db->searchUser($_POST["search"]); ?>
+    $users = $db->searchUser($_GET["search"]); ?>
     <?php if (!empty($users)): ?>
         <!-- User results box -->
         <section>
             <?php foreach ($users as $user): ?>
                 <!-- User result -->
-                <a href="user_profile.php" class="no-underline">
+                <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
                     <!-- User profile picture -->
                     <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image">
                     <!-- User username and name -->
