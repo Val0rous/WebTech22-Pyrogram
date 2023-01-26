@@ -8,7 +8,7 @@ final class PopulateDatabase extends TestCase
 {
     private DatabaseHelper $db;
     private bool $db_created = false;
-    private string $profile_pic = "img/default_profile_pic.jpg";
+    private string $profile_pic = "default_profile_pic.jpg";
     private string $content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in purus tincidunt metus placerat ultrices. Curabitur eu convallis neque, quis rhoncus metus. Suspendisse id neque dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante urna, sodales at ultricies ut, tincidunt quis velit. In sed orci ut enim tempor consequat. Fusce magna libero, venenatis id ante nec, convallis aliquet turpis. Etiam ut felis sit amet ligula tincidunt dignissim a vitae nisi. Curabitur ornare nisi vitae tempor vehicula. Sed nisl ipsum, vulputate quis libero vel, aliquam dictum lacus. Vestibulum porta malesuada est et molestie. Pellentesque nec diam mauris. Proin condimentum sem leo, id aliquam ex semper at.";
     private array $images = array("db/media/posts/grand_canyon.jpg", "db/media/posts/mars.jpg",
                             "db/media/posts/jupiter.webp", "db/media/posts/fireworks.jpeg", 

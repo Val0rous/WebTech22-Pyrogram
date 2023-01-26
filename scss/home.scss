@@ -35,12 +35,12 @@ main > article {
     > a {
       display: flex;
       flex-flow: row;
-      align-items: center;
+      //align-items: center;
 
       // user image
       > img {
-        height: 42px;
-        width: 42px;
+        height: 32px; //42px;
+        width: 32px;  //42px;
         border-radius: 100%;
       }
 
@@ -225,12 +225,7 @@ main > article {
       display: flex;
       flex-flow: row;
 
-      > a {
-        display: flex;
-        flex-grow: 1;
-      }
-
-      > button, a > button {
+      > button {
         //max-width: 50%;
         //max-height: $buttonDim;
         border-radius: 8px;

@@ -6,9 +6,8 @@
 <article>
     <!-- Post header: user profile picture + user name + post date -->
     <header>
-                <!-- to add UPLOAD_DIR. -->
         <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
-            <img src="<?=$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
+            <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
             <div>
                 <strong><?=$user["user_name"]?></strong>
                 <p>
@@ -120,7 +119,6 @@
     </section>
     <!-- Post section 2: like button + comment button -->
     <section>
-        <!--<img src="img/likes2.png" alt="Like button"/>-->    <!-- to make it work using js -->
         <button type="button" class="like
         <?php if ($db->findLike($_SESSION["user"]["user_id"], $post["post_id"])) {
             echo " liked";
@@ -133,7 +131,6 @@
             </svg>
             <div><?=$post["num_likes"]?></div>
         </button>
-        <!--<img src="img/comments.png" alt="Comment button"/>-->    <!-- to make it work using js -->
         <a href="comments.php?post=<?=$post["post_id"]?>" class="no-underline">
             <button type="button" class="comment">
                 <svg aria-label="Comment" class="buttons" viewBox="0 0 24 24" role="img">
