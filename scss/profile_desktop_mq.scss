@@ -14,17 +14,30 @@
     }
 
     > div {
-
-      > div.top-bar, > header {
-        display: contents;
-      }
+      display: flex;
+      flex-direction: column;
+      margin-top: 2%;
+      padding: 0;
 
       // Username
       > div.top-bar {
+        display: block;
         text-align: center;
+        background-color: unset;
+        height: unset;
+        position: unset;
+        width: unset;
+        border-bottom: unset;
+        padding: 0;
 
         > h1 {
-          margin-top: 2%;
+          display: inline-block;
+          margin-left: 12%;
+        }
+
+        > button {
+          margin-left: unset;
+          float: right;
         }
       }
 
@@ -42,7 +55,7 @@
 
           > div {
             display: flex;
-            flex-flow: row;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             text-align: center;

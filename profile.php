@@ -4,7 +4,7 @@ require_once "bootstrap.php";
 // Params for the Base Template
 $templateParams["name"] = "profile.php";
 $templateParams["css"] = "profile.css";
-$templateParams["js"] = "post.js";
+$templateParams["js"] = array("post.js", "logout.js");
 
 $db = new DatabaseHelper();
 $templateParams["posts"] = $db->findAllPosts($_SESSION["user"]["user_id"]);

@@ -15,21 +15,19 @@ searchField.addEventListener("keyup", function (e) {
             url: "templates/search.php",
             data: $(this).serialize()
         })/*.then(
-            //resolve success callback
+            // resolve success callback
             response => {
                 const jsonData = JSON.parse(response);
 
-                //post created successfully in the back-end
-                //let's redirect
+                // success
+                // redirect to
                 if (jsonData.success === 1) {
-                    location.href = "home.php";
+                    location.href = ".php";
                 } else {
-                    //alert("Invalid Credentials!");
-                    alert("Couldn't create post!");
-                    loginError(e);
+                    alert("");
                 }
             },
-            //reject/failure callback
+            // reject/failure callback
             function () {
                 alert("There was some error!");
             }
