@@ -22,7 +22,11 @@ $(function() {
         $.ajax({
             type: "POST",
             url: "php/api_create.php",
-            data: $(this).serialize()
+            dataType: "JSON",
+            //data: $(this).serialize()
+            data: new FormData(this),
+            processData: false,
+            contentType: false
         }).then(
             //resolve success callback
             response => {
@@ -43,5 +47,15 @@ $(function() {
                 alert("There was some error!");
             }
         );
+    });
+});
+
+$(function () {
+    $("input[name=media]").change(function () {
+        let string = "";
+        for (const media of $(this).get(0).files) {
+            string += (media.name + "<br>");
+        }
+        $("div.selected-images").html("Selected files: <br>" + string);
     });
 });

@@ -12,7 +12,7 @@
     </header>
 </div>
 
-<form id="create-form" method="post">
+<form id="create-form" action="../php/api_create.php" method="post">
     <article>
         <header>
             <img src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
@@ -22,7 +22,15 @@
             <textarea id="post_content" name="post_content" placeholder="What's on your mind?"></textarea>
             <label for="post_content"></label>
         </main>
-        <section></section>
+        <section>
+            <label for="media">Photos/videos</label>
+            <input type="file" id="media" name="media" multiple accept=".jpeg, .jpg, .png, .webp, .gif, .mp4, .svg">
+            <div class="selected-images"></div>
+            <!--<label for="tags">Tag friends</label>-->
+            <!--<input type=""-->
+            <label for="location">Add location</label>
+            <input type="text" id="location" name="location">
+        </section>
         <button type="submit" id="submit-button" name="create_post" value="create_post" disabled>Post</button>
     </article>
 </form>

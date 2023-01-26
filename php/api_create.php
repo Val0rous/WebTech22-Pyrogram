@@ -2,9 +2,17 @@
 //require_once "../db/DatabaseHelper.php";
 require_once "../bootstrap.php";
 
-if (isset($_POST["post_content"]) && isset($_SESSION["user"]["user_id"])) {
+var_dump($_POST["media"][0]);
+
+if (isset($_SESSION["user"]["user_id"])) {
     $db = new DatabaseHelper();
+
+    if (isset($_POST["post_content"])
+        && isset()) {
+
+    }
     $result = $db->createPost($_POST["post_content"], $_SESSION["user"]["user_id"]);
+
     if ($result) {
         //post created successfully
         echo json_encode(array("success" => 1));
