@@ -1,15 +1,21 @@
 @media screen and (min-width:768px) {
-    main div.info {
-        display: flex;
-        flex-flow: row;
-        align-items: center;
-        justify-content: space-between;
-
-        // Follow/following button
-        > button {
-            width: fit-content;
-            padding: 1% 2%;
+    main > div {
+        > div.top-bar > h1 {
             margin: 0;
+        }
+
+        > header > div.info {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: space-between;
+
+            // Follow/following button
+            > button {
+                width: fit-content;
+                padding: 1% 2%;
+                margin: 0;
+            }
         }
     }
 }
