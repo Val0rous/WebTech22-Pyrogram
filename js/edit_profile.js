@@ -29,7 +29,6 @@ $(function () {
                 } else {
                     alert("Username not available");
                 }
-                location.href = "profile.php";
             },
             // reject/failure callback
             function () {
