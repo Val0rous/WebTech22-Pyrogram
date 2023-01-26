@@ -13,13 +13,15 @@
     right: unset;
     border-bottom: none;
 
-
     display: flex;
     align-content: center;
     justify-content: center;
+    margin-top: 2%;
 
     svg.close {
       display: none;
+      width: 0;
+      height: 0;
     }
   }
 

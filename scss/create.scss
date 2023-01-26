@@ -10,6 +10,10 @@ a.create {
   }
 }
 
+main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .overlay {
   svg.close {
     width: 24px; //18px
@@ -17,7 +21,8 @@ a.create {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 150%;
+    margin: 0;
   }
 }
 
