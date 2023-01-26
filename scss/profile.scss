@@ -17,33 +17,33 @@ a.profile {
 main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-  // Top bar
-  > div > div.top-bar {
-    background-color: white;
-    height: 61px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-top: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    padding: 3%;
-
-    // Username
-    > h1 {
-      font-size: 160%;
-    }
-  }
-
-  // User info
   > div {
     padding: 6px 6px 20px 6px;
 
+    // Top bar
+    > div.top-bar {
+      background-color: white;
+      height: 61px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-top: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      padding: 3%;
+
+      // Username
+      > h1 {
+        font-size: 160%;
+      }
+    }
+
+    // User info
     > header {
       display: flex;
       flex-flow: column;
@@ -54,10 +54,6 @@ main {
         flex-flow: row;
         align-items: center;
         justify-content: space-around;
-        
-        > div {
-          display: contents;
-        }
 
         // Profile picture
         > img.profile-pic {
@@ -65,19 +61,28 @@ main {
           height: 77px;
           border-radius: 100%;
         }
+        
+        > div {
+          display: contents;
+        }
       }
 
       > div.info {
         margin-top: 2%;
 
-        // Name
-        > div > div.user-name {
-          font-weight: bold;
-        }
+        // Name and bio
+        > div {
+          text-align: left;
 
-        // Bio
-        > div > div.user-bio {
-          margin-top: 1%;
+          // Name
+          > div.user-name {
+            font-weight: bold;
+          }
+
+          // Bio
+          > div.user-bio {
+            margin-top: 1%;
+          }
         }
 
         // "Edit profile" button

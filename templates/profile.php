@@ -9,7 +9,7 @@
     <!-- User info -->
     <header>
         <div class="stats">
-            <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s user image">
+            <img class="profile-pic" src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture">
             <div>
                 <div class="num-posts">
                     <?=$_SESSION["user"]["num_posts"]?> Posts

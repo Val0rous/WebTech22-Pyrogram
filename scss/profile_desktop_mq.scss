@@ -1,4 +1,5 @@
 @media screen and (min-width:768px) {
+  
   // show logo and messages
   .navigation header {
     display: contents;
@@ -33,6 +34,12 @@
         > div.stats {
           justify-content: space-between;
 
+          // Profile picture
+          > img.profile-pic {
+            width: 100px;
+            height: 100px;
+          }
+
           > div {
             display: flex;
             flex-flow: row;
@@ -47,12 +54,6 @@
             > a.num-followers {
               margin-right: 2%;
             }
-          }
-
-          // Profile picture
-          > img.profile-pic {
-            width: 100px;
-            height: 100px;
           }
         }
 
