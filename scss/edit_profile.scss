@@ -1,0 +1,110 @@
+// hide top bar with logo and messages
+.navigation header {
+    display: none;
+}
+  
+// Profile page
+main {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    input {
+        font-family: inherit;
+        width: 100%;
+        margin-right: 2%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 1%;
+    }
+
+    > div {
+
+        // Top bar
+        > div.top-bar {
+            background-color: white;
+            height: 61px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            padding: 1%;
+
+            // "X" to go back
+            > a {
+                height: 24px;
+                padding: 18px;
+                
+                > svg.close {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            // "Edit profile" title
+            > h1 {
+                font-size: 150%;
+            }
+
+            // Submit button
+            > button {
+                font-size: 100%;
+                padding: 1%;
+                border-radius: 8px;
+                background-color: #1a73e8;
+                border: 1px solid #1a73e8;
+                color: white;
+                margin-left: auto;
+                margin-right: 2%;
+            }
+        }
+
+        > form {
+            padding: 1%;
+
+            > div {
+                width: 99%;
+                margin-top: 2%;
+            }
+
+            // Profile picture edit
+            > div.profile-pic {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                // Profile picture
+                > img {
+                    width: 77px;
+                    height: 77px;
+                    border-radius: 100%;
+                    margin-right: 5%;
+                }
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+
+                    > label {
+                        margin-bottom: 2%;
+                    }
+                }
+            }
+
+            // Bio text area
+            > div.bio > textarea {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// desktop media query
+@import "edit_profile_desktop_mq";

@@ -38,7 +38,7 @@
                 <div class="user-bio"><?=$_SESSION["user"]["user_bio"]?></div>
             </div>
             <!-- "Edit profile" button -->
-            <a href="edit-profile">
+            <a href="edit_profile.php">
                 <button type="button" class="edit-profile">Edit profile</button>
             </a>
         </div>

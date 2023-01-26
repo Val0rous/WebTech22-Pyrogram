@@ -1,0 +1,47 @@
+@media screen and (min-width:768px) {
+  
+    // show logo and messages
+    .navigation header {
+      display: contents;
+    }
+
+    // Edit profile page
+    main > div {
+        margin: 2% 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        > div.top-bar, > form {
+            display: contents;
+        }
+
+        // Top bar
+        > div.top-bar {
+            
+            // hide "X" button
+            > a {
+                display: none;
+                height: 0;
+            }
+
+            // "Edit profile" title
+            > h1 {
+                margin: 0%;
+            }
+
+            // Submit button
+            > button {
+                margin-left: unset;
+                margin-top: 2%;
+                order: 1;
+            }
+        }
+
+        // Profile picture edit
+        > form > div.profile-pic {
+            margin-top: 3%;
+        }
+    }
+}
