@@ -44,11 +44,13 @@
             case "c":
             case "l":
             case "p":
-            case "t": ?>
-                <!-- Only takes the first image as thumbnail: this is not a bug -->
-                <img src="<?=$db->findPost($notification["post_id"])["media_path0"]?>"
-                     alt="<?=$sender["user_id"]?>'s post">
-            <?php break;
+            case "t": 
+                if ($db->findPost($notification["post_id"])["media_path0"] != NULL): ?>
+                    <!-- Only takes the first image as thumbnail: this is not a bug -->
+                    <img src="<?=$db->findPost($notification["post_id"])["media_path0"]?>"
+                        alt="<?=$sender["user_id"]?>'s post">
+                <?php endif;
+                break;
             default: ?>
         <?php endswitch; ?>
     </a>
