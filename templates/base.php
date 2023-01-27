@@ -108,13 +108,13 @@
 
     <!-- Page content -->
     <main>
-        <?php
-        if (isset($templateParams["name"])) {
-            require("templates/".$templateParams["name"]);
-        } else {
-            require("templates/home.php");
-        }
-        ?>
+    <?php
+    if (isset($templateParams["name"])) {
+        require("templates/".$templateParams["name"]);
+    } else {
+        require("templates/home.php");
+    }
+    ?>
     </main>
 </body>
 </html>

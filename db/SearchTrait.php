@@ -137,7 +137,8 @@ trait SearchTrait
     {
         $query = "SELECT * 
                   FROM comments 
-                  WHERE post_id = ?";
+                  WHERE post_id = ?
+                  ORDER BY comment_time DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $post);
         $stmt->execute();
