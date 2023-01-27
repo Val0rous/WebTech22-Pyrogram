@@ -21,12 +21,14 @@ body > main {
 
   > div {
 
+    //Logout button
     button {
       font-size: 100%;
       padding: 1%;
       border-radius: 8px;
       background-color: white;
       border: 1px solid black;
+      cursor: pointer;
     }
 
     // Top bar
@@ -103,6 +105,7 @@ body > main {
         > a > button {
           width: 100%;
           margin-top: 3%;
+          cursor: pointer;
         }
       }
     }
