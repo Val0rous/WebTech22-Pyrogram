@@ -26,7 +26,7 @@ main > article {
     margin-top: $storiesHeight;
   }
 
-  // User profile picture + user name + post date
+  // User profile picture + user name + post date + post location
   > header {
     //margin-top: 1%;
     //margin-bottom: 2%;
@@ -37,7 +37,7 @@ main > article {
       flex-flow: row;
       align-items: center;
 
-      // user image
+      // User profile picture
       > img {
         height: 42px;
         width: 42px;
@@ -48,10 +48,10 @@ main > article {
         display: inline-block;
         margin-left: 12px;
 
-        // Username, date and location
+        // Name, date and location
         > p {
 
-          // Username
+          // Name
           &:first-of-type {
             font-weight: bold;
           }

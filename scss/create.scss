@@ -50,10 +50,26 @@ form {
     }
 
     main {
+      display: flex;
+      flex-direction: column;
+      font: 400 1rem "Roboto", "Arial", sans-serif;
+
       textarea {
-        //font-size: 1.0625rem; //17px or 24px
-        font: 400 1rem "Roboto", "Arial", sans-serif;
         line-height: 1.34;
+      }
+
+      label[for="location"] {
+        display: none;
+      }
+
+      input {
+        width: 98%;
+        margin-top: 1%;
+        margin-bottom: 2%;
+      }
+
+      label[for="media"] {
+        display: none;
       }
     }
   }

@@ -21,7 +21,7 @@
     <form action="php/api_edit_profile.php" method="post" enctype="multipart/form-data">
         <!-- Profile picture -->
         <div class="profile-pic">
-            <img src="<?=$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture" />
+            <img src="<?=PROFILE_PICS_DIR.$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile picture" />
             <div>
                 <label for="profile-pic">Choose a new profile picture:</label>
                 <input type="file" id="profile-pic" name="profile_pic" />

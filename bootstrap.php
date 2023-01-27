@@ -5,6 +5,7 @@ if (!session_id()) {
 require_once "db/DatabaseHelper.php";
 const UPLOAD_DIR = "db/media/";
 const PROFILE_PICS_DIR = "db/media/profile_pics/";
+const MEDIA_DIR = "db/media/posts/";
 
 //$dbh = new DatabaseHelper();
 

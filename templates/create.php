@@ -12,17 +12,24 @@
     </header>
 </div>
 
-<form id="create-form" method="post">
+<form action="php/api_create.php" id="create-form" method="post">
     <article>
         <header>
             <img src="<?=PROFILE_PICS_DIR.$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
             <span><?=$_SESSION["user"]["user_name"]?></span>
         </header>
         <main>
+            <!-- Post content -->
             <textarea id="post_content" name="post_content" placeholder="What's on your mind?"></textarea>
             <label for="post_content"></label>
+            <!-- Post location -->
+            <label for=location>Location</label>
+            <input type=text id="location" name="location" placeholder="Location"></input>
+            <!-- Post media -->
+            <label for="media">Upload an image:</label>
+            <input type="file" id="media" name="media" />
         </main>
         <section></section>
-        <button type="submit" id="submit-button" name="create_post" value="create_post" disabled>Post</button>
+        <button type="submit" id="submit-button" name="create_post" value="create_post">Post</button>
     </article>
 </form>
