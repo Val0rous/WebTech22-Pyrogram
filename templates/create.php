@@ -12,7 +12,7 @@
     </header>
 </div>
 
-<form action="php/api_create.php" id="create-form" method="post">
+<form action="php/api_create.php" id="create-form" method="post" enctype="multipart/form-data">
     <article>
         <header>
             <img src="<?=PROFILE_PICS_DIR.$_SESSION["user"]["user_picture_path"]?>" alt="<?=$_SESSION["user"]["user_id"]?>'s profile pic">
@@ -24,7 +24,7 @@
             <label for="post_content"></label>
             <!-- Post location -->
             <label for=location>Location</label>
-            <input type=text id="location" name="location" placeholder="Location"></input>
+            <input type=text id="location" name="location" placeholder="Location" />
             <!-- Post media -->
             <label for="media">Upload an image:</label>
             <input type="file" id="media" name="media" />
