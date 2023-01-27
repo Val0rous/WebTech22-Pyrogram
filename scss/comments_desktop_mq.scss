@@ -1,0 +1,46 @@
+@media screen and (min-width:768px) {
+  
+    // show logo and messages
+    .navigation header {
+        display: contents;
+    }
+
+    // Comments page
+    body > main {
+        
+        // Comments title
+        > div.top-bar {
+            background-color: unset;
+            height: unset;
+            position: unset;
+            width: unset;
+            border-bottom: unset;
+            padding: 0;
+
+            display: block;
+            text-align: center;
+            margin: 2% 0;
+
+            // hide "go back" button
+            > a {
+                display: none;
+                height: 0;
+            }
+
+            // Comments title
+            > h1 {
+                margin: 0;
+            }
+        }
+
+        // Form new comment
+        > form {
+            padding: 1%;
+            margin-bottom: 2%;
+
+            > img, > textarea {
+                margin-right: 1%;
+            }
+        }
+    }
+}

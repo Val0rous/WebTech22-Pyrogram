@@ -1,0 +1,129 @@
+// hide top bar with logo and messages
+.navigation header {
+    display: none;
+}
+
+// Comments page
+body > main {
+
+    h1, p {
+        padding: 0;
+        margin: 0;
+    }
+
+    // Profile pictures
+    img {
+        width: 42px;
+        height: 42px;
+        border-radius: 100%;
+    }
+
+    // Top bar
+    > div.top-bar {
+        background-color: white;
+        height: 61px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding: 3%;
+
+        // Button to go back
+        > a {
+            height: 24px;
+            padding: 1%;
+            
+            > svg.go-back {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        // Comments title
+        > h1 {
+            font-size: 150%;
+            margin-left: 3%;
+        }
+    }
+
+    // Form new comment
+    > form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1%;
+        margin-bottom: 3%;
+
+        // User profile picture
+        > img {
+            margin-right: 2%;
+        }
+
+        > label {
+            display: none;
+        }
+
+        // Input comment content
+        > textarea {
+            width: 100%;
+            font-size: 100%;
+            margin-right: 2%;
+        }
+
+        // Send button
+        > button {
+            font-size: 100%;
+            padding: 4px 8px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    }
+
+    // Comment
+    > section {
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 1%;
+        margin-bottom: 2%;
+
+        // User profile picture and name, and comment date
+        > div {
+            display: flex;
+            align-items: center;
+
+            // User profile picture
+            > a {
+                margin-right: 2%;
+            }
+
+            // User name and comment date
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                > a > p {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        // Comment content
+        > p {
+            margin-top: 0.5%;
+        }
+    }
+}
+
+// Desktop media query
+@import "comments_desktop_mq";
