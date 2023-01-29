@@ -26,10 +26,10 @@
             <label for=location>Location</label>
             <input type=text id="location" name="location" placeholder="Location" value="" />
             <!-- Post media -->
-            <label for="media">Upload an image:</label>
-            <input type="file" id="media" name="media" multiple accept=".jpeg, .jpg, .png, .webp, .gif, .mp4, .svg"/>
+            <label for="media">Photos:</label>
+            <input type="file" id="media" name="media[]" multiple accept=".jpeg, .jpg, .png, .webp, .gif, .svg"/>
         </main>
         <section></section>
-        <button type="submit" id="submit-button" name="create_post" value="create_post">Post</button>
+        <button type="submit" id="submit-button" name="create_post" value="create_post" disabled>Post</button>
     </article>
 </form>

@@ -1,13 +1,14 @@
 // using profile page css
 @import "profile";
 
-a.profile {
+// Navbar update
+nav > a {
   .navbar-icon {
-    display: block;
-  }
+    display: block !important;
 
-  .navbar-icon.selected {
-    display: none;
+    &.selected {
+      display: none !important;
+    }
   }
 }
 
@@ -46,7 +47,7 @@ body > main div.info {
 }
 
 // Follow/following button
-body > main button.user_profile.following {
+body > main button.user_profile {
   width: 100%;
   margin-top: 3%;
 

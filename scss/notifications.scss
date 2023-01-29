@@ -1,11 +1,21 @@
 // Navbar update
-a.notifications {
+nav > a {
   .navbar-icon {
-    display: none;
+    display: block;
+
+    &.selected {
+      display: none;
+    }
   }
 
-  .navbar-icon.selected {
-    display: block;
+  &.notifications {
+    .navbar-icon {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 

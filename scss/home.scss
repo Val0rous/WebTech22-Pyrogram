@@ -1,11 +1,21 @@
-// navbar update
-a.home {
+// Navbar update
+nav > a {
   .navbar-icon {
-    display: none;
+    display: block;
+
+    &.selected {
+      display: none;
+    }
   }
 
-  .navbar-icon.selected {
-    display: block;
+  &.home {
+    .navbar-icon {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 

@@ -3,8 +3,8 @@
  */
 $(function () {
     $("#submit-button").prop("disabled", true);
-    $("#post_content").on("input", function () {
-        if ($("#post_content").val()) {
+    $("#create-form").on("input", function () {
+        if (($("#post_content").val() !== "") || ($("#media").val() !== "")) {
             $("#submit-button").prop("disabled", false);
         } else {
             $("#submit-button").prop("disabled", true);
@@ -15,6 +15,7 @@ $(function () {
 /**
  * AJAX create post on submit button click.
  */
+/*
 $(function() {
     $("#create-form").submit(function (e) {
         e.preventDefault();
@@ -45,3 +46,4 @@ $(function() {
         );
     });
 });
+ */

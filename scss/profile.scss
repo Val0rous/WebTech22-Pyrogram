@@ -1,12 +1,23 @@
 @import "home";
 
-a.profile {
+// Navbar update
+nav > a {
   .navbar-icon {
-    display: none;
+    display: block;
+
+    &.selected {
+      display: none;
+    }
   }
 
-  .navbar-icon.selected {
-    display: block;
+  &.profile {
+    .navbar-icon {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 

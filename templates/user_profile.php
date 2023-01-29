@@ -25,10 +25,10 @@ $user = $db->findUser($_GET["user"]);
                         <div class="num-posts">
                             <?=$user["num_posts"]?> Posts
                         </div>
-                        <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_SESSION["user"]["user_id"]?>">
+                        <a class="num-followers no-underline" href="view_list.php?type=followers&user=<?=$_GET["user"]?>">
                             <?=$user["num_followers"]?> Followers
                         </a>
-                        <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_SESSION["user"]["user_id"]?>">
+                        <a class="num-following no-underline" href="view_list.php?type=following&user=<?=$_GET["user"]?>">
                             <?=$user["num_following"]?> Following
                         </a>
                     </div>

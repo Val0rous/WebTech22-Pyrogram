@@ -1,12 +1,24 @@
 @use "create_mobile";
 @use "create_desktop";
-a.create {
+
+// Navbar update
+nav > a {
   .navbar-icon {
-    display: none;
+    display: block;
+
+    &.selected {
+      display: none;
+    }
   }
 
-  .navbar-icon.selected {
-    display: block;
+  &.create {
+    .navbar-icon {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 

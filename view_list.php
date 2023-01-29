@@ -5,7 +5,7 @@ ini_set("display_errors", 1);
 require_once "bootstrap.php";
 $db = new DatabaseHelper();
 $templateParams["name"] = "view_list.php";
-$templateParams["css"] = array("comments.css", "search.css");
+$templateParams["css"] = array("comments.css", "search.css", "view_list.css");
 $templateParams["js"] = "follow_following.js";
 
 switch ($_GET["type"]) {

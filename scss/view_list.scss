@@ -1,0 +1,10 @@
+// Navbar update
+nav > a {
+  .navbar-icon {
+    display: block !important;
+
+    &.selected {
+      display: none !important;
+    }
+  }
+}
