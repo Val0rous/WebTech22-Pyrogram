@@ -36,13 +36,20 @@ body > main {
         padding: 3%;
 
         // Button to go back
-        > a {
+        > button {
             height: 24px;
-            padding: 1%;
+            //padding: 1%;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            cursor: pointer;
             
             > svg.go-back {
                 width: 24px;
                 height: 24px;
+                transform: rotate(-90deg);
             }
         }
 
@@ -82,8 +89,9 @@ body > main {
             font-size: 100%;
             padding: 4px 8px;
             border-radius: 8px;
-            background-color: white;
-            border: 1px solid black;
+            background-color: #1a73e8;
+            color: white;
+            border: 1px solid #1a73e8;
             cursor: pointer;
         }
     }

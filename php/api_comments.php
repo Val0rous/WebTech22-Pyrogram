@@ -6,7 +6,7 @@ $db = new DatabaseHelper();
 if (strlen($_POST["comment_content"]) > 0) {
     $db->createComment($_POST["comment_content"], $_POST["user_id"], $_POST["post_id"]);
 }
-header("Location: ../comments.php?post=".$_POST["post_id"]);
+header("Location: ../comments.php?post=".$_POST["post_id"], TRUE, 301);
 
 /*if ($db->checkUserIDAvailability($_POST["username"]) || $_SESSION["user"]["user_id"] == $_POST["username"]) {
     //$db->changeUserId($_SESSION["user"]["user_id"], $_POST["username"]);

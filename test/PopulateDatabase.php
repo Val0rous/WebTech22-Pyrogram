@@ -10,9 +10,9 @@ final class PopulateDatabase extends TestCase
     private bool $db_created = false;
     private string $profile_pic = "default_profile_pic.jpg";
     private string $content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in purus tincidunt metus placerat ultrices. Curabitur eu convallis neque, quis rhoncus metus. Suspendisse id neque dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante urna, sodales at ultricies ut, tincidunt quis velit. In sed orci ut enim tempor consequat. Fusce magna libero, venenatis id ante nec, convallis aliquet turpis. Etiam ut felis sit amet ligula tincidunt dignissim a vitae nisi. Curabitur ornare nisi vitae tempor vehicula. Sed nisl ipsum, vulputate quis libero vel, aliquam dictum lacus. Vestibulum porta malesuada est et molestie. Pellentesque nec diam mauris. Proin condimentum sem leo, id aliquam ex semper at.";
-    private array $images = array("db/media/posts/grand_canyon.jpg", "db/media/posts/mars.jpg",
-                            "db/media/posts/jupiter.webp", "db/media/posts/fireworks.jpeg", 
-                            "db/media/posts/shrek.png");
+    private array $images = array("grand_canyon.jpg", "mars.jpg",
+                            "jupiter.webp", "fireworks.jpeg",
+                            "shrek.png");
 
     public function setUp(): void
     {
@@ -128,11 +128,11 @@ final class PopulateDatabase extends TestCase
 
     public function testPosts()
     {
-        $this->assertTrue($this->db->createPost($this->content, "valent", array("db/media/posts/grand_canyon.jpg"), "Forlì"));
-        $this->assertTrue($this->db->createPost($this->content, "fede", array("db/media/posts/mars.jpg"), "Ravenna"));
-        $this->assertTrue($this->db->createPost($this->content, "val_orosa", array("db/media/posts/jupiter.webp"), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "chuffo", array("db/media/posts/fireworks.jpeg"), "Milano"));
-        $this->assertTrue($this->db->createPost($this->content, "euro", array("db/media/posts/shrek.png"), "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "valent", array("grand_canyon.jpg"), "Forlì"));
+        $this->assertTrue($this->db->createPost($this->content, "fede", array("mars.jpg"), "Ravenna"));
+        $this->assertTrue($this->db->createPost($this->content, "val_orosa", array("jupiter.webp"), "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "chuffo", array("fireworks.jpeg"), "Milano"));
+        $this->assertTrue($this->db->createPost($this->content, "euro", array("shrek.png"), "Forlì"));
         $this->assertTrue($this->db->createPost($this->content, "valent", $this->images, "Forlì"));
         $this->assertTrue($this->db->createPost($this->content, "fede", $this->images, "Ravenna"));
         $this->assertTrue($this->db->createPost($this->content, "val_orosa", $this->images, "Milano"));
@@ -144,8 +144,8 @@ final class PopulateDatabase extends TestCase
     {
         //these post ids are valid for me because I have quite a lot of posts created for debug purposes
         //we'll need to change them later on
-        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000034") || $this->db->createLike("val_orosa", "0000000000000034"));
-        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000035") || $this->db->createLike("val_orosa", "0000000000000035"));
+        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000000") || $this->db->createLike("val_orosa", "0000000000000000"));
+        $this->assertTrue($this->db->findLike("val_orosa", "0000000000000001") || $this->db->createLike("val_orosa", "0000000000000001"));
         //more to add...
     }
 
@@ -153,7 +153,7 @@ final class PopulateDatabase extends TestCase
     {
         //these post ids are valid for me because I have quite a lot of posts created for debug purposes
         //we'll need to change them later on
-        $this->assertTrue(($this->db->findComment("0000000000000001") !== null) || $this->db->createComment($this->content, "val_orosa", "0000000000000034"));
-        $this->assertTrue(($this->db->findComment("0000000000000002") !== null) || $this->db->createComment($this->content, "val_orosa", "0000000000000035"));
+        $this->assertTrue(($this->db->findComment("0000000000000001") !== null) || $this->db->createComment($this->content, "val_orosa", "0000000000000000"));
+        $this->assertTrue(($this->db->findComment("0000000000000002") !== null) || $this->db->createComment($this->content, "val_orosa", "0000000000000001"));
     }
 }

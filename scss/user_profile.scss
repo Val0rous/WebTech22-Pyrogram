@@ -11,13 +11,42 @@ a.profile {
   }
 }
 
+div.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+  width: 100%;
+
+  button {
+    margin-left: 0;
+    padding: 1px 6px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+
+    > svg.go-back {
+      width: 24px;
+      height: 24px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  h1 {
+    margin-left: 3%;
+  }
+}
+
 // to center the button
 body > main div.info {
   text-align: center;
 }
 
 // Follow/following button
-body > main button {
+body > main button.user_profile.following {
   width: 100%;
   margin-top: 3%;
 

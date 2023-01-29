@@ -266,4 +266,66 @@ trait SearchTrait
         }
         return false;
     }
+
+    /**
+     * Find all likes of a post.
+     * @param string $post post id
+     * @return array list of users who liked the post
+     */
+    public function findAllLikes(string $post): array
+    {
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
+                  FROM users 
+                  WHERE user_id IN (SELECT user_id 
+                                    FROM likes 
+                                    WHERE post_id = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Find a tag made by a user on a post.
+     * @param string $user user tagged in post
+     * @param string $post post in which user is tagged
+     * @return bool true if tag found, false otherwise
+     */
+    public function findTag(string $user, string $post): bool
+    {
+        $query = "SELECT * 
+                  FROM tags 
+                  WHERE post_id = ? 
+                  AND user_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $post, $user);
+        $flag = $stmt->execute();
+        if ($flag) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Find all tags of a post.
+     * @param string $post post id
+     * @return array list of users tagged in post
+     */
+    public function findAllTags(string $post): array
+    {
+        $query = "SELECT user_id, user_name, user_picture_path, user_bio, num_posts, num_followers, num_following 
+                  FROM users 
+                  WHERE user_id IN (SELECT user_id 
+                                    FROM tags 
+                                    WHERE post_id = ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

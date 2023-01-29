@@ -2,7 +2,11 @@
         <article>
             <!-- Post header: user profile picture + user name + post date -->
             <header>
+                <?php if ($user["user_id"] !== $_SESSION["user"]["user_id"]): ?>
                 <a href="user_profile.php?user=<?=$user["user_id"]?>" class="no-underline">
+                <?php else: ?>
+                <a href="profile.php" class="no-underline">
+                <?php endif; ?>
                     <img src="<?=PROFILE_PICS_DIR.$user["user_picture_path"]?>" alt="<?=$user["user_id"]?>'s user image"/>
                     <div>
                         <p><?=$user["user_name"]?></p>
@@ -83,10 +87,10 @@
                                 <?php if ($length > 1): ?>
                                     <div class="slideshow fade">
                                         <div class="index"><?=array_search($media, $medias) + 1?> / <?=$length?></div>
-                                        <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+                                        <img src="<?=MEDIA_DIR.$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
                                     </div>
                                 <?php else: ?>
-                                    <img src="<?=$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
+                                    <img src="<?=MEDIA_DIR.$media?>" alt="Post media"/>   <!-- to add UPLOAD_DIR. -->
                                 <?php endif; ?>
                             <?php endif; ?>
                         <?php endforeach; ?>

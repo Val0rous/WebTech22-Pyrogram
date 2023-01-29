@@ -44,7 +44,7 @@ body > main {
       border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
       box-sizing: border-box;
       padding: 3%;
 
@@ -55,7 +55,7 @@ body > main {
 
       // Logout button
       > button {
-        margin-left: auto;
+        ////margin-left: auto;
       }
     }
 
